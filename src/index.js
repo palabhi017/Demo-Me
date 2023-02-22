@@ -3,20 +3,19 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import Navbar from "./Components/Navbar/Navbar";
-import SmallNavbar from "./Components/Navbar/SmallNavbar";
 import { ChakraProvider } from "@chakra-ui/react";
+import { BrowserRouter } from "react-router-dom";
+
+import Navbar from "./Components/Navbar/Navbar";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <ChakraProvider>
-    <div className="big">
-      <Navbar />
-    </div>
-    <div className="small">
-      <SmallNavbar />
-    </div>
-    <App />
+
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  
   </ChakraProvider>
 );
 

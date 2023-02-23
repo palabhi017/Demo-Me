@@ -260,7 +260,7 @@ export default function JoinOurTeam() {
         position={"absolute"}
         top={-10}
         left={-10}
-        style={{ filter: "blur(70px)" }}
+        style={{ filter: "blur(70px)", display: "none" }}
       />
     </Box>
   );

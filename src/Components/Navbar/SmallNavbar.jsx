@@ -9,9 +9,14 @@ import {
   Flex,
   Box,
   Image,
-  
+  Button,
+  VStack,
+  Text,
+  MenuGroup,
 } from "@chakra-ui/react";
 import { HamburgerIcon } from "@chakra-ui/icons";
+import { Link } from "react-router-dom";
+import { BsPerson } from "react-icons/bs";
 
 import { Link } from "react-router-dom";
 
@@ -37,9 +42,15 @@ const SmallNavbar = () => {
               icon={<HamburgerIcon />}
               variant="outline"
             />
+
+            <MenuList fontSize={"14px"} zIndex="2000">
+              <MenuItem>
+                <a href={"#"}> Women Ethnic</a>
+
             <MenuList fontSize={"14px"}>
               <MenuItem >
                 <Link to=""> Women Ethnic</Link>
+
               </MenuItem>
               <MenuItem>
                 <Link to=""> Women Western</Link>
@@ -69,6 +80,30 @@ const SmallNavbar = () => {
         />
         <Box>
           <Flex gap="10px">
+            <Menu>
+              <MenuButton>
+                <BsPerson fontSize="25px" />
+              </MenuButton>
+              <MenuList zIndex={10000}>
+                <MenuGroup title="Hello User" fontSize="19px" textAlign="left">
+                  <VStack>
+                    <Text fontSize="13px" textAlign="left">
+                      To access your Meesho account
+                    </Text>
+
+                    <Button w="80%" h="45px">
+                      <Link to="/login"> Login</Link>
+                    </Button>
+                    <Button w="80%" h="45px">
+                      Admin{" "}
+                    </Button>
+                    <Button w="80%" h="45px" bg="#F43397" color="#fff">
+                      <Link to="/signin"> Signup</Link>{" "}
+                    </Button>
+                  </VStack>
+                </MenuGroup>
+              </MenuList>
+            </Menu>
             <a href={"#"}>
               <Image
                 // width="120px"

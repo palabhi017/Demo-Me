@@ -2,10 +2,6 @@
   padding: 10px;
   background: white;
   color: black;
-  /* position: relative;
-  left: 1030px;
-  top:1px;
-  display: none; */
 }
 
 .download > img {
@@ -14,13 +10,15 @@
 
 .rightside {
   display: flex;
+  /* border: 1px solid; */
+  width: 600px;
   justify-content: center;
   align-items: center;
 }
 
 .border {
-  border-right: 1px solid;
-  height: 60px;
+  border-right: 2px solid;
+  height: 55px;
   color: gainsboro;
 }
 

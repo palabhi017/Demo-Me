@@ -2,6 +2,9 @@ import "./App.css";
 import Navbar from "./Components/Navbar/Navbar";
 import AllRoutes from "./Pages/AllRoutes";
 import Footer from "./Components/Footer";
+
+
+
 import SmallNavbar from "./Components/Navbar/SmallNavbar";
 
 function App() {
@@ -15,6 +18,7 @@ function App() {
       </div>
       <AllRoutes />
       <Footer />
+
     </div>
   );
 }

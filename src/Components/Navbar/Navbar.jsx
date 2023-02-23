@@ -31,8 +31,13 @@ import {
 } from "@chakra-ui/react";
 import styles from "./Navbar.module.css";
 import { useState } from "react";
-
+import { Link, useNavigate } from "react-router-dom";  
+import { useDispatch } from "react-redux";
+import { getProducts } from "../../Redux/Products/product.action";
 export const Profile = () => {
+
+  
+
   return (
     <div className={styles.download}>
       <h1>Download from</h1>
@@ -58,6 +63,21 @@ const Navbar = ({ display = "flex" }) => {
   const [dropdown6, setdropdown6] = useState(false);
   const [dropdown7, setdropdown7] = useState(false);
   const [dropdown8, setdropdown8] = useState(false);
+
+  const dispatch = useDispatch()
+
+  const handleCate=(category)=>{
+    const getProductsParam = {
+      params: {
+          category: category
+          // _sort: "price",
+          // _order: 
+      }
+  }
+  dispatch(getProducts(getProductsParam))
+    
+  }
+
 
   return (
     <div>
@@ -126,12 +146,12 @@ const Navbar = ({ display = "flex" }) => {
           fontWeight={"semibold"}
           display={display}
         >
-          <Text
+         <Link to="/products" onClick={()=> {handleCate("women") } }> <Text
             onMouseEnter={() => setdropdown(true)}
             onMouseLeave={() => setdropdown(false)}
           >
             Women Ethnic
-          </Text>
+          </Text></Link>
 
           <Text
             onMouseEnter={() => setdropdown1(true)}
@@ -139,12 +159,12 @@ const Navbar = ({ display = "flex" }) => {
           >
             Women Western
           </Text>
-          <Text
+          <Link to="/products" onClick={()=> {handleCate("men") } }><Text
             onMouseEnter={() => setdropdown2(true)}
             onMouseLeave={() => setdropdown2(false)}
           >
             Men
-          </Text>
+          </Text></Link>
           <Text
             onMouseEnter={() => setdropdown3(true)}
             onMouseLeave={() => setdropdown3(false)}
@@ -157,12 +177,12 @@ const Navbar = ({ display = "flex" }) => {
           >
             Home & Kitchen
           </Text>
-          <Text
+          <Link to="/products" onClick={()=> {handleCate("Beauty & Health") } }><Text
             onMouseEnter={() => setdropdown5(true)}
             onMouseLeave={() => setdropdown5(false)}
           >
             Beauty & Health
-          </Text>
+          </Text></Link>
           <Text
             onMouseEnter={() => setdropdown6(true)}
             onMouseLeave={() => setdropdown6(false)}

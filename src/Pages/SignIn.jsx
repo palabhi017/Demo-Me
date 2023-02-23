@@ -42,7 +42,6 @@ const initialState = {
   email: "",
   name: "",
   password: "",
-
 };
 
 export default function JoinOurTeam() {
@@ -50,7 +49,7 @@ export default function JoinOurTeam() {
   const [submitButtonDisable, setSubmitButtonDisable] = React.useState(false);
   const [err, setErr] = React.useState("");
   // const toast = useToast();
-const navigate=useNavigate()
+  const navigate = useNavigate();
   const handleChange = (e) => {
     const { name, value } = e.target;
     setVal({ ...val, [name]: value });
@@ -70,8 +69,7 @@ const navigate=useNavigate()
           });
 
           console.log(res);
-          navigate("/")
-
+          navigate("/");
         })
         .catch((err) => {
           console.log("err", err);
@@ -260,7 +258,7 @@ const navigate=useNavigate()
         position={"absolute"}
         top={-10}
         left={-10}
-        style={{ filter: "blur(70px)" }}
+        style={{ filter: "blur(70px)", display: "none" }}
       />
     </Box>
   );

@@ -67,8 +67,8 @@
   transform: rotateX(-90deg);
 }
 .Footer_part {
-  background-color: hsla(276, 100%, 50%, 1); 
- background-image: radial-gradient(
+  background-color: hsla(276, 100%, 50%, 1);
+  background-image: radial-gradient(
       at 30% 9%,
       hsla(179, 66%, 72%, 1) 0px,
       transparent 50%

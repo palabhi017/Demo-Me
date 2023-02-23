@@ -13,12 +13,12 @@
     radial-gradient(at 0% 0%, hsla(343, 100%, 76%, 1) 0px, transparent 50%);
 }
 .Login_Image {
-  transform: perspective(2000px) translate3d(0px, -66px, 198px) rotateX(-55deg)
+  transform: perspective(2000px) translate3d(10px, -46px, 148px) rotateX(-55deg)
     scale3d(0.86, 0.75, 1) translateY(50px);
   border-radius: 5px;
   will-change: transform;
   transition: 0.4s ease-in-out transform;
 }
 .Login_Image:hover {
-  transform: scale3d(1, 1, 1);
+  transform: scale3d(1.5, 0.9, 1.5);
 }

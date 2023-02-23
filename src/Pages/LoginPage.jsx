@@ -105,10 +105,11 @@ export default function LoginPage() {
       <Flex flex={1}>
         <Image
           alt={"Login Image"}
-          objectFit={"cover"}
-          boxShadow={
-            " inset 20px 20px 2px #862b2b,inset -20px -20px 2px #b63b3b"
-          }
+          w="50%"
+          // objectFit={"cover"}
+          // boxShadow={
+          //   " inset 20px 20px 2px #862b2b,inset -20px -20px 2px #b63b3b"
+          // }
           zIndex={"2"}
           className="Login_Image"
           src={

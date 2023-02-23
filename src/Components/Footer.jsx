@@ -69,7 +69,7 @@ export default function Footer() {
         className="Footer_part"
         color={useColorModeValue("gray.700", "gray.200")}
       >
-        <Container as={Stack} maxW={"9xl"} py={10}>
+        <Container as={Stack} maxW={"7xl"} py={10}>
           <SimpleGrid columns={{ base: 1, sm: 2, md: 4 }} spacing={8}>
             <Text fontSize={"4xl"} fontWeight={"700"}>
               Shop on Meesho

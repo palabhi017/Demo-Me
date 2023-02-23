@@ -1,7 +1,12 @@
+
+
+
+
+
 import React from 'react'
 import {Routes,Route} from "react-router-dom"
 import Homepage from "./HomePage/Homepage"
-import ProductPage from "./Productpage"
+import Productpage from "./Productpage"
 import SingleProductPage from "./SingleProductPage"
 import CartPage from "./CartPage"
 import LoginPage from "./LoginPage"
@@ -13,7 +18,7 @@ const AllRoutes = () => {
   return (
    <Routes>
       <Route path="/" element={<Homepage/>}/>
-      <Route path="/products" element={<ProductPage/>}/>
+      <Route path="/products" element={<Productpage/>}/>
       <Route path="/product/:id" element={<SingleProductPage/>}/>
       <Route path="/cart" element={<CartPage/>}/>
       <Route path="/login" element={<LoginPage/>}/>
@@ -24,4 +29,5 @@ const AllRoutes = () => {
   )
 }
 
-export default AllRoutes
+
+export default AllRoutes;

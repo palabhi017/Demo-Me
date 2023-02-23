@@ -19,6 +19,7 @@ import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth } from "../firebase";
 import { useToast } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
+import { Alert, AlertIcon,AlertDescription,AlertTitle } from "@chakra-ui/react";
 const avatars = [
   {
     name: "Abhishek Pal",
@@ -77,7 +78,8 @@ export default function JoinOurTeam() {
         });
     } else {
       //Toast use karunga mai
-      alert("please fill all data");
+
+     
     }
   };
 

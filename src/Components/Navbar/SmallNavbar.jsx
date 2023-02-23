@@ -18,7 +18,12 @@ import { HamburgerIcon } from "@chakra-ui/icons";
 import { Link } from "react-router-dom";
 import { BsPerson } from "react-icons/bs";
 
+import { Link } from "react-router-dom";
+
 const SmallNavbar = () => {
+
+ 
+
   return (
     <div>
       <Flex
@@ -37,12 +42,18 @@ const SmallNavbar = () => {
               icon={<HamburgerIcon />}
               variant="outline"
             />
+
             <MenuList fontSize={"14px"} zIndex="2000">
               <MenuItem>
                 <a href={"#"}> Women Ethnic</a>
+
+            <MenuList fontSize={"14px"}>
+              <MenuItem >
+                <Link to=""> Women Ethnic</Link>
+
               </MenuItem>
               <MenuItem>
-                <a href={"#"}> Women Western</a>
+                <Link to=""> Women Western</Link>
               </MenuItem>
               <MenuItem>
                 <a href={"#"}>Men</a>

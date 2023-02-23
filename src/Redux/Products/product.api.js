@@ -1,10 +1,10 @@
-
-export const getProdata= async()=>{
+import axios from "axios";
+export const getProdata= async(getProductsParam)=>{
 
     try {
-        let res = await fetch(`http://localhost:8080/products`)
-        let data = await res.json()
-        return data;
+        let res = await axios.get(`http://localhost:8080/products`, getProductsParam)
+        
+        return res.data;
     } catch (error) {
         return error;
     }

@@ -19,6 +19,7 @@ import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth } from "../firebase";
 import { useToast } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
+import { Alert, AlertIcon,AlertDescription,AlertTitle } from "@chakra-ui/react";
 const avatars = [
   {
     name: "Abhishek Pal",
@@ -42,7 +43,6 @@ const initialState = {
   email: "",
   name: "",
   password: "",
-
 };
 
 export default function JoinOurTeam() {
@@ -50,7 +50,7 @@ export default function JoinOurTeam() {
   const [submitButtonDisable, setSubmitButtonDisable] = React.useState(false);
   const [err, setErr] = React.useState("");
   // const toast = useToast();
-const navigate=useNavigate()
+  const navigate = useNavigate();
   const handleChange = (e) => {
     const { name, value } = e.target;
     setVal({ ...val, [name]: value });
@@ -70,8 +70,7 @@ const navigate=useNavigate()
           });
 
           console.log(res);
-          navigate("/")
-
+          navigate("/");
         })
         .catch((err) => {
           console.log("err", err);
@@ -79,7 +78,8 @@ const navigate=useNavigate()
         });
     } else {
       //Toast use karunga mai
-      alert("please fill all data");
+
+     
     }
   };
 

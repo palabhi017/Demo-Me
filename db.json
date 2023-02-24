@@ -1,4 +1,25 @@
 {
+
+
+  "login": [
+    {
+      "name": "Abhishek pal",
+      "email": "palabhi017@gmail.com",
+      "password": "abhi@123",
+      "cart": [],
+      "id": 1
+    },
+    {
+      "name": "Anil Pal",
+      "email": "Nikku19641964@gmail.com",
+      "password": "anil@123",
+      "cart": [],
+      "id": 3
+    }
+  ],
+
+
+
   "products": [
     {
       "id": 1,
@@ -657,8 +678,8 @@
       "price": 102,
       "rating": "3.8",
       "reviews": "18456 Reviews",
-      "category": "Delivery69\n70",
-      "tag": "Delivery69\n70"
+      "category": "men",
+      "tag": "topwear"
     },
     {
       "id": 67,
@@ -827,8 +848,8 @@
       "price": 87,
       "rating": "4.6",
       "reviews": "494 Reviews",
-      "category": "Delivery82",
-      "tag": "Delivery82"
+      "category": "men",
+      "tag": "menaccessories"
     },
     {
       "id": 84,
@@ -1579,7 +1600,7 @@
       "reviews": "100 Reviews",
       "category": "Beauty & Health",
       "tag": "Sanitizers"
-    }
+      }
   ],
   "homepage": [
     {

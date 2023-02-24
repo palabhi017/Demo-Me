@@ -1,6 +1,11 @@
 import { getProdata } from "./product.api"
 import * as types from "./product.type"
 
+export const protypes=(payload)=>{
+ return (
+    {type:types.PRODUCTS_TYPE,payload:payload}
+ )
+}
 
 export const getProducts = (getProductsParam) => async(dispatch)=>{
 

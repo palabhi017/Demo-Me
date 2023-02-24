@@ -7,7 +7,7 @@ import Filter from "../Components/Filter";
 import { Link } from "react-router-dom";
 import { useSearchParams,useLocation } from "react-router-dom";
 const Productpage = () => {
-  const products = useSelector((state) => state.Products);
+  const products = useSelector((state) => state.productReducer.Products);
   const [totalPages,setTotalpages] = useState(0)
   const [searchParams] = useSearchParams()
 
@@ -33,11 +33,13 @@ const Productpage = () => {
             
         }
     }
+
     dispatch(getProducts(getProductsParam))
     }
-   }
-      
+  }
+  
   useEffect(()=>{
+   
     if(searchParams.get("sort")|| searchParams.getAll("filter")){
       handlesort()
     }

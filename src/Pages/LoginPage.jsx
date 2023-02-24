@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Button,
   Checkbox,
@@ -13,9 +13,12 @@ import {
   Text,
 } from "@chakra-ui/react";
 import "../CSS/LoginCss.css";
-import { signInWithEmailAndPassword, updateProfile } from "firebase/auth";
-import { auth } from "../firebase";
-import { useToast } from "@chakra-ui/react";
+// import { signInWithEmailAndPassword, updateProfile } from "firebase/auth";
+// import { auth } from "../firebase";
+// import { useToast } from "@chakra-ui/react";
+// import { useNavigate } from "react-router-dom";
+import { AUTH_SUCCESS, SET_CUR_NAME } from "../Redux/Auth/auth.types";
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 const initialState = {
   email: "",
@@ -24,33 +27,57 @@ const initialState = {
 };
 
 export default function LoginPage() {
-  const [val, setVal] = React.useState(initialState);
-  const [submitButtonDisable, setSubmitButtonDisable] = React.useState(false);
-  const [err, setErr] = React.useState("");
-  // const toast = useToast();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const dispatch = useDispatch();
+  // const [val, setVal] = React.useState(initialState);
+  // const [submitButtonDisable, setSubmitButtonDisable] = React.useState(false);
+  // const [err, setErr] = React.useState("");
+  // // const toast = useToast();
   const navigate = useNavigate();
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setVal({ ...val, [name]: value });
-  };
+  // const handleChange = (e) => {
+  //   const { name, value } = e.target;
+  //   setVal({ ...val, [name]: value });
+  // };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setSubmitButtonDisable(true);
-    if (val.email && val.password && val.name) {
-      signInWithEmailAndPassword(auth, val.email, val.password)
-        .then(async (res) => {
-          setSubmitButtonDisable(false);
 
-          navigate("/");
-        })
-        .catch((err) => {
-          console.log("err", err);
-          setErr(err.message);
-        });
+    if (email && password.length >= 6) {
+      try {
+        let res = await fetch(`http://localhost:8080/login`);
+        let data = await res.json();
+
+        let Auth = false;
+        for (let i in data) {
+          if (data[i].email === email && data[i].password === password) {
+            Auth = true;
+            dispatch({type:AUTH_SUCCESS,payload:data[i].id})
+            dispatch({type:SET_CUR_NAME,payload:data[i].name})
+            break;
+          }
+        }
+
+        if (Auth == false) {
+          alert("Your email or password incorrect");
+        } else {
+          navigate("/")
+          // alert("you are loged in successfully")
+        }
+        console.log(Auth);
+      } catch (error) {
+        console.log(error);
+      }
+      setEmail("");
+      setPassword("");
     } else {
       //Toast use karunga mai
-      alert("please fill all data");
+      if(!email){
+
+        alert("Please fill your email")
+      }else if(password.length<6){
+        alert("password should contain at least 6 character")
+      }
     }
   };
 
@@ -67,18 +94,18 @@ export default function LoginPage() {
             <FormLabel>Email address</FormLabel>
             <Input
               type="email"
-              onChange={handleChange}
+              onChange={(e)=> setEmail(e.target.value)}
               name="email"
-              value={val.email}
+              value={email}
             />
           </FormControl>
           <FormControl id="password">
             <FormLabel>Password</FormLabel>
             <Input
               type="password"
-              onChange={handleChange}
+              onChange={(e)=> setPassword(e.target.value)}
               name="password"
-              value={val.password}
+              value={password}
             />
           </FormControl>
           <Stack spacing={6}>
@@ -90,9 +117,9 @@ export default function LoginPage() {
               <Checkbox>Remember me</Checkbox>
               <Link color={"blue.500"}>Forgot password?</Link>
             </Stack>
-            <Text>{err}</Text>
+            <Text>{""}</Text>
             <Button
-              disabled={submitButtonDisable}
+              disabled={""}
               colorScheme={"blue"}
               variant={"solid"}
               onClick={handleSubmit}

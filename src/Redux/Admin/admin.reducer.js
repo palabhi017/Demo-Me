@@ -4,8 +4,9 @@ import {
   ADMIN_DATA_SUCCESS,
   POST_ADMIN_DATA_ERROR,
   POST_ADMIN_DATA_SUCCESS,
-
   POST_ADMIN_DATA_LOADING,
+  DELETE_ADMIN_DATA,
+  FILTERING_ADMIN_DATA,
 } from "./admin.type";
 
 let initialState = {
@@ -43,7 +44,20 @@ export const reducer = (state = initialState, { type, payload }) => {
         data: [...state.data, payload],
       };
     }
+    case DELETE_ADMIN_DATA: {
+      console.log(state);
 
+      return {
+        ...state,
+        data: payload,
+      };
+    }
+    case FILTERING_ADMIN_DATA: {
+      return {
+        ...state,
+        data: payload,
+      };
+    }
     default: {
       return state;
     }

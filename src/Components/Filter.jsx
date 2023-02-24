@@ -12,15 +12,19 @@ import { Radio, RadioGroup } from "@chakra-ui/react";
 import { Checkbox, CheckboxGroup } from "@chakra-ui/react";
 import { useDispatch, useSelector } from "react-redux";
 import { getProducts } from "../Redux/Products/product.action";
+import CheckBoxes from "./CheckBoxes";
 
 const Filter = ({handlesort}) => {
   const [searchParams, setSearchParams] = useSearchParams();
   
-
+ const protype = useSelector((state)=> state.productReducer.protypes)
     const initialFilterValues = searchParams.getAll('filter')
     const initialSortValues = searchParams.get('sort')
     const [sortValues, setSortValues] = useState(initialSortValues|| "");
     const [filterValues, setFilterValues] = useState(initialFilterValues || []);
+    let arr1=["saree","Kurtis","Dupattas","Blouse","Patticoats","Pants"]
+    let arr2=["topwear","bottomwear","menaccessories","menfootwear","Kurtas"]
+    let arr3=["MakeUp","oral care","Lips","Eyes","Sanitizers"]
   const dispatch = useDispatch();
 
   const handleFilterChange  = (value) => {
@@ -104,13 +108,10 @@ useEffect(() => {
             direction={["column"]}
             borderBottom="1px solid #999"
             pb="20px"
-          >
-            <Checkbox value="saree">Saree</Checkbox>
-            <Checkbox value="Kurtis">Kurtis</Checkbox>
-            <Checkbox value="Dupattas">Dupattas</Checkbox>
-            <Checkbox value="Blouse">Blouse</Checkbox>
-            <Checkbox value="Petticoats">Patticoats</Checkbox>
-            <Checkbox value="Pants">Pants</Checkbox>
+          >{protype && protype==="women"&& arr1.map((e)=> <CheckBoxes data={e}/>)}
+          {protype && protype==="men"&& arr2.map((e)=> <CheckBoxes data={e}/>)}
+          {protype && protype==="health"&& arr3.map((e)=> <CheckBoxes data={e}/>)}
+           
           </Stack>
         </CheckboxGroup>
         {/* checking */}

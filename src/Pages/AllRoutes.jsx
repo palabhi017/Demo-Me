@@ -6,8 +6,11 @@ import SingleProductPage from "./SingleProductPage";
 import CartPage from "./CartPage";
 import LoginPage from "./LoginPage";
 import SignIn from "./SignIn";
-import Adminpanel from "./Adminpanel";
 import PaymentPage from "./PaymentPage";
+import LoginAdmin from "../Pages/Admin Page/LoginAdmin";
+import AdminAdd from "./Admin Page/AdminAdd";
+import AdminDash from "./Admin Page/AdminDash";
+import AdminUpdate from "./Admin Page/AdminUpdate";
 
 const AllRoutes = () => {
   return (
@@ -19,7 +22,11 @@ const AllRoutes = () => {
       <Route path="/login" element={<LoginPage />} />
       <Route path="/signin" element={<SignIn />} />
       <Route path="/payment" element={<PaymentPage />} />
-      <Route path="/Admin" element={<Adminpanel />} />
+      <Route path="/Admin" element={<LoginAdmin />} />
+      <Route path="/AdminAdd" element={<AdminAdd />} />
+      <Route path="/AdminDashboard" element={<AdminDash />} />
+      <Route path="/AdminUpdate" element={<AdminUpdate />} />
+
     </Routes>
   );
 };

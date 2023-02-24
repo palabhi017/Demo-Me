@@ -19,3 +19,21 @@ export const postAdminDataAPi = async (payload) => {
     console.log(err);
   }
 };
+
+export const deleteAdminAPi = async (id) => {
+  try {
+    let res = await axios.delete(`http://localhost:8080/products/${id}`);
+    return res;
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+export const categoryAdmin = async (par) => {
+  try {
+    let res = await axios(`http://localhost:8080/products?category=${par}`);
+    return res;
+  } catch (err) {
+    console.log(err);
+  }
+};

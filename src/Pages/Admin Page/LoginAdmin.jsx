@@ -27,7 +27,7 @@ const initialState = {
 export default function LoginAdmin() {
   const [val, setVal] = React.useState(initialState);
   const [text, setText] = React.useState(false);
-  const navigate = useNavigate;
+  const navigate = useNavigate();
   const handleToast = useToast();
 
   const handleChange = (e) => {
@@ -37,11 +37,12 @@ export default function LoginAdmin() {
   console.log("val", val);
 
   const handleSubmit = async () => {
+    setText(false);
     if (val.password === "citySlicka") {
       try {
         let res = await axios.post("https://reqres.in/api/login", val);
         console.log(res.data.token);
-        setText("true");
+        setText(true);
 
         handleToast({
           position: "top-right",
@@ -53,7 +54,7 @@ export default function LoginAdmin() {
         });
       } catch (err) {
         console.log(err);
-
+        setText(false);
         setText(false);
         handleToast({
           position: "top-right",
@@ -76,7 +77,11 @@ export default function LoginAdmin() {
     }
     setVal(initialState);
   };
-  React.useEffect(() => {}, []);
+
+  if (text === true) {
+    console.log("helllo");
+    navigate("/AdminDashboard");
+  }
 
   return (
     <Box>

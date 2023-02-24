@@ -86,7 +86,7 @@ const AdminNavbar = () => {
                     <Button
                       fontSize={{ base: "9px", sm: "18px" }}
                       width="100%"
-                      onClick={() => navigate("/AdminDash")}
+                      onClick={() => navigate("/AdminDashboard")}
                     >
                       ADMIN DASHBOARD
                     </Button>
@@ -100,9 +100,9 @@ const AdminNavbar = () => {
                     <Button
                       fontSize={{ base: "9px", sm: "18px" }}
                       width="100%"
-                      onClick={() => navigate("/AdminManage")}
+                      onClick={() => navigate("/AdminUpdate")}
                     >
-                      ADMIN MANAGER
+                      ADMIN UPDATE
                     </Button>
                     <Button
                       fontSize={{ base: "9px", sm: "18px" }}

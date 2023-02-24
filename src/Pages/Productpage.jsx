@@ -43,15 +43,15 @@ const Productpage = () => {
     }
   },[searchParams])
   
-useEffect(()=>{
-  if(products.length > 0){
-      let total = Math.ceil(products.length/10)
-      setTotalpages(total)
-      let num=0
-      let arr = Array(totalPages).fill(++num)
-      console.log(arr)
-     }
-},[totalPages,searchParams])
+// useEffect(()=>{
+//   if(products.length > 0){
+//       let total = Math.ceil(products.length/10)
+//       setTotalpages(total)
+//       let num=0
+//       let arr = Array(totalPages).fill(++num)
+//       console.log(arr)
+//      }
+// },[totalPages,searchParams])
   return (
     <>
       <HStack alignItems="top">

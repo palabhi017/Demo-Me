@@ -5,7 +5,7 @@ export const Dropdown = ({ setdropdown }) => {
     <Box
       position={"absolute"}
       backgroundColor={"white"}
-      zIndex={1}
+      zIndex={1000}
       width={"80%"}
       m="0px auto"
       boxShadow={
@@ -140,7 +140,7 @@ export const Dropdown1 = ({ setdropdown1 }) => {
     <Box
       position={"absolute"}
       backgroundColor={"white"}
-      zIndex={1}
+      zIndex={1000}
       width={"80%"}
       boxShadow={
         "rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;"
@@ -233,7 +233,7 @@ export const Dropdown2 = ({ setdropdown2 }) => {
       position={"absolute"}
       backgroundColor={"white"}
       left={"10%"}
-      zIndex={1}
+      zIndex={1000}
       width={"80%"}
       m="0px auto"
       boxShadow={
@@ -365,7 +365,7 @@ export const Dropdown3 = ({ setdropdown3 }) => {
       position={"absolute"}
       backgroundColor={"white"}
       left={"10%"}
-      zIndex={1}
+      zIndex={1000}
       width={"80%"}
       m="0px auto"
       boxShadow={
@@ -440,7 +440,7 @@ export const Dropdown4 = ({ setdropdown4 }) => {
       position={"absolute"}
       backgroundColor={"white"}
       left={"10%"}
-      zIndex={1}
+      zIndex={1000}
       width={"80%"}
       m="0px auto"
       boxShadow={
@@ -518,7 +518,7 @@ export const Dropdown5 = ({ setdropdown5 }) => {
       position={"absolute"}
       backgroundColor={"white"}
       left={"10%"}
-      zIndex={1}
+      zIndex={1000}
       width={"80%"}
       m="0px auto"
       boxShadow={
@@ -588,7 +588,7 @@ export const Dropdown6 = ({ setdropdown6 }) => {
       position={"absolute"}
       backgroundColor={"white"}
       left={"10%"}
-      zIndex={1}
+      zIndex={1000}
       width={"80%"}
       m="0px auto"
       boxShadow={
@@ -669,7 +669,7 @@ export const Dropdown7 = ({ setdropdown7 }) => {
       position={"absolute"}
       backgroundColor={"white"}
       left={"10%"}
-      zIndex={1}
+      zIndex={1000}
       width={"80%"}
       m="0px auto"
       boxShadow={
@@ -763,7 +763,7 @@ export const Dropdown8 = ({ setdropdown8 }) => {
       position={"absolute"}
       backgroundColor={"white"}
       left={"10%"}
-      zIndex={1}
+      zIndex={1000}
       width={"80%"}
       m="0px auto"
       boxShadow={

@@ -9,16 +9,16 @@ import {
   Flex,
   Box,
   Image,
-  
+  Button,
+  VStack,
+  Text,
+  MenuGroup,
 } from "@chakra-ui/react";
 import { HamburgerIcon } from "@chakra-ui/icons";
-
 import { Link } from "react-router-dom";
+import { BsPerson } from "react-icons/bs";
 
 const SmallNavbar = () => {
-
- 
-
   return (
     <div>
       <Flex
@@ -37,24 +37,24 @@ const SmallNavbar = () => {
               icon={<HamburgerIcon />}
               variant="outline"
             />
-            <MenuList fontSize={"14px"}>
-              <MenuItem >
-                <Link to=""> Women Ethnic</Link>
+            <MenuList fontSize={"14px"} zIndex="2000">
+              <MenuItem>
+                <Link href={"#"}> Women Ethnic</Link>
               </MenuItem>
               <MenuItem>
-                <Link to=""> Women Western</Link>
+                <Link href={"#"}> Women Western</Link>
               </MenuItem>
               <MenuItem>
-                <a href={"#"}>Men</a>
+                <Link href={"#"}>Men</Link>
               </MenuItem>
               <MenuItem>
-                <a href={"#"}> Kids</a>
+                <Link href={"#"}> Kids</Link>
               </MenuItem>
               <MenuItem>
-                <a href={"#"}> Home & Kitchen</a>
+                <Link href={"#"}> Home & Kitchen</Link>
               </MenuItem>
               <MenuItem>
-                <a href={"#"}> Beauty & Health</a>
+                <Link href={"#"}> Beauty & Health</Link>
               </MenuItem>
             </MenuList>
           </Menu>
@@ -69,22 +69,46 @@ const SmallNavbar = () => {
         />
         <Box>
           <Flex gap="10px">
-            <a href={"#"}>
+            <Menu>
+              <MenuButton>
+                <BsPerson fontSize="25px" />
+              </MenuButton>
+              <MenuList zIndex={10000}>
+                <MenuGroup title="Hello User" fontSize="19px" textAlign="left">
+                  <VStack>
+                    <Text fontSize="13px" textAlign="left">
+                      To access your Meesho account
+                    </Text>
+
+                    <Button w="80%" h="45px">
+                      <Link to="/login"> Login</Link>
+                    </Button>
+                    <Button w="80%" h="45px">
+                      Admin{" "}
+                    </Button>
+                    <Button w="80%" h="45px" bg="#F43397" color="#fff">
+                      <Link to="/signin"> Signup</Link>{" "}
+                    </Button>
+                  </VStack>
+                </MenuGroup>
+              </MenuList>
+            </Menu>
+            <Link href={"#"}>
               <Image
                 // width="120px"
                 height="28px"
                 objectFit="cover"
                 src="https://img.icons8.com/ios/50/null/hearts--v1.png"
               />
-            </a>
-            <a href={"#"}>
+            </Link>
+            <Link href={"#"}>
               <Image
                 // width="120px"
                 height="25px"
                 objectFit="cover"
                 src="https://img.icons8.com/external-obivous-color-kerismaker/48/null/external-cart-ecommerce-color-obivous-color-kerismaker.png"
               />
-            </a>
+            </Link>
           </Flex>
         </Box>
       </Flex>

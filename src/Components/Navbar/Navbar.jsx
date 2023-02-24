@@ -1,5 +1,6 @@
 import { CiSearch } from "react-icons/ci";
 import { MdManageAccounts } from "react-icons/md";
+import { BsPerson } from "react-icons/bs";
 import { AiOutlineShoppingCart, AiOutlineMobile } from "react-icons/ai";
 import Logo from "../../Images/Logo1.png";
 import {
@@ -28,12 +29,18 @@ import {
   Text,
   Menu,
   MenuButton,
+  MenuList,
+  MenuGroup,
+  MenuItem,
+  VStack,
 } from "@chakra-ui/react";
 import styles from "./Navbar.module.css";
 import { useState } from "react";
+
 import { Link, useNavigate } from "react-router-dom";  
 import { useDispatch } from "react-redux";
 import { getProducts } from "../../Redux/Products/product.action";
+
 export const Profile = () => {
 
   
@@ -83,7 +90,9 @@ const Navbar = ({ display = "flex" }) => {
     <div>
       <nav className={styles.nav_1}>
         <Flex bg={"#ffffff"} alignItems="center" gap="2" p={1}>
-          <Image width="158px" height="56px" src={Logo} marginLeft="20px" />
+          <Link to="/">
+            <Image width="158px" height="56px" src={Logo} marginLeft="20px" />
+          </Link>
           <Box p="2" display={"flex"}>
             <InputGroup marginLeft={"20px"}>
               <InputLeftElement
@@ -100,8 +109,8 @@ const Navbar = ({ display = "flex" }) => {
 
           <Spacer />
 
-          <ButtonGroup gap="2" className={styles.rightside}>
-            <Tooltip hasArrow label={<Profile />} bg="red.600">
+          <ButtonGroup gap="5" cursor="pointer" className={styles.rightside}>
+            <Tooltip label={<Profile />}>
               <Flex>
                 <Center>
                   <AiOutlineMobile />
@@ -112,7 +121,7 @@ const Navbar = ({ display = "flex" }) => {
             <div className={styles.border}></div>
             <Text>Become a Supplier</Text> <div className={styles.border}></div>
             {/* Profile */}
-            <Menu>
+            {/* <Menu>
               <MenuButton
                 as={Button}
                 rounded={"full"}
@@ -123,17 +132,48 @@ const Navbar = ({ display = "flex" }) => {
                 <Flex>
                   <Center>
                     <MdManageAccounts />
-                    Profile
                   </Center>
+                  Profile
+                </Flex>
+              </MenuButton>
+            </Menu> */}
+            <Menu>
+              <Flex direction="column" alignItems="center">
+                <BsPerson fontSize="25px" />
+                <MenuButton>Profile</MenuButton>
+                <MenuList pb="10px">
+                  <MenuGroup
+                    title="Hello User"
+                    fontSize="19px"
+                    textAlign="left"
+                  >
+                    <VStack>
+                      <Text fontSize="13px" textAlign="left">
+                        To access your Meesho account
+                      </Text>
+
+                      <Button w="80%" h="45px">
+                        <Link to="/login"> Login</Link>
+                      </Button>
+                      <Button w="80%" h="45px">
+                        Admin{" "}
+                      </Button>
+                      <Button w="80%" h="45px" bg="#F43397" color="#fff">
+                        <Link to="/signin"> Signup</Link>{" "}
+                      </Button>
+                    </VStack>
+                  </MenuGroup>
+                </MenuList>
+              </Flex>
+            </Menu>
+            <Menu>
+              <MenuButton>
+                <Flex direction="column" alignItems="center">
+                  <AiOutlineShoppingCart fontSize="25px" />
+                  <Text>Cart</Text>
                 </Flex>
               </MenuButton>
             </Menu>
-            <Button variant={"ghost"}>
-              <Flex align="center">
-                <AiOutlineShoppingCart />
-                <Text>Cart</Text>
-              </Flex>
-            </Button>
           </ButtonGroup>
         </Flex>
       </nav>

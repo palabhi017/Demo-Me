@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState} from "react";
 import {
   Box,
   Flex,
@@ -15,11 +15,13 @@ import {
   Image,
   Icon,
 } from "@chakra-ui/react";
-import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
-import { auth } from "../firebase";
-import { useToast } from "@chakra-ui/react";
+// import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
+// import { auth } from "../firebase";
+// import { useToast } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
-import { Alert, AlertIcon,AlertDescription,AlertTitle } from "@chakra-ui/react";
+// import { Alert, AlertIcon,AlertDescription,AlertTitle } from "@chakra-ui/react";
+import { useDispatch } from "react-redux";
+import { postUserData } from "../Redux/Auth/auth.action";
 const avatars = [
   {
     name: "Abhishek Pal",
@@ -39,49 +41,59 @@ const avatars = [
   },
 ];
 
-const initialState = {
-  email: "",
-  name: "",
-  password: "",
-};
+// const initialState = {
+//   email: "",
+//   name: "",
+//   password: "",
+// };
 
 export default function JoinOurTeam() {
-  const [val, setVal] = React.useState(initialState);
-  const [submitButtonDisable, setSubmitButtonDisable] = React.useState(false);
-  const [err, setErr] = React.useState("");
-  // const toast = useToast();
+  // const [val, setVal] = React.useState(initialState);
+  const [submitButtonDisable, setSubmitButtonDisable] = useState(false);
+  const dispatch =  useDispatch()
+  const [name,setName] = useState("")
+const [email,setEmail] = useState("")
+const [password,setPassword] = useState("")
+
+  // const [err, setErr] = React.useState("");
+  // // const toast = useToast();
   const navigate = useNavigate();
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setVal({ ...val, [name]: value });
-  };
+  // const handleChange = (e) => {
+  //   const { name, value } = e.target;
+  //   setVal({ ...val, [name]: value });
+  // };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setSubmitButtonDisable(true);
-    if (val.email && val.password && val.name) {
-      createUserWithEmailAndPassword(auth, val.email, val.password)
-        .then(async (res) => {
-          setSubmitButtonDisable(false);
+    if (email && password.length >=6 && name) {
 
-          const user = res.user;
-          await updateProfile(user, {
-            displayName: val.name,
-          });
-
-          console.log(res);
-          navigate("/");
-        })
-        .catch((err) => {
-          console.log("err", err);
-          setErr(err.message);
-        });
+      const user={
+        name,
+        email,
+        password,
+        cart:[]
+      }
+     dispatch(postUserData(user))
+     navigate("/login")
+     setEmail("")
+     setName("")
+     setPassword("")
     } else {
       //Toast use karunga mai
+      if(!email){
 
+        alert("Please fill your email")
+      }else if(!name){
+        alert("please fill your name")
+      }else if(password.length<6){
+        alert("password should contain at least 6 character")
+      }
      
     }
   };
+
+
 
   return (
     <Box position={"relative"}>
@@ -207,9 +219,9 @@ export default function JoinOurTeam() {
                 _placeholder={{
                   color: "gray.500",
                 }}
-                onChange={handleChange}
+                onChange={(e)=> setName(e.target.value)}
                 name="name"
-                value={val.name}
+                value={name}
               />
               <Input
                 placeholder="Email Address"
@@ -219,26 +231,27 @@ export default function JoinOurTeam() {
                 _placeholder={{
                   color: "gray.500",
                 }}
-                onChange={handleChange}
+                onChange={(e)=> setEmail(e.target.value)}
                 name="email"
-                value={val.email}
+                value={email}
               />
               <Input
                 placeholder="Enter Password"
                 bg={"gray.100"}
                 border={0}
+             
                 color={"gray.500"}
                 _placeholder={{
                   color: "gray.500",
                 }}
-                onChange={handleChange}
+                onChange={(e)=> setPassword(e.target.value)}
                 name="password"
-                value={val.password}
+                value={password}
               />
             </Stack>
-            <Text>{err}</Text>
+            <Text>{""}</Text>
             <Button
-              disabled={submitButtonDisable}
+              disabled={true}
               fontFamily={"heading"}
               mt={8}
               w={"full"}

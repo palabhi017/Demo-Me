@@ -1,18 +1,31 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from "../CSS/SinglePage.module.css";
 import { StarIcon } from '@chakra-ui/icons';
+import { useParams } from 'react-router-dom';
 
-const initialData={
-    title:"COMBRAIDED Striped Pink N White Short Sleeve Lycra Shirt For Men",
-    image:"https://images.meesho.com/images/products/132914847/hjlhm_512.webp",
-    price:"Rs-147",
-    rating:"4.2",
-    reviews:"118 reviews",
-    category:"Beauty & Health",
-    tag:"Lips",
-  }
+// const initialData={
+//     title:"COMBRAIDED Striped Pink N White Short Sleeve Lycra Shirt For Men",
+//     image:"https://images.meesho.com/images/products/132914847/hjlhm_512.webp",
+//     price:"Rs-147",
+//     rating:"4.2",
+//     reviews:"118 reviews",
+//     category:"Beauty & Health",
+//     tag:"Lips",
+//   }
 
-const SingleProductPage = ({data=initialData}) => {
+const SingleProductPage = () => {
+  const [userData,setUserData] =  useState()
+const {id} = useParams()
+const getSingleUserData= async()=>{
+
+  let res = await fetch(`http://localhost:8080/products/${id}`)
+  let data = await res.json()
+
+setUserData(data)
+}
+useEffect(()=>{
+  getSingleUserData()
+},[])
   return (
     <div className={styles.container} >
 
@@ -20,26 +33,26 @@ const SingleProductPage = ({data=initialData}) => {
 
         <div className={styles.smallImageContainer}>
               <div className={styles.smallImages} >
-                  <img src={data.image} alt="" className={styles.smallImage} />
+                  <img src={userData && userData.image} alt="" className={styles.smallImage} />
               </div>
 
               <div className={styles.smallImages} >
-                  <img src={data.image} alt="" className={styles.smallImage} />
+                  <img src={userData && userData.image} alt="" className={styles.smallImage} />
               </div>
 
               <div className={styles.smallImages} >
-                  <img src={data.image} alt="" className={styles.smallImage} />
+                  <img src={userData && userData.image} alt="" className={styles.smallImage} />
               </div>
 
               <div className={styles.smallImages} >
-                  <img src={data.image} alt="" className={styles.smallImage} />
+                  <img src={userData && userData.image} alt="" className={styles.smallImage} />
               </div>
         </div>
 
 
         <div className={styles.ImageContainer}>
 
-            <img src={data.image} alt="" className={styles.image} />
+            <img src={userData && userData.image} alt="" className={styles.image} />
 
             
 {/* ----------------------------------------button-------------------------------- */}
@@ -56,12 +69,12 @@ const SingleProductPage = ({data=initialData}) => {
           <div className={styles.rhsContainer} >
 
               <div className={styles.rhsData} >
-                      <h3 style={{color:"gray"}} >{data.title}</h3>
-                      <h1 style={{fontSize:"30px",fontWeight:"bold"}} >{data.price}</h1>
+                      <h3 style={{color:"gray"}} >{userData && userData.title}</h3>
+                      <h1 style={{fontSize:"30px",fontWeight:"bold"}} >{userData && userData.price}</h1>
 
                       <div style={{display:"flex",marginTop:"2%"}} >
-                          <div className={styles.rating} >{data.rating}<StarIcon w={13} /></div>
-                          <p className={styles.review} >{data.reviews}</p>
+                          <div className={styles.rating} >{userData && userData.rating}<StarIcon w={13} /></div>
+                          <p className={styles.review} >{userData && userData.reviews}</p>
                       </div>
 
                       <div className={styles.deleveryBox} >Free delivery</div>   
@@ -77,7 +90,7 @@ const SingleProductPage = ({data=initialData}) => {
 
               <div className={styles.rhsData} >
                   <h2>Product details</h2>
-                        <p> Name : {data.title}</p>
+                        <p> Name : {userData && userData.title}</p>
                         <p>Fabric : Lycra</p>                  
                         <p>Sleeve Length : Short Sleeves</p>
                         <p>Pattern : Striped</p>
@@ -97,7 +110,7 @@ const SingleProductPage = ({data=initialData}) => {
               <div className={styles.rhsData} style={{display:"flex"}} >
 
                 <div className={styles.bottomRating} >
-                  <h1 style={{fontSize:"30px",fontWeight:"bold",marginTop:"20%"}}>{data.rating}</h1>
+                  <h1 style={{fontSize:"30px",fontWeight:"bold",marginTop:"20%"}}>{userData && userData.rating}</h1>
                   <StarIcon w={30} className={styles.star} />
                   
                 </div>

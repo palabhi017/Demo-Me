@@ -1,7 +1,7 @@
 import * as types from "./product.type";
 
 const init={
-
+    protypes:"women",
     isLoading:false,
     Products:[],
     isError:false
@@ -15,6 +15,8 @@ export const reducer = (state=init,{type,payload})=>{
         return {...state,isLoading:false,Products:payload}
     case types.PRODUCTS_ERROR:
         return {...state,isError:true,isLoading:false}
+    case types.PRODUCTS_TYPE:
+            return {...state,protypes:payload}
     default:
         return state;
  }

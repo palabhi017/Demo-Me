@@ -6,12 +6,12 @@ import SingleProductPage from "./SingleProductPage";
 import CartPage from "./CartPage";
 import LoginPage from "./LoginPage";
 import SignIn from "./SignIn";
-import Adminpanel from "./Adminpanel";
 import PaymentPage from "./PaymentPage";
 import LoginAdmin from "../Pages/Admin Page/LoginAdmin";
 import AdminAdd from "./Admin Page/AdminAdd";
 import AdminDash from "./Admin Page/AdminDash";
 import AdminUpdate from "./Admin Page/AdminUpdate";
+
 const AllRoutes = () => {
   return (
     <Routes>
@@ -26,6 +26,7 @@ const AllRoutes = () => {
       <Route path="/AdminAdd" element={<AdminAdd />} />
       <Route path="/AdminDashboard" element={<AdminDash />} />
       <Route path="/AdminUpdate" element={<AdminUpdate />} />
+
     </Routes>
   );
 };

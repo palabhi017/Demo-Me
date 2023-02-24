@@ -49,6 +49,7 @@ const Homepage = () => {
         {homeData &&
           homeData.map((item) => (
             <Card
+              hover={item.hover}
               title={item.title}
               price={item.price}
               rating={item.rating}

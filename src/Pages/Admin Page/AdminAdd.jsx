@@ -12,12 +12,13 @@ import {
 } from "@chakra-ui/react";
 import { useSelector, useDispatch } from "react-redux";
 import { postAdminData } from "../../Redux/Admin/admin.action";
-import "../../CSS/AdminLoginPage.css"
+import "../../CSS/AdminLoginPage.css";
 const initialState = {
   title: "",
   image: "",
+  image2: "",
   price: "",
-  rating: "",
+  rating: Math.random() * 7 + 2 + Math.random() * 2-3,
   reviews: "",
   category: "",
   tag: "",
@@ -86,7 +87,21 @@ const AdminAdd = () => {
             fontSize={{ base: "10px", sm: "14px", md: "16px", lg: "18px" }}
             margin="-1px"
           >
-            $Price
+            Image2
+          </FormLabel>
+          <Input
+            type="url"
+            marginBottom="10px"
+            placeholder="Product Image"
+            name="image2"
+            value={val.image2}
+            onChange={handleChange}
+          />
+          <FormLabel
+            fontSize={{ base: "10px", sm: "14px", md: "16px", lg: "18px" }}
+            margin="-1px"
+          >
+            ₹Price
           </FormLabel>
           <Input
             type="url"

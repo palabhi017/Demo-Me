@@ -1,5 +1,10 @@
 import { async } from "@firebase/util";
-import { adminDataAPI, postAdminDataAPi } from "./admin.api";
+import {
+  adminDataAPI,
+  categoryAdmin,
+  deleteAdminAPi,
+  postAdminDataAPi,
+} from "./admin.api";
 import {
   ADMIN_DATA_ERROR,
   ADMIN_DATA_LOADING,
@@ -7,6 +12,7 @@ import {
   POST_ADMIN_DATA_ERROR,
   POST_ADMIN_DATA_SUCCESS,
   POST_ADMIN_DATA_LOADING,
+  FILTERING_ADMIN_DATA,
 } from "./admin.type";
 
 export const getAdminData = () => async (dispatch) => {
@@ -31,5 +37,23 @@ export const postAdminData = (payload) => async (dispatch) => {
     }
   } catch (err) {
     dispatch({ type: ADMIN_DATA_ERROR });
+  }
+};
+
+export const deleteData = (id) => async (dispatch) => {
+  try {
+    let data = await deleteAdminAPi(id);
+    dispatch(getAdminData());
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+export const FilterData = (payload) => async (dispatch) => {
+  try {
+    let data = await categoryAdmin(payload);
+    dispatch({ type: FILTERING_ADMIN_DATA, payload: data });
+  } catch (err) {
+    console.log(err);
   }
 };

@@ -19,9 +19,11 @@ import {
 // import { auth } from "../firebase";
 // import { useToast } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
+
 // import { Alert, AlertIcon,AlertDescription,AlertTitle } from "@chakra-ui/react";
 import { useDispatch } from "react-redux";
 import { postUserData } from "../Redux/Auth/auth.action";
+
 const avatars = [
   {
     name: "Abhishek Pal",
@@ -81,6 +83,7 @@ const [password,setPassword] = useState("")
      setPassword("")
     } else {
       //Toast use karunga mai
+
       if(!email){
 
         alert("Please fill your email")
@@ -90,6 +93,7 @@ const [password,setPassword] = useState("")
         alert("password should contain at least 6 character")
       }
      
+
     }
   };
 

@@ -1,4 +1,5 @@
 {
+
   "login": [
     {
       "name": "Abhishek pal",
@@ -15,6 +16,8 @@
       "id": 3
     }
   ],
+
+
   "products": [
     {
       "id": 1,
@@ -673,8 +676,10 @@
       "price": 102,
       "rating": "3.8",
       "reviews": "18456 Reviews",
+
       "category": "men",
       "tag": "topwear"
+
     },
     {
       "id": 67,
@@ -843,8 +848,10 @@
       "price": 87,
       "rating": "4.6",
       "reviews": "494 Reviews",
+
       "category": "men",
       "tag": "menaccessories"
+
     },
     {
       "id": 84,
@@ -1567,6 +1574,7 @@
       "tag": "Delivery287"
     },
     {
+
       "id": 156,
       "title": "Classic Sanitizers/Disinfectant",
       "image": "https://images.meesho.com/images/products/85939381/ehxn8_400.webp",
@@ -1595,6 +1603,8 @@
       "reviews": "100 Reviews",
       "category": "Beauty & Health",
       "tag": "Sanitizers"
+
+
     }
   ],
   "homepage": []

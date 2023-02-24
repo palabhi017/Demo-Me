@@ -1,4 +1,23 @@
 {
+
+  "login": [
+    {
+      "name": "Abhishek pal",
+      "email": "palabhi017@gmail.com",
+      "password": "abhi@123",
+      "cart": [],
+      "id": 1
+    },
+    {
+      "name": "Anil Pal",
+      "email": "Nikku19641964@gmail.com",
+      "password": "anil@123",
+      "cart": [],
+      "id": 3
+    }
+  ],
+
+
   "products": [
     {
       "id": 1,
@@ -657,8 +676,10 @@
       "price": 102,
       "rating": "3.8",
       "reviews": "18456 Reviews",
-      "category": "Delivery69\n70",
-      "tag": "Delivery69\n70"
+
+      "category": "men",
+      "tag": "topwear"
+
     },
     {
       "id": 67,
@@ -827,8 +848,10 @@
       "price": 87,
       "rating": "4.6",
       "reviews": "494 Reviews",
-      "category": "Delivery82",
-      "tag": "Delivery82"
+
+      "category": "men",
+      "tag": "menaccessories"
+
     },
     {
       "id": 84,
@@ -1551,15 +1574,37 @@
       "tag": "Delivery287"
     },
     {
-      "title": "pants",
-      "image": "https://www.beyoung.in/api/cache/catalog/products/cargo_joggers/sage_green_cargo_men_jogger_pants_base_14_1_2023_700x933.jpg",
-      "image2": "https://www.beyoung.in/api/cache/catalog/products/cargo_joggers/sage_green_cargo_men_jogger_pants_full_view_14_1_2023_700x933.jpg",
-      "price": "2000",
-      "rating": 7.042822201800357,
-      "reviews": "4.7",
-      "category": "mens",
-      "tag": "pants",
-      "id": 156
+
+      "id": 156,
+      "title": "Classic Sanitizers/Disinfectant",
+      "image": "https://images.meesho.com/images/products/85939381/ehxn8_400.webp",
+      "price": 547,
+      "rating": "3.8",
+      "reviews": "100 Reviews",
+      "category": "Beauty & Health",
+      "tag": "Sanitizers"
+    },
+    {
+      "id": 157,
+      "title": "Classic Sanitizers/Disinfectant",
+      "image": "https://images.meesho.com/images/products/63018434/o5mgj_400.webp",
+      "price": 614,
+      "rating": "3.5",
+      "reviews": "100 Reviews",
+      "category": "Delivery287",
+      "tag": "Delivery287"
+    },
+    {
+      "id": 158,
+      "title": "New Sanitizers/Disinfectant",
+      "image": "https://images.meesho.com/images/products/101090606/jecdu_400.webp",
+      "price": 121,
+      "rating": "4.0",
+      "reviews": "100 Reviews",
+      "category": "Beauty & Health",
+      "tag": "Sanitizers"
+
+
     }
   ],
   "homepage": []

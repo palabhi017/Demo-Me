@@ -1,10 +1,10 @@
 import React from "react";
 import { Text, HStack, VStack, Box, Image } from "@chakra-ui/react";
 import { StarIcon } from "@chakra-ui/icons";
-
-const Card = ({ price, title, rating, reviews, image }) => {
+import { Link } from "react-router-dom";
+const Card = ({id, price, title, rating, reviews, image }) => {
   return (
-    <VStack
+   <Link to={`/product/${id}`}> <VStack
       h="400px"
       w="200px"
       borderRadius="10px"
@@ -51,7 +51,7 @@ const Card = ({ price, title, rating, reviews, image }) => {
           {reviews}
         </Text>
       </HStack>
-    </VStack>
+    </VStack></Link>
   );
 };
 

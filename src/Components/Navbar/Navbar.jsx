@@ -1,6 +1,6 @@
 import { CiSearch } from "react-icons/ci";
-import { MdManageAccounts } from "react-icons/md";
-import { BsPerson } from "react-icons/bs";
+
+
 import { AiOutlineShoppingCart, AiOutlineMobile } from "react-icons/ai";
 import Logo from "../../Images/Logo1.png";
 import {
@@ -31,20 +31,19 @@ import {
   MenuButton,
   MenuList,
   MenuGroup,
-  MenuItem,
   VStack,
+  Avatar,
 } from "@chakra-ui/react";
 import styles from "./Navbar.module.css";
 import { useState } from "react";
 
-import { Link, useNavigate } from "react-router-dom";  
-import { useDispatch } from "react-redux";
-import { getProducts } from "../../Redux/Products/product.action";
+import { Link, useSearchParams } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { getProducts, protypes } from "../../Redux/Products/product.action";
+import Avatars from "../Avatars";
+import Authbuttons from "../Authbuttons";
 
 export const Profile = () => {
-
-  
-
   return (
     <div className={styles.download}>
       <h1>Download from</h1>
@@ -70,21 +69,28 @@ const Navbar = ({ display = "flex" }) => {
   const [dropdown6, setdropdown6] = useState(false);
   const [dropdown7, setdropdown7] = useState(false);
   const [dropdown8, setdropdown8] = useState(false);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const dispatch = useDispatch();
+  const name = useSelector((state) => state.Auth.currentUserName);
+  const login = useSelector((state) => state.Auth.isAuth);
 
-  const dispatch = useDispatch()
 
-  const handleCate=(category)=>{
+  const handleCate = (category, type) => {
     const getProductsParam = {
       params: {
-          category: category
-          // _sort: "price",
-          // _order: 
-      }
-  }
-  dispatch(getProducts(getProductsParam))
-    
-  }
+        category: category,
+        // _sort: "",
+        // _order: ""
+      },
+    };
+    let params = {};
+    if (searchParams.getAll("filter")) params.filter = [];
+    if (searchParams.get("sort")) params.sort = null;
+    dispatch(protypes(type));
+    setSearchParams(params);
 
+    dispatch(getProducts(getProductsParam));
+  };
 
   return (
     <div>
@@ -139,31 +145,8 @@ const Navbar = ({ display = "flex" }) => {
             </Menu> */}
             <Menu>
               <Flex direction="column" alignItems="center">
-                <BsPerson fontSize="25px" />
-                <MenuButton>Profile</MenuButton>
-                <MenuList pb="10px">
-                  <MenuGroup
-                    title="Hello User"
-                    fontSize="19px"
-                    textAlign="left"
-                  >
-                    <VStack>
-                      <Text fontSize="13px" textAlign="left">
-                        To access your Meesho account
-                      </Text>
-
-                      <Button w="80%" h="45px">
-                        <Link to="/login"> Login</Link>
-                      </Button>
-                      <Button w="80%" h="45px">
-                        Admin{" "}
-                      </Button>
-                      <Button w="80%" h="45px" bg="#F43397" color="#fff">
-                        <Link to="/signin"> Signup</Link>{" "}
-                      </Button>
-                    </VStack>
-                  </MenuGroup>
-                </MenuList>
+                
+                {login? <Avatars name={name} /> : <Authbuttons />}
               </Flex>
             </Menu>
             <Menu>
@@ -186,12 +169,20 @@ const Navbar = ({ display = "flex" }) => {
           fontWeight={"semibold"}
           display={display}
         >
-         <Link to="/products" onClick={()=> {handleCate("women") } }> <Text
-            onMouseEnter={() => setdropdown(true)}
-            onMouseLeave={() => setdropdown(false)}
+          <Link
+            to="/products"
+            onClick={() => {
+              handleCate("women", "women");
+            }}
           >
-            Women Ethnic
-          </Text></Link>
+            {" "}
+            <Text
+              onMouseEnter={() => setdropdown(true)}
+              onMouseLeave={() => setdropdown(false)}
+            >
+              Women Ethnic
+            </Text>
+          </Link>
 
           <Text
             onMouseEnter={() => setdropdown1(true)}
@@ -199,12 +190,19 @@ const Navbar = ({ display = "flex" }) => {
           >
             Women Western
           </Text>
-          <Link to="/products" onClick={()=> {handleCate("men") } }><Text
-            onMouseEnter={() => setdropdown2(true)}
-            onMouseLeave={() => setdropdown2(false)}
+          <Link
+            to="/products"
+            onClick={() => {
+              handleCate("men", "men");
+            }}
           >
-            Men
-          </Text></Link>
+            <Text
+              onMouseEnter={() => setdropdown2(true)}
+              onMouseLeave={() => setdropdown2(false)}
+            >
+              Men
+            </Text>
+          </Link>
           <Text
             onMouseEnter={() => setdropdown3(true)}
             onMouseLeave={() => setdropdown3(false)}
@@ -217,12 +215,19 @@ const Navbar = ({ display = "flex" }) => {
           >
             Home & Kitchen
           </Text>
-          <Link to="/products" onClick={()=> {handleCate("Beauty & Health") } }><Text
-            onMouseEnter={() => setdropdown5(true)}
-            onMouseLeave={() => setdropdown5(false)}
+          <Link
+            to="/products"
+            onClick={() => {
+              handleCate("Beauty & Health", "health");
+            }}
           >
-            Beauty & Health
-          </Text></Link>
+            <Text
+              onMouseEnter={() => setdropdown5(true)}
+              onMouseLeave={() => setdropdown5(false)}
+            >
+              Beauty & Health
+            </Text>
+          </Link>
           <Text
             onMouseEnter={() => setdropdown6(true)}
             onMouseLeave={() => setdropdown6(false)}

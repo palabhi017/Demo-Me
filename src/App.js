@@ -4,7 +4,7 @@ import AllRoutes from "./Pages/AllRoutes";
 import Footer from "./Components/Footer";
 
 import SmallNavbar from "./Components/Navbar/SmallNavbar";
-import SingleProductPage from "./Pages/SingleProductPage";
+
 
 
 function App() {

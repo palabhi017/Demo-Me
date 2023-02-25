@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import styles from "../CSS/SinglePage.module.css";
 import { StarIcon } from "@chakra-ui/icons";
 import { useParams } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { AUTH_SUCCESS } from "../Redux/Auth/auth.types";
 
 // const initialData={
 //     title:"COMBRAIDED Striped Pink N White Short Sleeve Lycra Shirt For Men",
@@ -17,8 +18,9 @@ import { useSelector } from "react-redux";
 const SingleProductPage = () => {
   const [userData, setUserData] = useState({});
   const [loginUserData, setLoginUserData] = useState({});
-  const { image, name, price } = userData;
-  const userId = useSelector((state) => state.Auth.currentUser);
+  const { image, title, price } = userData;
+  const userId = useSelector((state) => state.Auth.currentUser.id);
+  const dispatch = useDispatch()
   const { id } = useParams();
   const getSingleUserData = async () => {
     let res = await fetch(`http://localhost:8080/products/${id}`);
@@ -26,7 +28,7 @@ const SingleProductPage = () => {
 
     setUserData(data);
   };
-
+console.log(userId)
   const getUserData = async () => {
     try {
       let r = await fetch(`http://localhost:8080/login/${userId}`);
@@ -46,7 +48,7 @@ const SingleProductPage = () => {
         body: JSON.stringify({
           cart: [
             ...loginUserData,
-            { image, price, name, quantity: 1, orderId: Date.now() },
+            { image, price, title, quantity: 1, orderId: Date.now() },
           ],
         }),
         headers: {
@@ -54,6 +56,7 @@ const SingleProductPage = () => {
         },
       });
       let d = await r.json();
+      dispatch({type:AUTH_SUCCESS,payload:d})
       console.log(d);
     } catch (error) {
       console.log(error);
@@ -113,7 +116,7 @@ const SingleProductPage = () => {
 
           {/* ----------------------------------------button-------------------------------- */}
           <div className={styles.btnContainer}>
-            <button className={styles.btn} onClick={()=> cartDetails()}>Add to Cart</button>
+            <button className={styles.btn} onClick={cartDetails}>Add to Cart</button>
             <button className={styles.btn} style={{ background: "#f43397" }}>
               Buy Now
             </button>

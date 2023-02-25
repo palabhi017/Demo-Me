@@ -13,6 +13,56 @@
       "password": "anil@123",
       "cart": [],
       "id": 3
+    },
+    {
+      "name": "Rahul dudka",
+      "email": "rahul@gmail.com",
+      "password": "rahul@123",
+      "cart": [
+        {
+          "image": "https://images.meesho.com/images/products/180058467/r5p2g_400.webp",
+          "price": 105,
+          "title": "Useful Eye Makeup Combo",
+          "quantity": 1,
+          "orderId": 1677322772243
+        },
+        {
+          "image": "https://images.meesho.com/images/products/93593900/fabrm_400.webp",
+          "price": 414,
+          "title": "Urbane Retro Men Tshirts",
+          "quantity": 1,
+          "orderId": 1677322782630
+        },
+        {
+          "image": "https://images.meesho.com/images/products/149408141/dkhin_400.webp",
+          "price": 102,
+          "title": "Stylish Elegant Men Tshirts",
+          "quantity": 2,
+          "orderId": 1677323788360
+        },
+        {
+          "image": "https://images.meesho.com/images/products/102247670/sysxa_400.webp",
+          "price": 239,
+          "title": "Lycra Drawstring and Elastic Saree Shapewear",
+          "quantity": 1,
+          "orderId": 1677323798053
+        },
+        {
+          "image": "https://images.meesho.com/images/products/144906418/lscec_400.webp",
+          "price": 297,
+          "title": "Stylish Designer Men Shirts",
+          "quantity": 1,
+          "orderId": 1677329405382
+        },
+        {
+          "image": "https://images.meesho.com/images/products/223856946/u2aej_400.webp",
+          "price": 181,
+          "title": "Fashionable Watches",
+          "quantity": 1,
+          "orderId": 1677329524722
+        }
+      ],
+      "id": 4
     }
   ],
   "products": [
@@ -1661,6 +1711,8 @@
       "reviews": "100 Reviews",
       "category": "Beauty & Health",
       "tag": "Sanitizers"
+
+
     },
     {
       "title": "Men t shirt",
@@ -1672,6 +1724,7 @@
       "category": "tshirt",
       "tag": "Men casual tshirt",
       "id": 159
+
     }
   ],
   "homepage": [

@@ -159,7 +159,6 @@ const AdminDash = () => {
                       _hover={{ display: "none" }}
                       position={"absolute"}
                       top="0px"
-                
                     >
                       <Image
                         justifyContent={"center"}
@@ -169,7 +168,6 @@ const AdminDash = () => {
                         height={"240px"}
                         src={el.image2}
                         borderRadius="lg"
-                        alt=""
                       />
                     </Box>
                   </Box>

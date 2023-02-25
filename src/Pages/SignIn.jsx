@@ -74,7 +74,8 @@ const [password,setPassword] = useState("")
         name,
         email,
         password,
-        cart:[]
+        cart:[],
+        order:[]
       }
      dispatch(postUserData(user))
      navigate("/login")

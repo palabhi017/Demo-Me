@@ -35,7 +35,7 @@ import {
   Avatar,
 } from "@chakra-ui/react";
 import styles from "./Navbar.module.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { Link, useSearchParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
@@ -72,8 +72,10 @@ const Navbar = ({ display = "flex" }) => {
   const [searchParams, setSearchParams] = useSearchParams();
   const dispatch = useDispatch();
   const name = useSelector((state) => state.Auth.currentUserName);
+  const cartItems = useSelector((state) => state.Auth.currentUser.cart);
   const login = useSelector((state) => state.Auth.isAuth);
-
+  
+  
 
   const handleCate = (category, type) => {
     const getProductsParam = {
@@ -149,14 +151,15 @@ const Navbar = ({ display = "flex" }) => {
                 {login? <Avatars name={name} /> : <Authbuttons />}
               </Flex>
             </Menu>
-            <Menu>
-              <MenuButton>
-                <Flex direction="column" alignItems="center">
-                  <AiOutlineShoppingCart fontSize="25px" />
-                  <Text>Cart</Text>
-                </Flex>
-              </MenuButton>
-            </Menu>
+            {/* <Menu>
+              <MenuButton> */}
+            <Link to={"/cart"}> <Flex direction="column" alignItems="center">
+             <AiOutlineShoppingCart fontSize="25px" />
+             <Box pos="absolute" right="9%" bgColor={"pink.400"} p="1px 4px" borderRadius="60%" color="white" top="5px">{cartItems? cartItems.length : 0}</Box>
+               <Text>Cart</Text>
+                </Flex></Link>
+              {/* </MenuButton>
+            </Menu> */}
           </ButtonGroup>
         </Flex>
       </nav>

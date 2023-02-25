@@ -1,8 +1,8 @@
 import * as types from "./auth.types";
 
 const init={
-    currentUser:null,
-    currentUserName:"",
+    currentUser:{},
+    
     isLoading:false,
     isAuth:false,
     users:[],
@@ -14,7 +14,7 @@ export const reducer = (state=init,{type,payload})=>{
     case types.AUTH_LOAD:
         return {...state,isLoading:true}
     case types.AUTH_SUCCESS:
-        return {...state,isLoading:false,isAuth:true,currentUser:payload.id,currentUserName:payload.name}
+        return {...state,isLoading:false,isAuth:true,currentUser:payload}
     case types.POST_AUTH_SUCCESS:
             return {...state,isLoading:false,users:payload} 
     case types.AUTH_ERROR:

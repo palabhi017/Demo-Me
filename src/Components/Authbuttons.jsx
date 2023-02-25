@@ -22,7 +22,7 @@ const Authbuttons = () => {
             <Link to="/login"> Login</Link>
           </Button>
           <Button w="80%" h="45px">
-            Admin{" "}
+           <Link to="/Admin">Admin login</Link>
           </Button>
           <Button w="80%" h="45px" bg="#F43397" color="#fff">
             <Link to="/signin"> Signup</Link>{" "}

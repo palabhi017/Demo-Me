@@ -15,7 +15,7 @@ import {
 } from "@chakra-ui/react";
 import React from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import { useToast } from "@chakra-ui/react";
 import "../../CSS/AdminLoginPage.css";
@@ -26,7 +26,7 @@ const initialState = {
 
 export default function LoginAdmin() {
   const [val, setVal] = React.useState(initialState);
-  const [text, setText] = React.useState(false);
+  // const [text, setText] = React.useState(false);
   const navigate = useNavigate();
   const handleToast = useToast();
 
@@ -37,16 +37,16 @@ export default function LoginAdmin() {
   console.log("val", val);
 
   const handleSubmit = async () => {
-    setText(false);
+    // setText(false);
     if (val.password === "citySlicka") {
       try {
         let res = await axios.post("https://reqres.in/api/login", val);
         console.log(res.data.token);
-        setText(true);
-
+        // setText(true);
+        navigate("/AdminDashboard");
         handleToast({
           position: "top-right",
-          title: "Hlo Admin Welcome back",
+          title: "Hello Admin Welcome back",
           description: "Now You can do your work.",
           status: "success",
           duration: 9000,
@@ -54,11 +54,11 @@ export default function LoginAdmin() {
         });
       } catch (err) {
         console.log(err);
-        setText(false);
-        setText(false);
+        // setText(false);
+        // setText(false);
         handleToast({
           position: "top-right",
-          description: "Please Check your id and passoword",
+          description: "Please Check your id and password",
           title: "Wrong Credential",
           status: "success",
           duration: 9000,
@@ -68,7 +68,7 @@ export default function LoginAdmin() {
     } else {
       handleToast({
         position: "top-right",
-        description: "Please Check your passoword",
+        description: "Please Check your password",
         title: "Wrong Credential",
         status: "success",
         duration: 9000,
@@ -78,10 +78,10 @@ export default function LoginAdmin() {
     setVal(initialState);
   };
 
-  if (text === true) {
-    console.log("helllo");
-    navigate("/AdminDashboard");
-  }
+  // if (text === true) {
+  //   console.log("helllo");
+  //   navigate("/AdminDashboard");
+  // }
 
   return (
     <Box>

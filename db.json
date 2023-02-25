@@ -1,18 +1,15 @@
 {
   "login": [
+   
     {
-      "name": "Abhishek pal",
-      "email": "palabhi017@gmail.com",
-      "password": "abhi@123",
+      "name": "Rahul dudka",
+      "email": "rahul@gmail.com",
+      "password": "rahul@123",
       "cart": [],
-      "id": 1
-    },
-    {
-      "name": "Anil Pal",
-      "email": "Nikku19641964@gmail.com",
-      "password": "anil@123",
-      "cart": [],
-      "id": 3
+      "id": 4,
+      "order": [
+        
+      ]
     }
   ],
   "products": [
@@ -1672,6 +1669,17 @@
       "category": "tshirt",
       "tag": "Men casual tshirt",
       "id": 159
+    },
+    {
+      "title": "Men Gym Vest",
+      "image": "https://images.meesho.com/images/products/88793806/uq0vn_512.webp",
+      "image2": "https://images.meesho.com/images/products/88793806/x4rsw_64.webp",
+      "price": "500",
+      "rating": -1,
+      "reviews": "3",
+      "category": "Men",
+      "tag": "-",
+      "id": 160
     }
   ],
   "homepage": [

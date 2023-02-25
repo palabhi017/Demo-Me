@@ -52,7 +52,7 @@ export default function LoginPage() {
         for (let i in data) {
           if (data[i].email === email && data[i].password === password) {
             Auth = true;
-            dispatch({type:AUTH_SUCCESS,payload:data[i].id})
+            dispatch({type:AUTH_SUCCESS,payload:data[i]})
             dispatch({type:SET_CUR_NAME,payload:data[i].name})
             break;
           }

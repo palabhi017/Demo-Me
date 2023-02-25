@@ -5,6 +5,7 @@ import Footer from "./Components/Footer";
 
 import SmallNavbar from "./Components/Navbar/SmallNavbar";
 import GoOnTop from "./Components/GoOnTop";
+import LoginAdmin from "./Pages/Admin Page/LoginAdmin";
 
 function App() {
   return (
@@ -15,10 +16,9 @@ function App() {
       <div className="small">
         <SmallNavbar />
       </div>
-
+      {/* <GoOnTop /> */}
       <AllRoutes />
       <Footer />
-      <GoOnTop />
     </div>
   );
 }

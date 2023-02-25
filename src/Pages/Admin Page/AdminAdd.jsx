@@ -18,7 +18,7 @@ const initialState = {
   image: "",
   image2: "",
   price: "",
-  rating: Math.random() * 7 + 2 + Math.random() * 2-3,
+  rating: Math.floor(Math.random() * 7 + 2 + Math.random() * 2-4),
   reviews: "",
   category: "",
   tag: "",

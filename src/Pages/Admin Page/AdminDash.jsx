@@ -149,14 +149,28 @@ const AdminDash = () => {
                       alt={el.title}
                       className="Image_hover"
                       borderRadius="lg"
+                      width={"300px"}
+                      height={"200px"}
+                      justifyContent={"center"}
+                      margin={"auto"}
+                      textAlign={"center"}
                     />
                     <Box
                       _hover={{ display: "none" }}
                       position={"absolute"}
                       top="0px"
-                      left="0px"
+                
                     >
-                      <Image src={el.image2}  borderRadius="lg" alt="image 2 starting" />
+                      <Image
+                        justifyContent={"center"}
+                        margin={"auto"}
+                        textAlign={"center"}
+                        width={"300px"}
+                        height={"240px"}
+                        src={el.image2}
+                        borderRadius="lg"
+                        alt="image 2 starting"
+                      />
                     </Box>
                   </Box>
                   <Stack mt="6" spacing="3">

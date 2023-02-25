@@ -17,7 +17,7 @@ import React from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
-import "./"
+
 const initialState = {
   email: "",
   password: "",
@@ -53,7 +53,7 @@ export default function LoginAdmin() {
   React.useEffect(() => {}, []);
 
   if (setText) {
-    navigate("/adminProductpage");
+    navigate("/admin");
   }
 
   return (

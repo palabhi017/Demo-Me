@@ -11,7 +11,8 @@ import SingleProductPage from "./SingleProductPage"
 import CartPage from "./CartPage"
 import LoginPage from "./LoginPage"
 import SignIn from "./SignIn"
-import Adminpanel from "./Adminpanel"
+import AdminProductPage from "./Admin Page/AdminProductPage"
+import LoginAdmin from "./Admin Page/LoginAdmin"
 import PaymentPage from "./PaymentPage"
 
 const AllRoutes = () => {
@@ -24,7 +25,8 @@ const AllRoutes = () => {
       <Route path="/login" element={<LoginPage/>}/>
       <Route path="/signin" element={<SignIn/>}/>
       <Route path="/payment" element={<PaymentPage/>}/>
-      <Route path="/Admin" element={<Adminpanel/>}/>
+      <Route path="/admin" element={<AdminProductPage/>}/>
+      <Route path="/adminlogin" element={<LoginAdmin/>}/>
    </Routes>
   )
 }

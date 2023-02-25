@@ -10,7 +10,7 @@ import { Box, ButtonGroup, Stack } from "@chakra-ui/react";
 import { ChevronDownIcon } from "@chakra-ui/icons";
 import {
   Card,
-  CardHeader,
+ 
   CardBody,
   CardFooter,
   Image,
@@ -20,24 +20,25 @@ import {
   Button,
   Flex,
 } from "@chakra-ui/react";
+import { Link } from "react-router-dom";
 import {
   Menu,
   MenuButton,
   MenuList,
   MenuItem,
-  MenuItemOption,
-  MenuGroup,
-  MenuOptionGroup,
+ 
   MenuDivider,
 } from "@chakra-ui/react";
 import "../../CSS/AdminLoginPage.css";
-import axios from "axios";
+
 const AdminDash = () => {
   const [total, setTotal] = React.useState(0);
 
   const state = useSelector((store) => store.adminReducer);
   const val = state.data.data;
   const dispatch = useDispatch();
+
+  const handleUpdate = (id, price, title) => {};
 
   const handleDelete = (e) => {
     dispatch(deleteData(e));
@@ -143,23 +144,25 @@ const AdminDash = () => {
             return (
               <Card maxW="sm" className="media_change" key={el.id}>
                 <CardBody>
-                  <Box dispatch="relative">
-                    <Image
-                      src={el.image}
-                      alt={el.title}
-                      className="Image_hover"
-                      borderRadius="lg"
-                      width={"300px"}
-                      height={"200px"}
-                      justifyContent={"center"}
-                      margin={"auto"}
-                      textAlign={"center"}
-                    />
+                  <Box>
+                    <Box dispatch="relative" className="BeforeHover">
+                      <Image
+                        src={el.image}
+                        alt={el.title}
+                        className="BeforeHover"
+                        borderRadius="lg"
+                        width={"300px"}
+                        height={"200px"}
+                        justifyContent={"center"}
+                        margin={"auto"}
+                        textAlign={"center"}
+                      />
+                    </Box>
                     <Box
                       _hover={{ display: "none" }}
                       position={"absolute"}
                       top="0px"
-                
+                      className="delayImagevalue"
                     >
                       <Image
                         justifyContent={"center"}
@@ -169,7 +172,7 @@ const AdminDash = () => {
                         height={"240px"}
                         src={el.image2}
                         borderRadius="lg"
-                        alt="image 2 starting"
+                        className="delayImagevalue"
                       />
                     </Box>
                   </Box>
@@ -228,14 +231,17 @@ const AdminDash = () => {
                       Delete
                     </Button>
 
-                    <Button
-                      variant="solid"
-                      bg={"rgb(244, 51, 151)"}
-                      color={"#ffff"}
-                      className="btn_Hover"
-                    >
-                      Update
-                    </Button>
+                    <Link path="/AdminUpdate">
+                      <Button
+                        variant="solid"
+                        bg={"rgb(244, 51, 151)"}
+                        color={"#ffff"}
+                        className="btn_Hover"
+                        onClick={() => handleUpdate(el.id, el.price, el.title)}
+                      >
+                        Update
+                      </Button>
+                    </Link>
                   </ButtonGroup>
                 </CardFooter>
               </Card>

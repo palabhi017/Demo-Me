@@ -5,12 +5,12 @@ import {
   Box,
   Heading,
   Button,
-  ButtonGroup,
+ 
   Input,
   Center,
   FormControl,
 } from "@chakra-ui/react";
-import { useSelector, useDispatch } from "react-redux";
+import {  useDispatch } from "react-redux";
 import { postAdminData } from "../../Redux/Admin/admin.action";
 import "../../CSS/AdminLoginPage.css";
 const initialState = {
@@ -18,7 +18,7 @@ const initialState = {
   image: "",
   image2: "",
   price: "",
-  rating: Math.floor(Math.random() * 7 + 2 + Math.random() * 2-4),
+  rating: 4.2,
   reviews: "",
   category: "",
   tag: "",

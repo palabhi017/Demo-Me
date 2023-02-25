@@ -1,4 +1,6 @@
 {
+
+
   "login": [
     {
       "name": "Abhishek pal",
@@ -15,6 +17,9 @@
       "id": 3
     }
   ],
+
+
+
   "products": [
     {
       "id": 1,
@@ -1595,7 +1600,312 @@
       "reviews": "100 Reviews",
       "category": "Beauty & Health",
       "tag": "Sanitizers"
-    }
+      }
   ],
-  "homepage": []
+  "homepage": [
+    {
+      "id": 1,
+      "title": "Lycra Drawstring and Elastic Saree Shapewear",
+      "image": "https://images.meesho.com/images/products/102247670/sysxa_400.webp",
+      "hover": "https://images.meesho.com/images/products/60877542/wxdwz_512.webp",
+      "price": 239,
+      "rating": "3.9",
+      "reviews": "906 Reviews",
+      "category": "women",
+      "tag": "saree"
+    },
+    {
+      "id": 2,
+      "title": "Adrika Cotton Sarees",
+      "image": "https://images.meesho.com/images/products/32768758/y5lju_400.webp",
+      "hover": "https://images.meesho.com/images/products/60877542/wxdwz_512.webp",
+      "price": 223,
+      "rating": "3.7",
+      "reviews": "27596 Reviews",
+      "category": "women",
+      "tag": "saree"
+    },
+    {
+      "id": 3,
+      "title": "Fab Women Art Silk Sarees",
+      "image": "https://images.meesho.com/images/products/60877542/quzdp_400.webp",
+      "price": 280,
+      "rating": "3.7",
+      "reviews": "23947 Reviews",
+      "category": "women",
+      "tag": "saree"
+    },
+    {
+      "id": 4,
+      "title": "Polyester Slip-on/ Elastic Saree Shapewear",
+      "image": "https://images.meesho.com/images/products/91707458/pkfjr_400.webp",
+      "price": 206,
+      "rating": "3.7",
+      "reviews": "1485 Reviews",
+      "category": "women",
+      "tag": "saree"
+    },
+    {
+      "id": 5,
+      "title": "Aakarsha Sensational Kurtis",
+      "image": "https://images.meesho.com/images/products/127938144/qllpy_400.webp",
+      "price": 183,
+      "rating": "3.8",
+      "reviews": "17656 Reviews",
+      "category": "women",
+      "tag": "Kurtis"
+    },
+    {
+      "id": 6,
+      "title": "Banarasi Silk Jacquard Saree With Blouse",
+      "image": "https://images.meesho.com/images/products/12153332/y7wre_400.webp",
+      "price": 539,
+      "rating": "4.0",
+      "reviews": "55026 Reviews",
+      "category": "women",
+      "tag": "saree"
+    },
+    {
+      "id": 7,
+      "title": "Alluring Fancy Women Dupattas",
+      "image": "https://images.meesho.com/images/products/133855865/bkc8r_400.webp",
+      "price": 495,
+      "rating": "3.8",
+      "reviews": "747 Reviews",
+      "category": "women",
+      "tag": "Dupattas"
+    },
+    {
+      "id": 8,
+      "title": "Georgette Lace border Saree with blouse",
+      "image": "https://images.meesho.com/images/products/23325912/53f0f_400.webp",
+      "price": 212,
+      "rating": "3.6",
+      "reviews": "31013 Reviews",
+      "category": "women",
+      "tag": "saree"
+    },
+    {
+      "id": 9,
+      "title": "Lycra Daily Lace inserts Bollywood Stitched Blouse",
+      "image": "https://images.meesho.com/images/products/94090321/qw8sv_400.webp",
+      "price": 188,
+      "rating": "3.9",
+      "reviews": "18818 Reviews",
+      "category": "women",
+      "tag": "Blouse"
+    },
+    {
+      "id": 10,
+      "title": "Comfy Women Petticoats",
+      "image": "https://images.meesho.com/images/products/17334130/gpjj9_400.webp",
+      "price": 257,
+      "rating": "3.9",
+      "reviews": "10897 Reviews",
+      "category": "women",
+      "tag": "Petticoats"
+    },
+    {
+      "id": 59,
+      "title": "Urbane Retro Men Tshirts",
+      "image": "https://images.meesho.com/images/products/93593900/fabrm_400.webp",
+      "price": 414,
+      "rating": "4.2",
+      "reviews": "400 Reviews",
+      "category": "men",
+      "tag": "topwear"
+    },
+    {
+      "id": 60,
+      "title": "Vellical Men Shirts",
+      "image": "https://images.meesho.com/images/products/132715677/amkqb_400.webp",
+      "price": 285,
+      "rating": "3.9",
+      "reviews": "32669 Reviews",
+      "category": "men",
+      "tag": "topwear"
+    },
+    {
+      "id": 61,
+      "title": "Stylish Designer Men Shirts",
+      "image": "https://images.meesho.com/images/products/144906418/lscec_400.webp",
+      "price": 297,
+      "rating": "3.9",
+      "reviews": "25920 Reviews",
+      "category": "men",
+      "tag": "topwear"
+    },
+    {
+      "id": 62,
+      "title": "Comfy Elegant Men Shirts",
+      "image": "https://images.meesho.com/images/products/148479634/0dyyq_400.webp",
+      "price": 565,
+      "rating": "3.9",
+      "reviews": "300 Reviews",
+      "category": "men",
+      "tag": "topwear"
+    },
+    {
+      "id": 63,
+      "title": "Stylish Fabulous Men Tshirts",
+      "image": "https://images.meesho.com/images/products/50754822/yyxp4_400.webp",
+      "price": 241,
+      "rating": "3.9",
+      "reviews": "32195 Reviews",
+      "category": "men",
+      "tag": "topwear"
+    },
+    {
+      "id": 64,
+      "title": "Manlino Men Tshirts",
+      "image": "https://images.meesho.com/images/products/9467959/0178a_400.webp",
+      "price": 298,
+      "rating": "4.0",
+      "reviews": "92970 Reviews",
+      "category": "men",
+      "tag": "topwear"
+    },
+    {
+      "id": 65,
+      "title": "Stylish Retro Men Tshirts",
+      "image": "https://images.meesho.com/images/products/191423945/jv2zk_400.webp",
+      "price": 284,
+      "rating": "4.0",
+      "reviews": "7 Reviews",
+      "category": "men",
+      "tag": "topwear"
+    },
+    {
+      "id": 66,
+      "title": "Stylish Elegant Men Tshirts",
+      "image": "https://images.meesho.com/images/products/149408141/dkhin_400.webp",
+      "price": 102,
+      "rating": "3.8",
+      "reviews": "18456 Reviews",
+      "category": "Delivery69\n70",
+      "tag": "Delivery69\n70"
+    },
+    {
+      "id": 67,
+      "title": "Urbane Elegant Men Shirts",
+      "image": "https://images.meesho.com/images/products/161471180/rox8n_400.webp",
+      "price": 387,
+      "rating": "3.7",
+      "reviews": "7139 Reviews",
+      "category": "men",
+      "tag": "topwear"
+    },
+    {
+      "id": 68,
+      "title": "Fancy Elegant Men Shirts",
+      "image": "https://images.meesho.com/images/products/148462790/3u3us_400.webp",
+      "price": 369,
+      "rating": "3.7",
+      "reviews": "158 Reviews",
+      "category": "men",
+      "tag": "topwear"
+    },
+
+    {
+      "id": 148,
+      "title": "Latest ADS Eyebrow Eye makeup Combo",
+      "image": "https://images.meesho.com/images/products/74976271/dpkjh_400.webp",
+      "price": 310,
+      "rating": "3.8",
+      "reviews": "84 Reviews",
+      "category": "Beauty & Health",
+      "tag": "Eyes"
+    },
+
+    {
+      "id": 150,
+      "title": "Classic Sanitizers/Disinfectant",
+      "image": "https://images.meesho.com/images/products/65230401/6s9wa_400.webp",
+      "price": 533,
+      "rating": "4.0",
+      "reviews": "277 Reviews",
+      "category": "Beauty & Health",
+      "tag": "Sanitizers"
+    },
+    {
+      "id": 151,
+      "title": "Sanitizer",
+      "image": "https://images.meesho.com/images/products/7703769/f37cb_400.webp",
+      "price": 413,
+      "rating": "3.7",
+      "reviews": "5 Reviews",
+      "category": "Beauty & Health",
+      "tag": "Sanitizers"
+    },
+    {
+      "id": 152,
+      "title": "\"\" Classy Sanitizers/Disinfectant\"\"",
+      "image": "https://images.meesho.com/images/pow/mall-badge-plp.png",
+      "price": 750,
+      "rating": "4.4",
+      "reviews": "192 Reviews",
+      "category": "Delivery287",
+      "tag": "Delivery287"
+    },
+    {
+      "id": 153,
+      "title": "New Sanitizers/Disinfectant",
+      "image": "https://images.meesho.com/images/products/55981794/c4ubn_400.webp",
+      "price": 13,
+      "rating": "4.2",
+      "reviews": "10 Reviews",
+      "category": "Beauty & Health",
+      "tag": "Sanitizers"
+    },
+    {
+      "id": 154,
+      "title": "Everyday Sanitizers/Disinfectant",
+      "image": "https://images.meesho.com/images/products/70913026/7bzss_400.webp",
+      "price": 269,
+      "rating": "4.2",
+      "reviews": "16 Reviews",
+      "category": "Beauty & Health",
+      "tag": "Sanitizers"
+    },
+    {
+      "id": 155,
+      "title": "Everyday Sanitizers/Disinfectant",
+      "image": "https://images.meesho.com/images/products/99681248/c263x_400.webp",
+      "price": 715,
+      "rating": "3.9",
+      "reviews": "100 Reviews",
+      "category": "Delivery287",
+      "tag": "Delivery287"
+    },
+    {
+      "id": 156,
+      "title": "Classic Sanitizers/Disinfectant",
+      "image": "https://images.meesho.com/images/products/85939381/ehxn8_400.webp",
+      "price": 547,
+      "rating": "3.8",
+      "reviews": "100 Reviews",
+      "category": "Beauty & Health",
+      "tag": "Sanitizers"
+    },
+    {
+      "id": 157,
+      "title": "Classic Sanitizers/Disinfectant",
+      "image": "https://images.meesho.com/images/products/63018434/o5mgj_400.webp",
+      "price": 614,
+      "rating": "3.5",
+      "reviews": "100 Reviews",
+      "category": "Delivery287",
+      "tag": "Delivery287"
+    },
+    {
+      "id": 158,
+      "title": "New Sanitizers/Disinfectant",
+      "image": "https://images.meesho.com/images/products/101090606/jecdu_400.webp",
+      "price": 121,
+      "rating": "4.0",
+      "reviews": "100 Reviews",
+      "category": "Beauty & Health",
+      "tag": "Sanitizers"
+    }
+  ]
 }

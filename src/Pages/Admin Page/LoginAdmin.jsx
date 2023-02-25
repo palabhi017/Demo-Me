@@ -17,7 +17,8 @@ import React from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
-
+import { useToast } from "@chakra-ui/react";
+import "../../CSS/AdminLoginPage.css";
 const initialState = {
   email: "",
   password: "",
@@ -26,7 +27,9 @@ const initialState = {
 export default function LoginAdmin() {
   const [val, setVal] = React.useState(initialState);
   const [text, setText] = React.useState(false);
-  const navigate = useNavigate;
+  const navigate = useNavigate();
+  const handleToast = useToast();
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setVal({ ...val, [name]: value });
@@ -34,26 +37,50 @@ export default function LoginAdmin() {
   console.log("val", val);
 
   const handleSubmit = async () => {
+    setText(false);
     if (val.password === "citySlicka") {
       try {
         let res = await axios.post("https://reqres.in/api/login", val);
         console.log(res.data.token);
-        setText("true");
+        setText(true);
+
+        handleToast({
+          position: "top-right",
+          title: "Hlo Admin Welcome back",
+          description: "Now You can do your work.",
+          status: "success",
+          duration: 9000,
+          isClosable: true,
+        });
       } catch (err) {
         console.log(err);
-
         setText(false);
-        toast("Please Check id and Password");
+        setText(false);
+        handleToast({
+          position: "top-right",
+          description: "Please Check your id and passoword",
+          title: "Wrong Credential",
+          status: "success",
+          duration: 9000,
+          isClosable: true,
+        });
       }
     } else {
-      toast("Please Check Password once again");
+      handleToast({
+        position: "top-right",
+        description: "Please Check your passoword",
+        title: "Wrong Credential",
+        status: "success",
+        duration: 9000,
+        isClosable: true,
+      });
     }
     setVal(initialState);
   };
-  React.useEffect(() => {}, []);
 
-  if (setText) {
-    navigate("/admin");
+  if (text === true) {
+    console.log("helllo");
+    navigate("/AdminDashboard");
   }
 
   return (

@@ -1,7 +1,58 @@
 import React from 'react'
 import styles from "../CSS/PaymentPage.module.css";
-
+import { useEffect,useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { AUTH_SUCCESS } from '../Redux/Auth/auth.types';
+import { useNavigate } from 'react-router-dom';
 const PaymentPage = () => {
+const userId = useSelector((state)=> state.Auth.currentUser.id)
+const cartItems = useSelector((state)=> state.Auth.currentUser.cart)
+// const [loginUserData,setLoginUserData] = useState([])
+const dispatch = useDispatch()
+const navigate = useNavigate()
+  // const getUserData = async () => {
+  //   try {
+  //     let r = await fetch(`http://localhost:8080/login/${userId}`);
+  //     let d = await r.json();
+
+  //     setLoginUserData(d.cart);
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
+  // console.log(userData)
+
+  const cartDetails = async () => {
+    try {
+      let r = await fetch(`http://localhost:8080/login/${userId}`, {
+        method: "PATCH",
+        body: JSON.stringify({
+          cart: [],
+          order:[...cartItems]
+        }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      let d = await r.json();
+      dispatch({type:AUTH_SUCCESS,payload:d})
+      console.log(d);
+    } catch (error) {
+      console.log(error);
+    }
+    // setTimeout(()=>{
+    //   dispatch(getUsersData())
+    // },1500)
+  };
+
+const handlesubmit =(e)=>{
+e.preventDefault()
+alert("payment successful")
+cartDetails()
+navigate("/order")
+}
+
+
   return (
     <div className={styles.container} >
         <div className={styles.left} >
@@ -73,7 +124,7 @@ const PaymentPage = () => {
                     <input type="number" placeholder='CVV' />
                   </label>
                 </div>
-                <input type="submit" value="Proceed to checkout" />
+                <input type="submit" onClick={(e)=>handlesubmit(e)} value="Proceed to checkout" />
           </form>
              
         </div>

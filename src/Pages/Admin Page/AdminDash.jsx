@@ -169,7 +169,7 @@ const AdminDash = () => {
                         height={"240px"}
                         src={el.image2}
                         borderRadius="lg"
-                        alt="image 2 starting"
+                        alt=""
                       />
                     </Box>
                   </Box>

@@ -16,13 +16,13 @@ const CartPage = () => {
   // const { totalprice } = useSelector((store: any) => store.authManager)
   const [total,settotal] = useState(0)
   const [cartdata, setcartdata] = useState([])
-  const { currentUser, isAuth } = useSelector(
-    (store) => store.authManager
-  );
-  const id = useSelector((state) => state.Auth.currentUser);
+  // const { currentUser, isAuth } = useSelector(
+  //   (store) => store.authManager
+  // );
+  const userId = useSelector((state) => state.Auth.currentUser);
   const login = useSelector((state) => state.Auth.isAuth);
   
-console.log(currentUser)
+
   const handletotal = ()=>{
     var temp = cartdata
       let sum =0
@@ -38,7 +38,7 @@ console.log(currentUser)
   const getUserData = async () => {
     try {
       
-      let r = await axios.get(`http://localhost:8080/login/${id}`);
+      let r = await axios.get(`http://localhost:8080/login/${userId}`);
       let d = r.data
       setcartdata(d.cart)
       console.log(d.cart)
@@ -52,7 +52,7 @@ console.log(currentUser)
 
   const handledelete = async (orderId) => {
     try {
-      let r = await axios.patch(`http://localhost:8080/login/${id}`, { cart: cartdata.filter((item) => item.orderId !== orderId) })
+      let r = await axios.patch(`http://localhost:8080/login/${userId}`, { cart: cartdata.filter((item) => item.orderId !== orderId) })
       
       setcartdata(r.data)
       getUserData()
@@ -74,7 +74,7 @@ console.log(currentUser)
       }
   
   try {
-    let r = await axios.patch(`https://backendsirver-for-daily-needs.vercel.app/users/${currentUser.id}`, { cart: temp })
+    let r = await axios.patch(`http://localhost:8080/login/${userId}`, { cart: temp })
     
     setcartdata(r.data)
     getUserData()
@@ -93,16 +93,16 @@ console.log(currentUser)
 
 
 
-  if (!isAuth) {
-      // erroralert();
-       // nav("/login");
-   return <Heading>Please Login Now</Heading>
+  // if (!isAuth) {
+  //     // erroralert();
+  //      // nav("/login");
+  //  return <Heading>Please Login Now</Heading>
   
-    // nav("/login");
-    // return;
-  }else{
+  //   // nav("/login");
+  //   // return;
+  // }else{
 
-  }
+  // }
    
   
  

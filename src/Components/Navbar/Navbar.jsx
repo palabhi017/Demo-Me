@@ -151,10 +151,10 @@ const Navbar = ({ display = "flex" }) => {
             </Menu>
             <Menu>
               <MenuButton>
-                <Flex direction="column" alignItems="center">
+              <Link to="/cart">  <Flex direction="column" alignItems="center">
                   <AiOutlineShoppingCart fontSize="25px" />
                   <Text>Cart</Text>
-                </Flex>
+                </Flex></Link>
               </MenuButton>
             </Menu>
           </ButtonGroup>

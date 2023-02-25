@@ -6,11 +6,10 @@ import {
   FilterData,
   getAdminData,
 } from "../../Redux/Admin/admin.action";
-import { Box, ButtonGroup, Stack } from "@chakra-ui/react";
+
 import { ChevronDownIcon } from "@chakra-ui/icons";
 import {
   Card,
- 
   CardBody,
   CardFooter,
   Image,
@@ -19,25 +18,27 @@ import {
   Heading,
   Button,
   Flex,
-} from "@chakra-ui/react";
-import { Link } from "react-router-dom";
-import {
+  Box,
+  ButtonGroup,
+  Stack,
   Menu,
   MenuButton,
   MenuList,
   MenuItem,
- 
   MenuDivider,
 } from "@chakra-ui/react";
-import "../../CSS/AdminLoginPage.css";
+import { Link } from "react-router-dom";
 
+import "../../CSS/AdminLoginPage.css";
+import { useNavigate } from "react-router-dom";
 const AdminDash = () => {
   const [total, setTotal] = React.useState(0);
 
   const state = useSelector((store) => store.adminReducer);
   const val = state.data.data;
+  console.log("val",val)
   const dispatch = useDispatch();
-
+  const navigate = useNavigate();
   const handleUpdate = (id, price, title) => {};
 
   const handleDelete = (e) => {
@@ -50,7 +51,8 @@ const AdminDash = () => {
 
   const ToTalData = () => {
     if (state.data.data) {
-      setTotal(val.reduce((acc, el) => acc + Number(el.price), 0));
+      setTotal(val.reduce((acc, el) => acc +Number(el.price), 0));
+    
     } else {
       setTotal(0);
     }
@@ -86,7 +88,10 @@ const AdminDash = () => {
           }}
         >
           <ButtonGroup>
-            <Button colorScheme="pink">
+            <Button
+              backgroundColor="rgb(244, 51, 151)"
+              fontFamily={" 'Lobster Two', cursive"}
+            >
               Total Products :
               {state.data.data && state.data.data.length
                 ? state.data.data.length
@@ -102,24 +107,45 @@ const AdminDash = () => {
                 _hover={{ bg: "rgb(153, 153, 153).400" }}
                 _expanded={{ bg: "rgb(153, 153, 153).400" }}
                 _focus={{ boxShadow: "outline" }}
+                fontFamily={" 'Lobster Two', cursive"}
               >
                 Category <ChevronDownIcon />
               </MenuButton>
               <MenuList>
-                <MenuItem onClick={() => handleSelectData("men")}>Men</MenuItem>
-                <MenuItem onClick={() => handleSelectData("women")}>
+                <MenuItem
+                  fontFamily={" 'Lobster Two', cursive"}
+                  onClick={() => handleSelectData("men")}
+                >
+                  Men
+                </MenuItem>
+                <MenuItem
+                  fontFamily={" 'Lobster Two', cursive"}
+                  onClick={() => handleSelectData("women")}
+                >
                   Women
                 </MenuItem>
                 <MenuDivider />
-                <MenuItem onClick={() => handleSelectData("Beauty & Health")}>
+                <MenuItem
+                  fontFamily={" 'Lobster Two', cursive"}
+                  onClick={() => handleSelectData("Beauty & Health")}
+                >
                   {" "}
                   Cosmatics
                 </MenuItem>
-                <MenuItem>Jewellery and Accessories</MenuItem>
-                <MenuItem>FootWear</MenuItem>
+                <MenuItem fontFamily={" 'Lobster Two', cursive"}>
+                  Jewellery and Accessories
+                </MenuItem>
+                <MenuItem fontFamily={" 'Lobster Two', cursive"}>
+                  FootWear
+                </MenuItem>
               </MenuList>
             </Menu>
-            <Button colorScheme="pink">Total Inventory : ₹{total}</Button>
+            <Button
+              fontFamily={" 'Lobster Two', cursive"}
+              backgroundColor="rgb(244, 51, 151)"
+            >
+              Total Inventory : ₹{total}
+            </Button>
           </ButtonGroup>
         </Flex>
       </Box>
@@ -150,41 +176,34 @@ const AdminDash = () => {
                         src={el.image}
                         alt={el.title}
                         className="BeforeHover"
-                        borderRadius="lg"
-                        width={"300px"}
-                        height={"200px"}
-                        justifyContent={"center"}
-                        margin={"auto"}
-                        textAlign={"center"}
                       />
                     </Box>
                     <Box
                       _hover={{ display: "none" }}
                       position={"absolute"}
                       top="0px"
+                      left="0px"
                       className="delayImagevalue"
                     >
                       <Image
                         justifyContent={"center"}
-                        margin={"auto"}
-                        textAlign={"center"}
-                        width={"300px"}
-                        height={"240px"}
                         src={el.image2}
-                        borderRadius="lg"
+                        
                         className="delayImagevalue"
                       />
                     </Box>
                   </Box>
                   <Stack mt="6" spacing="3">
-                    <Heading size="md">{el.category}</Heading>
+                    <Heading size="md" fontFamily={" 'Lobster Two', cursive"}>
+                      {el.category}
+                    </Heading>
                     <Text
-                      fontSize={"2xl"}
+                      fontSize={"xl"}
                       style={{
                         color: " rgb(153, 153, 153)",
                         fontWeight: "400",
-                        fontFamily: "Mier book",
                       }}
+                      fontFamily={" 'Lobster Two', cursive"}
                     >
                       {el.title}
                     </Text>
@@ -192,17 +211,32 @@ const AdminDash = () => {
                       style={{ fontWeight: "700" }}
                       color="rgb(51, 51, 51)"
                       fontSize="2xl"
+                   
                     >
-                      Price ₹{el.price}
+                     <span fontFamily={"'Lobster Two', cursive"}>Price ₹</span> {el.price}
                     </Text>
 
-                    <Text color="blue.600" fontSize="2xl">
-                      <span style={{ fontWeight: "700" }}>Tag</span> {el.tag}
+                    <Text
+                      fontFamily={" 'Lobster Two', cursive"}
+                      color="blue.600"
+                      fontSize="2xl"
+                    >
+                      <span
+                        fontFamily={" 'Lobster Two', cursive"}
+                        style={{ fontWeight: "700" }}
+                      >
+                        Tag
+                      </span>{" "}
+                      {el.tag}
                     </Text>
                     <Flex
                       style={{ gap: "20px", justifyContent: "space-evenly" }}
                     >
-                      <Text color="blue.600" fontSize="2xl">
+                      <Text
+                        fontFamily={" 'Lobster Two', cursive"}
+                        color="blue.600"
+                        fontSize="2xl"
+                      >
                         {el.reviews}
                       </Text>
 
@@ -210,8 +244,13 @@ const AdminDash = () => {
                         style={{ border: "18px 12px" }}
                         bg={"rgb(244, 51, 151)"}
                         className="btn_Hover"
+                        fontFamily={" 'Lobster Two', cursive"}
                       >
-                        <Text color="#ffff" fontSize="2xl">
+                        <Text
+                          fontFamily={" 'Lobster Two', cursive"}
+                          color="#ffff"
+                          fontSize="2xl"
+                        >
                           {el.rating}
                         </Text>
                       </Button>
@@ -227,21 +266,20 @@ const AdminDash = () => {
                       color={"#ffff"}
                       className="btn_Hover"
                       onClick={() => handleDelete(el.id)}
+                      fontFamily={" 'Lobster Two', cursive"}
                     >
                       Delete
+                    </Button>{" "}
+                    <Button
+                      variant="solid"
+                      bg={"rgb(244, 51, 151)"}
+                      color={"#ffff"}
+                      className="btn_Hover"
+                      onClick={() => handleUpdate(el.id, el.price, el.title)}
+                      fontFamily={" 'Lobster Two', cursive"}
+                    >
+                      Update
                     </Button>
-
-                    <Link path="/AdminUpdate">
-                      <Button
-                        variant="solid"
-                        bg={"rgb(244, 51, 151)"}
-                        color={"#ffff"}
-                        className="btn_Hover"
-                        onClick={() => handleUpdate(el.id, el.price, el.title)}
-                      >
-                        Update
-                      </Button>
-                    </Link>
                   </ButtonGroup>
                 </CardFooter>
               </Card>

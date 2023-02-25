@@ -11,12 +11,11 @@ import {
   Heading,
   Text,
   useColorModeValue,
-  AspectRatio,
 } from "@chakra-ui/react";
 import React from "react";
 import axios from "axios";
-import { Navigate, useNavigate } from "react-router-dom";
-import { ToastContainer, toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
 import { useToast } from "@chakra-ui/react";
 import "../../CSS/AdminLoginPage.css";
 const initialState = {
@@ -84,19 +83,37 @@ export default function LoginAdmin() {
   // }
 
   return (
-    <Box>
-      <Text>Welcome</Text>
+    <Box    className="AdminLoginPageCSS">
+      <Heading
+        color={"gray.800"}
+        lineHeight={1.1}
+        fontSize={{ base: "2xl", sm: "3xl", md: "4xl" }}
+        fontFamily={" 'Lobster Two', cursive"}
+      >
+        Welcome Admin
+        <br></br>
+        Please Add Your Crenditial
+        <Text as={"span"} bgClip="text">
+          !
+        </Text>
+      </Heading>
       <Flex
         minH={"100vh"}
         align={"center"}
         justify={"center"}
-        bg={useColorModeValue("gray.50", "gray.800")}
-        className="AdminLoginPage"
+        // bg={useColorModeValue("gray.50", "gray.800")}
+        className="AdminLoginPageCSS"
       >
-        <Stack spacing={8} mx={"auto"} maxW={"lg"} py={12} px={6}>
+        <Stack spacing={8} mx={"auto"} maxW={"lg"} py={12} px={6}    className="LoginAdminBAHAR">
           <Stack align={"center"}>
-            <Heading fontSize={"4xl"}>Sign in to your account</Heading>
-            <Text fontSize={"lg"} color={"gray.600"}>
+            <Heading fontSize={"4xl"} fontFamily={" 'Lobster Two', cursive"}>
+              Sign in to your account
+            </Heading>
+            <Text
+              fontSize={"lg"}
+              color={"gray.600"}
+              fontFamily={" 'Lobster Two', cursive"}
+            >
               to enjoy all of our cool <Link color={"blue.400"}>features</Link>{" "}
               ✌️
             </Text>
@@ -106,10 +123,13 @@ export default function LoginAdmin() {
             bg={useColorModeValue("white", "gray.700")}
             boxShadow={"lg"}
             p={8}
+            className="AdminLoginPageCSS"
           >
             <Stack spacing={4}>
               <FormControl id="email">
-                <FormLabel>Email address</FormLabel>
+                <FormLabel fontFamily={" 'Lobster Two', cursive"}>
+                  Email address
+                </FormLabel>
                 <Input
                   type="email"
                   onChange={handleChange}
@@ -118,7 +138,9 @@ export default function LoginAdmin() {
                 />
               </FormControl>
               <FormControl id="password">
-                <FormLabel>Password</FormLabel>
+                <FormLabel fontFamily={" 'Lobster Two', cursive"}>
+                  Password
+                </FormLabel>
                 <Input
                   type="password"
                   onChange={handleChange}
@@ -132,8 +154,15 @@ export default function LoginAdmin() {
                   align={"start"}
                   justify={"space-between"}
                 >
-                  <Checkbox>Remember me</Checkbox>
-                  <Link color={"blue.400"}>Forgot password?</Link>
+                  <Checkbox fontFamily={" 'Lobster Two', cursive"}>
+                    Remember me
+                  </Checkbox>
+                  <Link
+                    color={"blue.400"}
+                    fontFamily={" 'Lobster Two', cursive"}
+                  >
+                    Forgot password?
+                  </Link>
                 </Stack>
 
                 <Button
@@ -142,6 +171,7 @@ export default function LoginAdmin() {
                   _hover={{
                     bg: "blue.500",
                   }}
+                  fontFamily={" 'Lobster Two', cursive"}
                   onClick={handleSubmit}
                 >
                   Sign in

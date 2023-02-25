@@ -1,15 +1,12 @@
 {
   "login": [
-   
     {
       "name": "Rahul dudka",
       "email": "rahul@gmail.com",
       "password": "rahul@123",
       "cart": [],
       "id": 4,
-      "order": [
-        
-      ]
+      "order": []
     }
   ],
   "products": [
@@ -1620,7 +1617,7 @@
       "id": 155,
       "title": "Everyday Sanitizers/Disinfectant",
       "image": "https://images.meesho.com/images/products/99681248/c263x_400.webp",
-      "image2": "https://5.imimg.com/data5/ANDROID/Default/2022/8/IV/PI/VQ/137621935/product-jpeg-500x500.jpg",
+      "image2": "https://images.meesho.com/images/products/99681248/c263x_400.webp",
       "price": 715,
       "rating": "3.9",
       "reviews": "100 Reviews",
@@ -1631,7 +1628,7 @@
       "id": 156,
       "title": "Classic Sanitizers/Disinfectant",
       "image": "https://images.meesho.com/images/products/85939381/ehxn8_400.webp",
-      "image2": "https://images.meesho.com/images/products/75033912/5d0j1_512.webp",
+      "image2": "https://images.meesho.com/images/products/85939381/ehxn8_400.webp",
       "price": 547,
       "rating": "3.8",
       "reviews": "100 Reviews",
@@ -1642,7 +1639,7 @@
       "id": 157,
       "title": "Classic Sanitizers/Disinfectant",
       "image": "https://images.meesho.com/images/products/63018434/o5mgj_400.webp",
-      "image2": "https://images.meesho.com/images/products/220056072/zjhta_512.webp",
+      "image2": "https://images.meesho.com/images/products/63018434/o5mgj_400.webp",
       "price": 614,
       "rating": "3.5",
       "reviews": "100 Reviews",
@@ -1664,22 +1661,22 @@
       "image": "https://rukminim1.flixcart.com/image/832/832/xif0q/t-shirt/a/b/r/xl-bhtslv22573-being-human-original-imagkk33y37edrfh.jpeg?q=70",
       "image2": "https://rukminim1.flixcart.com/image/832/832/xif0q/t-shirt/4/w/q/xl-bhtslv22573-being-human-original-imagkk332gpbudew.jpeg?q=70",
       "price": "324",
-      "rating": 4.662112203247495,
+      "rating": 4.4,
       "reviews": "4455",
       "category": "tshirt",
       "tag": "Men casual tshirt",
       "id": 159
     },
     {
-      "title": "Men Gym Vest",
-      "image": "https://images.meesho.com/images/products/88793806/uq0vn_512.webp",
-      "image2": "https://images.meesho.com/images/products/88793806/x4rsw_64.webp",
-      "price": "500",
-      "rating": -1,
-      "reviews": "3",
-      "category": "Men",
-      "tag": "-",
-      "id": 160
+      "title": "Mens Watch",
+      "image": "https://cdn.shopify.com/s/files/1/0137/0292/2286/products/gladiator-gold-black_3_360x.png?v=1672284246",
+      "image2": "https://cdn.shopify.com/s/files/1/0137/0292/2286/products/gladiator-light-gold_1_360x.png?v=1672284250",
+      "price": "2,999",
+      "rating": 4.2,
+      "reviews": "4.5",
+      "category": "Mens Watch",
+      "tag": "watch",
+      "id": 161
     }
   ],
   "homepage": [

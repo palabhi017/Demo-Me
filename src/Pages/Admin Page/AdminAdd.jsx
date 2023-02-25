@@ -5,14 +5,15 @@ import {
   Box,
   Heading,
   Button,
- 
   Input,
   Center,
   FormControl,
 } from "@chakra-ui/react";
-import {  useDispatch } from "react-redux";
+import { useToast } from "@chakra-ui/react";
+import { useDispatch } from "react-redux";
 import { postAdminData } from "../../Redux/Admin/admin.action";
 import "../../CSS/AdminLoginPage.css";
+import { useNavigate } from "react-router";
 const initialState = {
   title: "",
   image: "",
@@ -27,14 +28,43 @@ const initialState = {
 const AdminAdd = () => {
   const [val, setVal] = React.useState(initialState);
   const dispatch = useDispatch();
+  const handleToast = useToast();
+  const navigate=useNavigate()
   const handleChange = (e) => {
     const { name, value } = e.target;
     setVal({ ...val, [name]: value });
   };
 
   const addProduct = () => {
-    dispatch(postAdminData(val));
-    setVal(initialState);
+    if (
+      val.title &&
+      val.image &&
+      val.image2 &&
+      val.price &&
+      val.rating &&
+      val.reviews &&
+      val.category &&
+      val.tag
+    ) {
+      dispatch(postAdminData(val));
+      setVal(initialState);
+      handleToast({
+        title: "Data SuccessFull Added.",
+        description: "Data Added Successfull.",
+        status: "success",
+        duration: 9000,
+        isClosable: true,
+      });
+      navigate("/AdminDashboard")
+    } else {
+      handleToast({
+        title: "input dont fill .",
+        description: "Please fill all the data.",
+        status: "success",
+        duration: 9000,
+        isClosable: true,
+      });
+    }
   };
 
   return (

@@ -97,13 +97,7 @@ const AdminNavbar = () => {
                     >
                       ADMIN ADD PRODUCT
                     </Button>
-                    <Button
-                      fontSize={{ base: "9px", sm: "18px" }}
-                      width="100%"
-                      onClick={() => navigate("/AdminUpdate")}
-                    >
-                      ADMIN UPDATE
-                    </Button>
+                   
                     <Button
                       fontSize={{ base: "9px", sm: "18px" }}
                       width="100%"

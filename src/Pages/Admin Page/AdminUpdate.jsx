@@ -6,8 +6,23 @@ import {
   FormLabel,
   FormErrorMessage,
   FormHelperText,
+  Button,
 } from "@chakra-ui/react";
+
+const initialState = {
+  price: "",
+  title: "",
+};
+
 const AdminUpdate = () => {
+  const [text, textVal] = React.useState({});
+
+  const handleUpdateChange = (e) => {
+    const { name, value } = e.target;
+
+    textVal({ ...text, [name]: value });
+  };
+
   return (
     <div>
       <AdminNavbar />
@@ -17,12 +32,17 @@ const AdminUpdate = () => {
       <Box style={{ width: "50%", margin: "auto" }}>
         <FormControl>
           <FormLabel> ₹Price</FormLabel>
-          <Input type="number" />
+          <Input
+            type="number"
+            onChange={handleUpdateChange}
+            value={text.price}
+          />
           <FormHelperText>You can change Price.</FormHelperText>
           <FormLabel>Title</FormLabel>
-          <Input type="text" />
+          <Input type="text" onChange={handleUpdateChange} value={text.title} />
           <FormHelperText>Change title here of Product.</FormHelperText>
         </FormControl>
+        <Button colorScheme={"pink"}>Update Data please</Button>
         <br />
         <br />
         <br />

@@ -16,11 +16,10 @@
   z-index: 1;
   background: #e64078;
 }
-.media_change {
-}
-.Image_hover:hover {
-  /* z-index: 2;
-  position: relative;
-  border-radius: 40px; */
 
+.delayImagevalue:hover {
+  transition-delay: 1s;
+}
+.BeforeHover {
+  transition: 0s;
 }

@@ -29,7 +29,6 @@ const AllRoutes = () => {
       <Route path="/AdminAdd" element={<AdminAdd />} />
       <Route path="/AdminDashboard" element={<AdminDash />} />
       <Route path="/AdminUpdate" element={<AdminUpdate />} />
-
     </Routes>
   );
 };

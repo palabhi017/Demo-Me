@@ -4,8 +4,7 @@ import AllRoutes from "./Pages/AllRoutes";
 import Footer from "./Components/Footer";
 
 import SmallNavbar from "./Components/Navbar/SmallNavbar";
-
-
+import GoOnTop from "./Components/GoOnTop";
 
 function App() {
   return (
@@ -16,10 +15,10 @@ function App() {
       <div className="small">
         <SmallNavbar />
       </div>
-      
+
       <AllRoutes />
       <Footer />
-  
+      <GoOnTop />
     </div>
   );
 }

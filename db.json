@@ -1,24 +1,13 @@
 {
   "login": [
-    {
-      "name": "Abhishek pal",
-      "email": "palabhi017@gmail.com",
-      "password": "abhi@123",
-      "cart": [],
-      "id": 1
-    },
-    {
-      "name": "Anil Pal",
-      "email": "Nikku19641964@gmail.com",
-      "password": "anil@123",
-      "cart": [],
-      "id": 3
-    },
+   
     {
       "name": "Rahul dudka",
       "email": "rahul@gmail.com",
       "password": "rahul@123",
-      "cart": [
+      "cart": [],
+      "id": 4,
+      "order": [
         {
           "image": "https://images.meesho.com/images/products/180058467/r5p2g_400.webp",
           "price": 105,
@@ -61,8 +50,7 @@
           "quantity": 1,
           "orderId": 1677329524722
         }
-      ],
-      "id": 4
+      ]
     }
   ],
   "products": [
@@ -1711,8 +1699,6 @@
       "reviews": "100 Reviews",
       "category": "Beauty & Health",
       "tag": "Sanitizers"
-
-
     },
     {
       "title": "Men t shirt",
@@ -1724,7 +1710,6 @@
       "category": "tshirt",
       "tag": "Men casual tshirt",
       "id": 159
-
     }
   ],
   "homepage": [

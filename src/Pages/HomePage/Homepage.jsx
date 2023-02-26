@@ -14,7 +14,7 @@ const Homepage = () => {
 
   const getHomeData = async () => {
     try {
-      let res = await axios.get("https://good-blue-giraffe-boot.cyclic.app/homepage");
+      let res = await axios.get("http://localhost:8080/homepage");
 
       setHomeData(res.data);
       console.log(res.data);

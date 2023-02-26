@@ -2,7 +2,7 @@ import axios from "axios";
 export const getAuth= async(UserData)=>{
 
     try {
-        let res = await axios.post(`https://good-blue-giraffe-boot.cyclic.app/login`,UserData)
+        let res = await axios.post(`http://localhost:8080/login`,UserData)
       
         return res.data;
     } catch (error) {

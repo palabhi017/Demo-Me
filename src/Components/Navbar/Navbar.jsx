@@ -82,7 +82,7 @@ const Navbar = ({ display = "flex" }) => {
   
   const handleSearch = async()=>{
     try {
-      let res = await fetch(`https://good-blue-giraffe-boot.cyclic.app/products?q=${searchInput}`)
+      let res = await fetch(`http://localhost:8080/products?q=${searchInput}`)
       let data = await res.json()
       setSearchData(data)
       if(searchInput===""){

@@ -45,7 +45,7 @@ export default function LoginPage() {
 
     if (email && password.length >= 6) {
       try {
-        let res = await fetch(`https://good-blue-giraffe-boot.cyclic.app/login`);
+        let res = await fetch(`http://localhost:8080/login`);
         let data = await res.json();
 
         let Auth = false;

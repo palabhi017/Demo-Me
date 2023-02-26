@@ -83,7 +83,9 @@ export default function LoginAdmin() {
   // }
 
   return (
+    
     <Box    className="AdminLoginPageCSS">
+      
       <Heading
         color={"gray.800"}
         lineHeight={1.1}
@@ -125,7 +127,7 @@ export default function LoginAdmin() {
             p={8}
             className="AdminLoginPageCSS"
           >
-            <Stack spacing={4}>
+            <Stack spacing={4} borderRadius={"20px"}>
               <FormControl id="email">
                 <FormLabel fontFamily={" 'Lobster Two', cursive"}>
                   Email address

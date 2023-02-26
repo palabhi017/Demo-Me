@@ -1,13 +1,6 @@
 {
   "login": [
-    {
-      "name": "Rahul dudka",
-      "email": "rahul@gmail.com",
-      "password": "rahul@123",
-      "cart": [],
-      "id": 4,
-      "order": []
-    }
+   
   ],
   "products": [
     {
@@ -123,7 +116,7 @@
       "id": 11,
       "title": "Chitrarekha Refined Kurtis",
       "image2": "https://rukminim1.flixcart.com/image/832/832/ks7tuvk0/skirt/s/k/2/s-kw2035-b-beige-karwarya-original-imag5ufdgaj6yeap.jpeg?q=70",
-      "image": "https://images.meesho.com/images/products/79962279/kidyu_400.webp",
+      "image": "https://rukminim1.flixcart.com/image/832/832/ks7tuvk0/skirt/s/k/2/s-kw2035-b-beige-karwarya-original-imag5ufdgaj6yeap.jpeg?q=70",
       "price": 283,
       "rating": "3.7",
       "reviews": "27215 Reviews",
@@ -317,8 +310,9 @@
     {
       "id": 29,
       "title": "Ikkat Georgette saree",
-      "image": "https://images.meesho.com/images/products/50455814/hdxsj_400.webp",
-      "image2": "https://rukminim1.flixcart.com/image/832/832/xif0q/gown/r/0/l/no-xs-3-4-sleeve-stitched-jdwine-xs-34-h-hiphonic-no-original-imaggbhzvt2umkzc.jpeg?q=70",
+      "image": "https://m.media-amazon.com/images/I/31Ddxik3f-L.jpg",
+      "image2": "https://m.media-amazon.com/images/I/71i30N+xgoL._UY741_.jpg",
+
       "price": 256,
       "rating": "3.6",
       "reviews": "30557 Reviews",
@@ -550,7 +544,7 @@
       "id": 51,
       "title": "Trendy Graceful Sarees",
       "image": "https://assets.ajio.com/medias/sys_master/root/20230208/IKhm/63e3665daeb26924e35f582e/-473Wx593H-465730835-yellow-MODEL.jpg",
-      "image2": "https://assets.ajio.com/medias/sys_master/root/20230208/CtR1/63e36664aeb26924e35f589d/-473Wx593H-465730835-yellow-MODEL5.jpgv",
+      "image2": "https://rukminim1.flixcart.com/image/832/832/xif0q/sari/e/z/q/free-ind-isr-4196-inddus-unstitched-original-imagjth8ghxwqjzq.jpeg?q=70",
       "price": 1609,
       "rating": "3.8",
       "reviews": "1139 Reviews",
@@ -591,6 +585,26 @@
       "tag": "salwar"
     },
     {
+
+      "id": 55,
+      "title": "Alluring Stylish Women Dupattas",
+      "image": "https://images.meesho.com/images/products/196093521/cftuj_400.webp",
+      "price": 268,
+      "rating": "3.6",
+      "reviews": "640 Reviews",
+      "category": "women",
+      "tag": "Dupattas"
+    },
+    {
+      "id": 56,
+      "title": "Aishani Ensemble Kurtis",
+      "image": "https://images.meesho.com/images/marketing/1657272929894.png",
+      "price": 409,
+      "rating": "4.0",
+      "reviews": "26854 Reviews",
+      "category": "women",
+      "tag": "Kurtis"
+
       "id": 57,
       "title": "Alisha Refined Kurtis",
       "image": "https://desiymien.com/wp-content/uploads/2022/08/4109-4.jpg",
@@ -611,6 +625,7 @@
       "reviews": "55 Reviews",
       "category": "women",
       "tag": "Petticoats"
+
     },
     {
       "id": 59,
@@ -658,8 +673,8 @@
     {
       "id": 63,
       "title": "Stylish Fabulous Men Tshirts",
-      "image": "https://images-do.nyc3.cdn.digitaloceanspaces.com/lAVtCJXFVr/product_images/1635247734.BKT0086.jpeg",
-      "image2": "https://images-do.nyc3.cdn.digitaloceanspaces.com/lAVtCJXFVr/product_images/1635247763.BKT0086-.jpeg",
+      "image": "https://m.media-amazon.com/images/I/71rzKMArJZL._UX569_.jpg",
+      "image2": "https://m.media-amazon.com/images/I/61TJKr1QCcL._UX569_.jpg",
       "price": 541,
       "rating": "3.9",
       "reviews": "32195 Reviews",
@@ -775,8 +790,9 @@
     {
       "id": 74,
       "title": "Designer Modern Men Jeans",
-      "image": "https://images.meesho.com/images/marketing/1657272929894.png",
-      "price": 375,
+      "image": "https://cdn3.mydukaan.io/app/image/700x700/?url=https://dukaan-core-file-service.s3.ap-southeast-1.amazonaws.com/upload_file_service/52d39911-be9b-4fae-b566-f799910a4c3b/00x-7359fc63-4323-4bf8-a384-39a458567fdd-540x-webp",
+      "image2": "https://cdn3.mydukaan.io/app/image/700x700/?url=https://dukaan-core-file-service.s3.ap-southeast-1.amazonaws.com/upload_file_service/74bd0de0-caa8-45ce-bcff-a74a67ee55e4/00x-fc7605d7-969d-4820-aa18-7c9647513bc0-540x-webp",
+      "price": 1375,
       "rating": "3.9",
       "reviews": "453 Reviews",
       "category": "men",
@@ -1572,8 +1588,8 @@
     {
       "id": 149,
       "title": "Classic Sanitizers/Disinfectant",
-      "image": "https://images.meesho.com/images/products/146200866/hqdxc_400.webp",
-      "image2": "https://www.jiomart.com/images/product/600x600/491899736/my-home-mopz-lime-fresh-disinfectant-surface-cleaner-5-l-product-images-o491899736-p590142237-0-202203150148.jpg",
+      "image": "https://m.media-amazon.com/images/I/61HhZ5zvNsS._SX522_.jpg",
+      "image2": "https://m.media-amazon.com/images/I/51iSxWqhu1L._SX522_.jpg",
       "price": 240,
       "rating": "3.7",
       "reviews": "357 Reviews",
@@ -1604,9 +1620,9 @@
     },
     {
       "id": 152,
-      "title": "\"\" Classy Sanitizers/Disinfectant\"\"",
-      "image": "https://images.meesho.com/images/pow/mall-badge-plp.png",
-      "image2": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQ4CHgsOL0p22U9LHqWUcyfm0Axsau_fgpxq2XG5kGVPGb-vccD",
+      "title": "Classy Sanitizers/Disinfectant",
+      "image": "https://cdn.shopify.com/s/files/1/0014/1787/1417/products/handSanitizer8oz_1_1024x1024.jpg?v=1600361027",
+      "image2": "https://cdn.shopify.com/s/files/1/0014/1787/1417/products/handsanitizer8_1024x1024.png?v=1600361027",
       "price": 750,
       "rating": "4.4",
       "reviews": "192 Reviews",
@@ -1635,6 +1651,7 @@
       "tag": "Sanitizers"
     },
     {
+
       "id": 155,
       "title": "Everyday Sanitizers/Disinfectant",
       "image": "https://images.meesho.com/images/products/99681248/c263x_400.webp",
@@ -1646,6 +1663,7 @@
       "tag": "Delivery287"
     },
     {
+
       "id": 156,
       "title": "Classic Sanitizers/Disinfectant",
       "image": "https://images.meesho.com/images/products/85939381/ehxn8_400.webp",
@@ -1687,6 +1705,8 @@
       "category": "tshirt",
       "tag": "Men casual tshirt",
       "id": 159
+
+
     },
     {
       "title": "Mens Watch",
@@ -1698,6 +1718,7 @@
       "category": "Mens Watch",
       "tag": "watch",
       "id": 161
+
     }
   ],
   "homepage": [
@@ -1836,8 +1857,8 @@
     {
       "id": 61,
       "title": "Stylish Designer Men Shirts",
-      "image": "https://images.meesho.com/images/products/144906418/lscec_400.webp",
-      "image2": "https://images.meesho.com/images/products/155087449/hl3o5_512.webp",
+      "image": "https://m.media-amazon.com/images/I/31OKwViZ6NL._SX342_SY445_.jpg",
+      "image2": "https://m.media-amazon.com/images/I/71J+pgQdaDL._UY550_.jpg",
       "price": 297,
       "rating": "3.9",
       "reviews": "25920 Reviews",
@@ -1857,8 +1878,8 @@
     {
       "id": 63,
       "title": "Stylish Fabulous Men Tshirts",
-      "image": "https://images.meesho.com/images/products/50754822/yyxp4_400.webp",
-      "image2": "https://images.meesho.com/images/products/137946709/5pfau_512.webp",
+      "image": "https://m.media-amazon.com/images/I/81JMvHSArBL._SY550._SX._UX._SY._UY_.jpgvvvv",
+      "image2": "https://m.media-amazon.com/images/I/91kutb51OyL._SY550._SX._UX._SY._UY_.jpg",
       "price": 241,
       "rating": "3.9",
       "reviews": "32195 Reviews",

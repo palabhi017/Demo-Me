@@ -1,4 +1,4 @@
-import React,{useState,useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import {
   Accordion,
   AccordionItem,
@@ -14,38 +14,40 @@ import { useDispatch, useSelector } from "react-redux";
 import { getProducts } from "../Redux/Products/product.action";
 import CheckBoxes from "./CheckBoxes";
 
-const Filter = ({handlesort}) => {
+const Filter = ({ handlesort }) => {
   const [searchParams, setSearchParams] = useSearchParams();
-  
- const protype = useSelector((state)=> state.productReducer.protypes)
-    const initialFilterValues = searchParams.getAll('filter')
-    const initialSortValues = searchParams.get('sort')
-    const [sortValues, setSortValues] = useState(initialSortValues|| "");
-    const [filterValues, setFilterValues] = useState(initialFilterValues || []);
-    let arr1=["saree","Kurtis","Dupattas","Blouse","Patticoats","Pants"]
-    let arr2=["topwear","bottomwear","menaccessories","menfootwear","Kurtas"]
-    let arr3=["MakeUp","oral care","Lips","Eyes","Sanitizers"]
+
+  const protype = useSelector((state) => state.productReducer.protypes);
+  const initialFilterValues = searchParams.getAll("filter");
+  const initialSortValues = searchParams.get("sort");
+  const [sortValues, setSortValues] = useState(initialSortValues || "");
+  const [filterValues, setFilterValues] = useState(initialFilterValues || []);
+  let arr1 = ["saree", "Kurtis", "Dupattas", "Blouse", "Patticoats", "Pants"];
+  let arr2 = [
+    "topwear",
+    "bottomwear",
+    "menaccessories",
+    "menfootwear",
+    "Kurtas",
+  ];
+  let arr3 = ["MakeUp", "oral care", "Lips", "Eyes", "Sanitizers"];
   const dispatch = useDispatch();
 
-  const handleFilterChange  = (value) => {
-    setFilterValues(value)
-}
+  const handleFilterChange = (value) => {
+    setFilterValues(value);
+  };
 
-  const handleSortChange  = (value) => {
-    setSortValues(value)
-    
-}
-useEffect(() => {
-  
-  let params= {}
-  
-  if(sortValues) params.sort = sortValues;
-  if(filterValues) params.filter = filterValues;
- 
-  setSearchParams(params)
- 
- 
-}, [sortValues,filterValues])
+  const handleSortChange = (value) => {
+    setSortValues(value);
+  };
+  useEffect(() => {
+    let params = {};
+
+    if (sortValues) params.sort = sortValues;
+    if (filterValues) params.filter = filterValues;
+
+    setSearchParams(params);
+  }, [sortValues, filterValues]);
   return (
     <>
       <VStack
@@ -72,12 +74,12 @@ useEffect(() => {
         >
           Price
         </Text>
-        <RadioGroup value={sortValues} onChange={handleSortChange} >
+        <RadioGroup value={sortValues} onChange={handleSortChange}>
           <Stack spacing={5} direction="column">
-            <Radio colorScheme="green"  value="asc">
+            <Radio colorScheme="green" value="asc">
               Low to High
             </Radio>
-            <Radio colorScheme="green"  value="desc">
+            <Radio colorScheme="green" value="desc">
               High to Low
             </Radio>
           </Stack>
@@ -102,16 +104,26 @@ useEffect(() => {
         <Text pb="15px" textAlign="left" fontSize="20px" fontWeight="400">
           Category
         </Text>
-        <CheckboxGroup colorScheme="green" value={filterValues} onChange={handleFilterChange}>
+        <CheckboxGroup
+          colorScheme="green"
+          value={filterValues}
+          onChange={handleFilterChange}
+        >
           <Stack
             spacing={[1, 5]}
             direction={["column"]}
             borderBottom="1px solid #999"
             pb="20px"
-          >{protype && protype==="women"&& arr1.map((e)=> <CheckBoxes data={e}/>)}
-          {protype && protype==="men"&& arr2.map((e)=> <CheckBoxes data={e}/>)}
-          {protype && protype==="health"&& arr3.map((e)=> <CheckBoxes data={e}/>)}
-           
+          >
+            {protype &&
+              protype === "women" &&
+              arr1.map((e) => <CheckBoxes data={e} />)}
+            {protype &&
+              protype === "men" &&
+              arr2.map((e) => <CheckBoxes data={e} />)}
+            {protype &&
+              protype === "health" &&
+              arr3.map((e) => <CheckBoxes data={e} />)}
           </Stack>
         </CheckboxGroup>
         {/* checking */}

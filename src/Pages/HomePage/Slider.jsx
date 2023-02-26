@@ -17,11 +17,11 @@ const CarouselHomepage = () => {
         autoplay={2000}
         cols={1}
         rows={1}
-        loop
         height={"300px"}
+        loop
       >
         <Carousel.Item>
-          <img alt="." width="100%" loop height={"300px"} src={header1} />
+          <img alt="." width="100%" height={"300px"} src={header1} />
         </Carousel.Item>
         <Carousel.Item>
           <img

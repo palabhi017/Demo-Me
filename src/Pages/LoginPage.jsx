@@ -52,8 +52,8 @@ export default function LoginPage() {
         for (let i in data) {
           if (data[i].email === email && data[i].password === password) {
             Auth = true;
-            dispatch({type:AUTH_SUCCESS,payload:data[i]})
-            dispatch({type:SET_CUR_NAME,payload:data[i].name})
+            dispatch({ type: AUTH_SUCCESS, payload: data[i] });
+            dispatch({ type: SET_CUR_NAME, payload: data[i].name });
             break;
           }
         }
@@ -61,7 +61,7 @@ export default function LoginPage() {
         if (Auth == false) {
           alert("Your email or password incorrect");
         } else {
-          navigate("/")
+          navigate("/");
           // alert("you are loged in successfully")
         }
         console.log(Auth);
@@ -72,11 +72,10 @@ export default function LoginPage() {
       setPassword("");
     } else {
       //Toast use karunga mai
-      if(!email){
-
-        alert("Please fill your email")
-      }else if(password.length<6){
-        alert("password should contain at least 6 character")
+      if (!email) {
+        alert("Please fill your email");
+      } else if (password.length < 6) {
+        alert("password should contain at least 6 character");
       }
     }
   };
@@ -94,7 +93,7 @@ export default function LoginPage() {
             <FormLabel>Email address</FormLabel>
             <Input
               type="email"
-              onChange={(e)=> setEmail(e.target.value)}
+              onChange={(e) => setEmail(e.target.value)}
               name="email"
               value={email}
             />
@@ -103,7 +102,7 @@ export default function LoginPage() {
             <FormLabel>Password</FormLabel>
             <Input
               type="password"
-              onChange={(e)=> setPassword(e.target.value)}
+              onChange={(e) => setPassword(e.target.value)}
               name="password"
               value={password}
             />

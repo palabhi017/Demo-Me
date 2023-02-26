@@ -14,7 +14,7 @@ const Homepage = () => {
 
   const getHomeData = async () => {
     try {
-      let res = await axios.get("http://localhost:8080/homepage");
+      let res = await axios.get("https://good-blue-giraffe-boot.cyclic.app/homepage");
 
       setHomeData(res.data);
       console.log(res.data);
@@ -50,12 +50,13 @@ const Homepage = () => {
         {homeData &&
           homeData.map((item) => (
             <Card
-              hover={item.hover}
-              title={item.title}
-              price={item.price}
-              rating={item.rating}
-              reviews={item.reviews}
-              image={item.image}
+              // id={item.id}
+              {...item}
+              // title={item.title}
+              // price={item.price}
+              // rating={item.rating}
+              // reviews={item.reviews}
+              // image={item.image}
             />
           ))}
       </SimpleGrid>

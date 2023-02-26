@@ -176,6 +176,7 @@ const AdminDash = () => {
           display: "grid",
           gridTemplateColumns: "repeat(4,1fr)",
           width: "80%",
+          paddingBottom:"100px",
           margin: "auto",
           gap: "30px",
           border: "14px",
@@ -184,50 +185,41 @@ const AdminDash = () => {
         {state.data.data &&
           state.data.data.reverse().map((el) => {
             return (
-              <Card maxW="sm" className="media_change" key={el.id}>
-                <CardBody>
+              <Card maxW="sm" key={el.id} h="420px">
+                <CardBody h="300px" >
                   <Box>
                     <Box dispatch="relative" className="BeforeHover">
                       <Image
+                        h="100px"
+                        // w="10"
                         src={el.image}
                         alt={el.title}
+                        margin="auto"
                         className="BeforeHover"
                       />
                     </Box>
-                    <Box
-                      _hover={{ display: "none" }}
-                      position={"absolute"}
-                      top="0px"
-                      left="0px"
-                      className="delayImagevalue"
-                    >
-                      <Image
-                        justifyContent={"center"}
-                        src={el.image2}
-                        className="delayImagevalue"
-                      />
-                    </Box>
-                  </Box>
-                  <br />
-                  <br />
-                  <Stack mt="6" spacing="3">
-                    <Heading size="md" fontFamily={" 'Lobster Two', cursive"}>
+                   
+                    <Stack mt="6" spacing="3">
+                    <Text fontFamily={" 'Lobster Two', cursive"}>
                       {el.category}
-                    </Heading>
+                    </Text>
                     <Text
-                      fontSize={"xl"}
+                      // fontSize={"xl"}
                       style={{
                         color: " rgb(153, 153, 153)",
+                        fontSize:"14px",
                         fontWeight: "400",
+                        
                       }}
                       fontFamily={" 'Lobster Two', cursive"}
+                      noOfLines={1}
                     >
                       {el.title}
                     </Text>
                     <Text
                       style={{ fontWeight: "700" }}
                       color="rgb(51, 51, 51)"
-                      fontSize="2xl"
+                      // fontSize="2xl"
                     >
                       <span fontFamily={"'Lobster Two', cursive"}>Price ₹</span>{" "}
                       {el.price}
@@ -236,7 +228,7 @@ const AdminDash = () => {
                     <Text
                       fontFamily={" 'Lobster Two', cursive"}
                       color="blue.600"
-                      fontSize="2xl"
+                      // fontSize="2xl"
                     >
                       <span
                         fontFamily={" 'Lobster Two', cursive"}
@@ -252,7 +244,7 @@ const AdminDash = () => {
                       <Text
                         fontFamily={" 'Lobster Two', cursive"}
                         color="blue.600"
-                        fontSize="2xl"
+                        // fontSize="16px"
                       >
                         {el.reviews}
                       </Text>
@@ -266,17 +258,22 @@ const AdminDash = () => {
                         <Text
                           fontFamily={" 'Lobster Two', cursive"}
                           color="#ffff"
-                          fontSize="2xl"
+                          fontSize="14px"
+                          p="0"
                         >
                           {el.rating}
                         </Text>
                       </Button>
                     </Flex>
                   </Stack>
+                  </Box>
+                  {/* <br/>
+                  <br/> */}
+                  
                 </CardBody>
                 <Divider />
-                <CardFooter>
-                  <ButtonGroup spacing="2">
+                <CardFooter >
+                  <ButtonGroup gap="20px" >
                     <Button
                       variant="solid"
                       bg={"rgb(244, 51, 151)"}
@@ -284,6 +281,7 @@ const AdminDash = () => {
                       className="btn_Hover"
                       onClick={() => handleDelete(el.id)}
                       fontFamily={" 'Lobster Two', cursive"}
+                      fontSize="14px"
                     >
                       Delete
                     </Button>{" "}
@@ -294,6 +292,7 @@ const AdminDash = () => {
                       className="btn_Hover"
                       onClick={() => handleUpdate(el.id, el.price, el.title)}
                       fontFamily={" 'Lobster Two', cursive"}
+                      fontSize="14px"
                     >
                       Update
                     </Button>

@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import styles from "../Components/Footer/Footer.module.css";
+import styles from "../Footer/Footer.module.css";
 
 import {
   Box,
@@ -18,6 +18,7 @@ import {
 } from "@chakra-ui/react";
 
 import { ChevronUpIcon, ChevronDownIcon } from "@chakra-ui/icons";
+import "../../CSS/ButtonFile.css";
 
 import {
   FaTwitter,
@@ -27,7 +28,6 @@ import {
   FaFacebook,
 } from "react-icons/fa";
 
-import "../CSS/ButtonFile.css";
 
 const ListHeader = ({ children }) => {
   return (

@@ -23,7 +23,7 @@ const SingleProductPage = () => {
   const dispatch = useDispatch();
   const { id } = useParams();
   const getSingleUserData = async () => {
-    let res = await fetch(`http://localhost:8080/products/${id}`);
+    let res = await fetch(`https://good-blue-giraffe-boot.cyclic.app/products/${id}`);
     let data = await res.json();
 
     setUserData(data);
@@ -31,7 +31,7 @@ const SingleProductPage = () => {
   console.log(userId);
   const getUserData = async () => {
     try {
-      let r = await fetch(`http://localhost:8080/login/${userId}`);
+      let r = await fetch(`https://good-blue-giraffe-boot.cyclic.app/login/${userId}`);
       let d = await r.json();
 
       setLoginUserData(d.cart);
@@ -43,7 +43,7 @@ const SingleProductPage = () => {
 
   const cartDetails = async () => {
     try {
-      let r = await fetch(`http://localhost:8080/login/${userId}`, {
+      let r = await fetch(`https://good-blue-giraffe-boot.cyclic.app/login/${userId}`, {
         method: "PATCH",
         body: JSON.stringify({
           cart: [

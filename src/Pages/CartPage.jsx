@@ -44,7 +44,7 @@ const CartPage = () => {
   const getUserData = async () => {
     try {
       
-      let r = await axios.get(`http://localhost:8080/login/${userId}`);
+      let r = await axios.get(`https://good-blue-giraffe-boot.cyclic.app/login/${userId}`);
       let d = r.data
       setcartdata(d.cart)
       dispatch({type:AUTH_SUCCESS,payload:d})
@@ -58,7 +58,7 @@ const CartPage = () => {
 
   const handledelete = async (orderId) => {
     try {
-      let r = await axios.patch(`http://localhost:8080/login/${userId}`, { cart: cartdata.filter((item) => item.orderId !== orderId) })
+      let r = await axios.patch(`https://good-blue-giraffe-boot.cyclic.app/login/${userId}`, { cart: cartdata.filter((item) => item.orderId !== orderId) })
       
       setcartdata(r.data)
       getUserData()
@@ -80,7 +80,7 @@ const CartPage = () => {
       }
   
   try {
-    let r = await axios.patch(`http://localhost:8080/login/${userId}`, { cart: temp })
+    let r = await axios.patch(`https://good-blue-giraffe-boot.cyclic.app/login/${userId}`, { cart: temp })
     
     setcartdata(r.data)
     getUserData()

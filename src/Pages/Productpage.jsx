@@ -13,7 +13,7 @@ const Productpage = () => {
   
   // const [page,setPage] = useState(1)
   const [searchParams] = useSearchParams()
-const totalPages = Math.ceil(products?.length/10)
+  const totalPages = Math.ceil(products?.length/10)
  const dispatch = useDispatch()
  
 //  if(products){

@@ -20,12 +20,12 @@
   background: #e64078;
 }
 
-.delayImagevalue:hover {
-  transition-delay: 8s;
+/* .delayImagevalue:hover {
+  transition-delay: 8s ease !important;
 }
 .BeforeHover {
-  transition: 0s;
-}
+  transition: 4s ease !important;
+} */
 .LoginAdminBAHAR{
   background-color:hsla(292,100%,50%,1);
 background-image:

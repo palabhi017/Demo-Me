@@ -1,7 +1,7 @@
 import "./App.css";
 import Navbar from "./Components/Navbar/Navbar";
 import AllRoutes from "./Pages/AllRoutes";
-import Footer from "./Components/Footer";
+import Footer from "./Components/Footer/Footer";
 
 import SmallNavbar from "./Components/Navbar/SmallNavbar";
 import GoOnTop from "./Components/GoOnTop";

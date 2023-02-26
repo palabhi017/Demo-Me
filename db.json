@@ -1,15 +1,60 @@
 {
   "login": [
-   
     {
       "name": "Rahul dudka",
       "email": "rahul@gmail.com",
       "password": "rahul@123",
-      "cart": [],
+      "cart": [
+        {
+          "image": "https://images.meesho.com/images/products/93593900/fabrm_400.webp",
+          "price": 414,
+          "title": "Urbane Retro Men Tshirts",
+          "quantity": 2,
+          "orderId": 1677343332154
+        }
+      ],
       "id": 4,
       "order": [
-        
+        {
+          "image": "https://images.meesho.com/images/products/27029588/02137_400.webp",
+          "price": 686,
+          "title": "Fancy Fabulous Men Jeans",
+          "quantity": 1,
+          "orderId": 1677342750436
+        }
       ]
+    },
+    {
+      "name": "Anil Pal",
+      "email": "Nikku19641964@gmail.com",
+      "password": "anil@123",
+      "cart": [],
+      "order": [
+        {
+          "image": "https://images.meesho.com/images/products/149408141/dkhin_400.webp",
+          "price": 102,
+          "title": "Stylish Elegant Men Tshirts",
+          "quantity": 1,
+          "orderId": 1677344033382
+        }
+      ],
+      "id": 5
+    },
+    {
+      "name": "Abhishek dfa Pal",
+      "email": "palabhi017@gmail.com",
+      "password": "abhi@123",
+      "cart": [],
+      "order": [
+        {
+          "image": "https://images.meesho.com/images/products/149408141/dkhin_400.webp",
+          "price": 102,
+          "title": "Stylish Elegant Men Tshirts",
+          "quantity": 1,
+          "orderId": 1677345115315
+        }
+      ],
+      "id": 6
     }
   ],
   "products": [
@@ -572,26 +617,6 @@
       "reviews": "26854 Reviews",
       "category": "women",
       "tag": "Kurtis"
-    },
-    {
-      "id": 57,
-      "title": "Alisha Refined Kurtis",
-      "image": "https://images.meesho.com/images/products/116840453/bdypx_400.webp",
-      "price": 293,
-      "rating": "3.5",
-      "reviews": "9399 Reviews",
-      "category": "women",
-      "tag": "Kurtis"
-    },
-    {
-      "id": 58,
-      "title": "Stylus Women Petticoats",
-      "image": "https://images.meesho.com/images/products/102668421/p4pm2_400.webp",
-      "price": 252,
-      "rating": "3.7",
-      "reviews": "55 Reviews",
-      "category": "women",
-      "tag": "Petticoats"
     },
     {
       "id": 59,
@@ -1617,17 +1642,6 @@
       "tag": "Sanitizers"
     },
     {
-      "id": 155,
-      "title": "Everyday Sanitizers/Disinfectant",
-      "image": "https://images.meesho.com/images/products/99681248/c263x_400.webp",
-      "image2": "https://5.imimg.com/data5/ANDROID/Default/2022/8/IV/PI/VQ/137621935/product-jpeg-500x500.jpg",
-      "price": 715,
-      "rating": "3.9",
-      "reviews": "100 Reviews",
-      "category": "Delivery287",
-      "tag": "Delivery287"
-    },
-    {
       "id": 156,
       "title": "Classic Sanitizers/Disinfectant",
       "image": "https://images.meesho.com/images/products/85939381/ehxn8_400.webp",
@@ -1669,17 +1683,6 @@
       "category": "tshirt",
       "tag": "Men casual tshirt",
       "id": 159
-    },
-    {
-      "title": "Men Gym Vest",
-      "image": "https://images.meesho.com/images/products/88793806/uq0vn_512.webp",
-      "image2": "https://images.meesho.com/images/products/88793806/x4rsw_64.webp",
-      "price": "500",
-      "rating": -1,
-      "reviews": "3",
-      "category": "Men",
-      "tag": "-",
-      "id": 160
     }
   ],
   "homepage": [

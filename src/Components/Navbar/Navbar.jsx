@@ -1,5 +1,5 @@
 import { CiSearch } from "react-icons/ci";
-
+import SearchCard from "../SearchCard"
 
 import { AiOutlineShoppingCart, AiOutlineMobile } from "react-icons/ai";
 import Logo from "../../Images/Logo1.png";
@@ -33,6 +33,7 @@ import {
   MenuGroup,
   VStack,
   Avatar,
+  HStack,
 } from "@chakra-ui/react";
 import styles from "./Navbar.module.css";
 import { useEffect, useState } from "react";
@@ -42,6 +43,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getProducts, protypes } from "../../Redux/Products/product.action";
 import Avatars from "../Avatars";
 import Authbuttons from "../Authbuttons";
+import { PRODUCTS_PAGE } from "../../Redux/Products/product.type";
 
 export const Profile = () => {
   return (
@@ -70,28 +72,52 @@ const Navbar = ({ display = "flex" }) => {
   const [dropdown7, setdropdown7] = useState(false);
   const [dropdown8, setdropdown8] = useState(false);
   const [searchParams, setSearchParams] = useSearchParams();
+  const [searchInput, setSearchInput] = useState("");
   const dispatch = useDispatch();
   const name = useSelector((state) => state.Auth.currentUserName);
   const cartItems = useSelector((state) => state.Auth.currentUser.cart);
   const login = useSelector((state) => state.Auth.isAuth);
+  const [searchData,setSearchData]= useState([])
   
   
-
+  const handleSearch = async()=>{
+    try {
+      let res = await fetch(`http://localhost:8080/products?q=${searchInput}`)
+      let data = await res.json()
+      setSearchData(data)
+      if(searchInput===""){
+         setSearchData([])
+      }
+    } catch (error) {
+      console.log(error)
+    }
+    
+  } 
+  const doSomeMagic=(fn,d)=>{
+    let timer;
+    return function (){
+clearTimeout(timer)
+      timer = setTimeout(()=>{
+        fn()
+      },d)
+    }
+  }
+const debFunction = doSomeMagic(handleSearch,500)
   const handleCate = (category, type) => {
     const getProductsParam = {
       params: {
         category: category,
+        
         // _sort: "",
         // _order: ""
       },
     };
-    let params = {};
-    if (searchParams.getAll("filter")) params.filter = [];
-    if (searchParams.get("sort")) params.sort = null;
+    
     dispatch(protypes(type));
-    setSearchParams(params);
+   
 
     dispatch(getProducts(getProductsParam));
+    dispatch({type:PRODUCTS_PAGE,payload:1})
   };
 
   return (
@@ -110,9 +136,16 @@ const Navbar = ({ display = "flex" }) => {
               <Input
                 width={"400px"}
                 type="text"
+                onChange={(e)=>{
+                  setSearchInput(e.target.value)
+                  debFunction()
+                }}
                 placeholder="Try Saree, Kurti or Search by Product Code"
               />
             </InputGroup>
+            <VStack h="300px" zIndex={1} mt="45px" ml="20px" w="30%" pl="5px" display={searchData.length>0 && searchInput.length>0?"block":"none"} overflowY={"auto"} bgColor={"white"} pos="absolute">
+              {searchData.length>0 && searchData.map((e)=> <SearchCard {...e}/>)}
+            </VStack>
           </Box>
 
           <Spacer />
@@ -153,9 +186,9 @@ const Navbar = ({ display = "flex" }) => {
             </Menu>
             {/* <Menu>
               <MenuButton> */}
-            <Link to={"/cart"}> <Flex direction="column" alignItems="center">
+            <Link to={"/cart"}> <Flex direction="column" w="80px" alignItems="center">
              <AiOutlineShoppingCart fontSize="25px" />
-             <Box pos="absolute" right="9%" bgColor={"pink.400"} p="1px 4px" borderRadius="60%" color="white" top="5px">{cartItems? cartItems.length : 0}</Box>
+             <Box pos="absolute" ml="20px" mt="-10px" bgColor={"pink.400"} p="1px 4px" borderRadius="60%" color="white" >{cartItems? cartItems.length : 0}</Box>
                <Text>Cart</Text>
                 </Flex></Link>
               {/* </MenuButton>

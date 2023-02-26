@@ -1,13 +1,6 @@
 {
   "login": [
-    {
-      "name": "Rahul dudka",
-      "email": "rahul@gmail.com",
-      "password": "rahul@123",
-      "cart": [],
-      "id": 4,
-      "order": []
-    }
+   
   ],
   "products": [
     {
@@ -592,6 +585,26 @@
       "tag": "salwar"
     },
     {
+
+      "id": 55,
+      "title": "Alluring Stylish Women Dupattas",
+      "image": "https://images.meesho.com/images/products/196093521/cftuj_400.webp",
+      "price": 268,
+      "rating": "3.6",
+      "reviews": "640 Reviews",
+      "category": "women",
+      "tag": "Dupattas"
+    },
+    {
+      "id": 56,
+      "title": "Aishani Ensemble Kurtis",
+      "image": "https://images.meesho.com/images/marketing/1657272929894.png",
+      "price": 409,
+      "rating": "4.0",
+      "reviews": "26854 Reviews",
+      "category": "women",
+      "tag": "Kurtis"
+
       "id": 57,
       "title": "Alisha Refined Kurtis",
       "image": "https://desiymien.com/wp-content/uploads/2022/08/4109-4.jpg",
@@ -612,6 +625,7 @@
       "reviews": "55 Reviews",
       "category": "women",
       "tag": "Petticoats"
+
     },
     {
       "id": 59,
@@ -1637,6 +1651,7 @@
       "tag": "Sanitizers"
     },
     {
+
       "id": 155,
       "title": "Everyday Sanitizers/Disinfectant",
       "image": "https://images.meesho.com/images/products/99681248/c263x_400.webp",
@@ -1648,6 +1663,7 @@
       "tag": "Delivery287"
     },
     {
+
       "id": 156,
       "title": "Classic Sanitizers/Disinfectant",
       "image": "https://images.meesho.com/images/products/85939381/ehxn8_400.webp",
@@ -1689,6 +1705,8 @@
       "category": "tshirt",
       "tag": "Men casual tshirt",
       "id": 159
+
+
     },
     {
       "title": "Mens Watch",
@@ -1700,6 +1718,7 @@
       "category": "Mens Watch",
       "tag": "watch",
       "id": 161
+
     }
   ],
   "homepage": [

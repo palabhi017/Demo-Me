@@ -20,7 +20,7 @@ const SingleProductPage = () => {
   const [loginUserData, setLoginUserData] = useState({});
   const { image, title, price } = userData;
   const userId = useSelector((state) => state.Auth.currentUser.id);
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   const { id } = useParams();
   const getSingleUserData = async () => {
     let res = await fetch(`http://localhost:8080/products/${id}`);
@@ -28,7 +28,7 @@ const SingleProductPage = () => {
 
     setUserData(data);
   };
-console.log(userId)
+  console.log(userId);
   const getUserData = async () => {
     try {
       let r = await fetch(`http://localhost:8080/login/${userId}`);
@@ -56,7 +56,7 @@ console.log(userId)
         },
       });
       let d = await r.json();
-      dispatch({type:AUTH_SUCCESS,payload:d})
+      dispatch({ type: AUTH_SUCCESS, payload: d });
       console.log(d);
     } catch (error) {
       console.log(error);
@@ -68,7 +68,7 @@ console.log(userId)
 
   useEffect(() => {
     getSingleUserData();
-    getUserData()
+    getUserData();
   }, []);
   return (
     <div className={styles.container}>
@@ -116,7 +116,9 @@ console.log(userId)
 
           {/* ----------------------------------------button-------------------------------- */}
           <div className={styles.btnContainer}>
-            <button className={styles.btn} onClick={cartDetails}>Add to Cart</button>
+            <button className={styles.btn} onClick={cartDetails}>
+              Add to Cart
+            </button>
             <button className={styles.btn} style={{ background: "#f43397" }}>
               Buy Now
             </button>

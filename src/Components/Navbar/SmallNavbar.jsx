@@ -39,22 +39,22 @@ const SmallNavbar = () => {
             />
             <MenuList fontSize={"14px"} zIndex="2000">
               <MenuItem>
-                <Link href={"#"}> Women Ethnic</Link>
+                <Link to="/products"> Women Ethnic</Link>
               </MenuItem>
               <MenuItem>
-                <Link href={"#"}> Women Western</Link>
+                <Link to="/products"> Women Western</Link>
               </MenuItem>
               <MenuItem>
-                <Link href={"#"}>Men</Link>
+                <Link to="/products">Men</Link>
               </MenuItem>
               <MenuItem>
-                <Link href={"#"}> Kids</Link>
+                <Link to="/products"> Kids</Link>
               </MenuItem>
               <MenuItem>
-                <Link href={"#"}> Home & Kitchen</Link>
+                <Link to="/products"> Home & Kitchen</Link>
               </MenuItem>
               <MenuItem>
-                <Link href={"#"}> Beauty & Health</Link>
+                <Link to="/products"> Beauty & Health</Link>
               </MenuItem>
             </MenuList>
           </Menu>

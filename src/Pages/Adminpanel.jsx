@@ -1,9 +1,7 @@
-import React from 'react'
+import React from "react";
 
 const Adminpanel = () => {
-  return (
-    <div>Adminpanel</div>
-  )
-}
+  return <div>Adminpanel</div>;
+};
 
-export default Adminpanel
+export default Adminpanel;

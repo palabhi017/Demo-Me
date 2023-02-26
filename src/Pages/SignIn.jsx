@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import React, { useState } from "react";
 import {
   Box,
   Flex,
@@ -52,10 +52,10 @@ const avatars = [
 export default function JoinOurTeam() {
   // const [val, setVal] = React.useState(initialState);
   const [submitButtonDisable, setSubmitButtonDisable] = useState(false);
-  const dispatch =  useDispatch()
-  const [name,setName] = useState("")
-const [email,setEmail] = useState("")
-const [password,setPassword] = useState("")
+  const dispatch = useDispatch();
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   // const [err, setErr] = React.useState("");
   // // const toast = useToast();
@@ -68,37 +68,31 @@ const [password,setPassword] = useState("")
   const handleSubmit = async (e) => {
     e.preventDefault();
     setSubmitButtonDisable(true);
-    if (email && password.length >=6 && name) {
-
-      const user={
+    if (email && password.length >= 6 && name) {
+      const user = {
         name,
         email,
         password,
-        cart:[],
-        order:[]
-      }
-     dispatch(postUserData(user))
-     navigate("/login")
-     setEmail("")
-     setName("")
-     setPassword("")
+        cart: [],
+        order: [],
+      };
+      dispatch(postUserData(user));
+      navigate("/login");
+      setEmail("");
+      setName("");
+      setPassword("");
     } else {
       //Toast use karunga mai
 
-      if(!email){
-
-        alert("Please fill your email")
-      }else if(!name){
-        alert("please fill your name")
-      }else if(password.length<6){
-        alert("password should contain at least 6 character")
+      if (!email) {
+        alert("Please fill your email");
+      } else if (!name) {
+        alert("please fill your name");
+      } else if (password.length < 6) {
+        alert("password should contain at least 6 character");
       }
-     
-
     }
   };
-
-
 
   return (
     <Box position={"relative"}>
@@ -224,7 +218,7 @@ const [password,setPassword] = useState("")
                 _placeholder={{
                   color: "gray.500",
                 }}
-                onChange={(e)=> setName(e.target.value)}
+                onChange={(e) => setName(e.target.value)}
                 name="name"
                 value={name}
               />
@@ -236,7 +230,7 @@ const [password,setPassword] = useState("")
                 _placeholder={{
                   color: "gray.500",
                 }}
-                onChange={(e)=> setEmail(e.target.value)}
+                onChange={(e) => setEmail(e.target.value)}
                 name="email"
                 value={email}
               />
@@ -244,12 +238,11 @@ const [password,setPassword] = useState("")
                 placeholder="Enter Password"
                 bg={"gray.100"}
                 border={0}
-             
                 color={"gray.500"}
                 _placeholder={{
                   color: "gray.500",
                 }}
-                onChange={(e)=> setPassword(e.target.value)}
+                onChange={(e) => setPassword(e.target.value)}
                 name="password"
                 value={password}
               />

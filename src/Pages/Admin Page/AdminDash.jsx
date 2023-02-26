@@ -191,7 +191,6 @@ const AdminDash = () => {
                       <Image
                         src={el.image}
                         alt={el.title}
-                      
                         className="BeforeHover"
                       />
                     </Box>
@@ -205,13 +204,12 @@ const AdminDash = () => {
                       <Image
                         justifyContent={"center"}
                         src={el.image2}
-                        
                         className="delayImagevalue"
                       />
                     </Box>
                   </Box>
-                  <br/>
-                  <br/>
+                  <br />
+                  <br />
                   <Stack mt="6" spacing="3">
                     <Heading size="md" fontFamily={" 'Lobster Two', cursive"}>
                       {el.category}

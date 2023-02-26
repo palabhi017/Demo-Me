@@ -1,24 +1,23 @@
 import * as types from "./product.type";
 
-const init={
-    protypes:"women",
-    isLoading:false,
-    Products:[],
-    isError:false
-}
+const init = {
+  protypes: "women",
+  isLoading: false,
+  Products: [],
+  isError: false,
+};
 
-export const reducer = (state=init,{type,payload})=>{
- switch(type){
+export const reducer = (state = init, { type, payload }) => {
+  switch (type) {
     case types.PRODUCTS_LOAD:
-        return {...state,isLoading:true}
+      return { ...state, isLoading: true };
     case types.PRODUCTS_SUCCESS:
-        return {...state,isLoading:false,Products:payload}
+      return { ...state, isLoading: false, Products: payload };
     case types.PRODUCTS_ERROR:
-        return {...state,isError:true,isLoading:false}
+      return { ...state, isError: true, isLoading: false };
     case types.PRODUCTS_TYPE:
-            return {...state,protypes:payload}
+      return { ...state, protypes: payload };
     default:
-        return state;
- }
-
-}
+      return state;
+  }
+};

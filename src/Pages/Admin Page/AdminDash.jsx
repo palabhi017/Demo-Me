@@ -28,31 +28,47 @@ import {
   MenuDivider,
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
-
+import { useToast } from "@chakra-ui/react";
 import "../../CSS/AdminLoginPage.css";
 import { useNavigate } from "react-router-dom";
 const AdminDash = () => {
   const [total, setTotal] = React.useState(0);
-
+  const Toast = useToast();
   const state = useSelector((store) => store.adminReducer);
   const val = state.data.data;
-  console.log("val",val)
+  console.log("val", val);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const handleUpdate = (id, price, title) => {};
 
   const handleDelete = (e) => {
     dispatch(deleteData(e));
+
+    Toast({
+      position: "top",
+      description: "Data Successfully Deleted",
+      title: "Data Deleted 😵😵",
+      status: "success",
+      duration: 9000,
+      isClosable: true,
+    });
   };
 
   const handleSelectData = async (par) => {
     dispatch(FilterData(par));
+    Toast({
+      position: "top-right",
+      description: `${par} Data You Can See`,
+      title: `${par} Data `,
+      status: "success",
+      duration: 4000,
+      isClosable: true,
+    });
   };
 
   const ToTalData = () => {
     if (state.data.data) {
-      setTotal(val.reduce((acc, el) => acc +Number(el.price), 0));
-    
+      setTotal(val.reduce((acc, el) => acc + Number(el.price), 0));
     } else {
       setTotal(0);
     }
@@ -175,6 +191,7 @@ const AdminDash = () => {
                       <Image
                         src={el.image}
                         alt={el.title}
+                      
                         className="BeforeHover"
                       />
                     </Box>
@@ -193,6 +210,8 @@ const AdminDash = () => {
                       />
                     </Box>
                   </Box>
+                  <br/>
+                  <br/>
                   <Stack mt="6" spacing="3">
                     <Heading size="md" fontFamily={" 'Lobster Two', cursive"}>
                       {el.category}
@@ -211,9 +230,9 @@ const AdminDash = () => {
                       style={{ fontWeight: "700" }}
                       color="rgb(51, 51, 51)"
                       fontSize="2xl"
-                   
                     >
-                     <span fontFamily={"'Lobster Two', cursive"}>Price ₹</span> {el.price}
+                      <span fontFamily={"'Lobster Two', cursive"}>Price ₹</span>{" "}
+                      {el.price}
                     </Text>
 
                     <Text

@@ -1,5 +1,6 @@
 .AdminLoginPageCSS {
   z-index: 1;
+
   transform: translateX(1.2);
   background-color: hsla(0, 100%, 50%, 1);
   background-image: radial-gradient(

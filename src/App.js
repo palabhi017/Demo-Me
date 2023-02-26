@@ -13,7 +13,7 @@ function App() {
       <div className="big">
         <Navbar />
       </div>
-      <div className="small">
+      <div className="small" >
         <SmallNavbar />
       </div>
       {/* <GoOnTop /> */}

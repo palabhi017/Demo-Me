@@ -37,3 +37,11 @@ export const categoryAdmin = async (par) => {
     console.log(err);
   }
 };
+
+export const updateAdminData = async (id, title, price) => {
+  try {
+    let res = await axios(`http://localhost:8080/${id}`, { title, price });
+  } catch (err) {
+    console.log(err);
+  }
+};

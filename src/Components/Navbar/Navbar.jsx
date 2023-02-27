@@ -143,7 +143,7 @@ const debFunction = doSomeMagic(handleSearch,500)
                 placeholder="Try Saree, Kurti or Search by Product Code"
               />
             </InputGroup>
-            <VStack h="300px" zIndex={1} mt="45px" ml="20px" w="30%" pl="5px" display={searchData.length>0 && searchInput.length>0?"block":"none"} overflowY={"auto"} bgColor={"white"} pos="absolute">
+            <VStack h="300px" zIndex={1} mt="45px" ml="10px" w="27%" pl="5px" display={searchData.length>0 && searchInput.length>0?"block":"none"} overflowY={"auto"} bgColor={"white"} pos="absolute">
               {searchData.length>0 && searchData.map((e)=> <SearchCard {...e}/>)}
             </VStack>
           </Box>

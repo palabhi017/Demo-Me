@@ -14,8 +14,8 @@ import { Card, CardBody, CardFooter } from "@chakra-ui/react";
 const Ordercard = ({ title, image, price, quantity }) => {
   return (
     <Card h="420px">
-      <CardBody h="85%">
-        <Image w="90%" h="70%" src={image} alt="error" borderRadius="lg" />
+      <CardBody h="85%" m="auto">
+        <Image w="90%" h="70%" m="auto" src={image} alt="error" borderRadius="lg" />
         <Stack mt="2" spacing="1">
           <Heading textAlign={"left"} color="#999" noOfLines={2} size="md">
             {title}
@@ -29,7 +29,7 @@ const Ordercard = ({ title, image, price, quantity }) => {
       <Divider />
       <CardFooter>
         <HStack>
-          <Box>{quantity}</Box>
+          <Box fontSize="18px" w="170px" color="blue.600" m="auto" fontWeight={"bold"}>Quantity:-{" "}{quantity}</Box>
         </HStack>
       </CardFooter>
     </Card>

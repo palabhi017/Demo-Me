@@ -12,7 +12,7 @@ const PaymentPage = () => {
   const navigate = useNavigate();
   // const getUserData = async () => {
   //   try {
-  //     let r = await fetch(`http://localhost:8080/login/${userId}`);
+  //     let r = await fetch(`https://onestoredata.onrender.com//login/${userId}`);
   //     let d = await r.json();
 
   //     setLoginUserData(d.cart);
@@ -24,7 +24,7 @@ const PaymentPage = () => {
 
   const cartDetails = async () => {
     try {
-      let r = await fetch(`http://localhost:8080/login/${userId}`, {
+      let r = await fetch(`https://onestoredata.onrender.com//login/${userId}`, {
         method: "PATCH",
         body: JSON.stringify({
           cart: [],

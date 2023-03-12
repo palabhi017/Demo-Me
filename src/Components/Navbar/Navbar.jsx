@@ -74,7 +74,7 @@ const Navbar = ({ display = "flex" }) => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [searchInput, setSearchInput] = useState("");
   const dispatch = useDispatch();
-  const name = useSelector((state) => state.Auth.currentUserName);
+  const name = useSelector((state) => state.Auth.currentUser.name);
   const cartItems = useSelector((state) => state.Auth.currentUser.cart);
   const login = useSelector((state) => state.Auth.isAuth);
   const [searchData,setSearchData]= useState([])
@@ -82,7 +82,7 @@ const Navbar = ({ display = "flex" }) => {
   
   const handleSearch = async()=>{
     try {
-      let res = await fetch(`http://localhost:8080/products?q=${searchInput}`)
+      let res = await fetch(`https://onestoredata.onrender.com/products?q=${searchInput}`)
       let data = await res.json()
       setSearchData(data)
       if(searchInput===""){

@@ -15,6 +15,7 @@ import { AUTH_LOGOUT } from "../Redux/Auth/auth.types";
 const Avatars = ({ name }) => {
   const dispatch = useDispatch();
   const handlelogout = () => {
+    localStorage.clear()
     dispatch({ type: AUTH_LOGOUT });
   };
 

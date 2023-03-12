@@ -45,7 +45,7 @@ export default function LoginPage() {
 
     if (email && password.length >= 6) {
       try {
-        let res = await fetch(`http://localhost:8080/login`);
+        let res = await fetch(`https://onestoredata.onrender.com/login`);
         let data = await res.json();
 
         let Auth = false;
@@ -53,6 +53,7 @@ export default function LoginPage() {
           if (data[i].email === email && data[i].password === password) {
             Auth = true;
             dispatch({ type: AUTH_SUCCESS, payload: data[i] });
+            localStorage.setItem('user',JSON.stringify(data[i]))
             dispatch({ type: SET_CUR_NAME, payload: data[i].name });
             break;
           }

@@ -8,6 +8,10 @@ import {
   Text,
   VStack,
   Heading,
+  Select,
+  Input,
+  Divider,
+  Stack,
 } from "@chakra-ui/react";
 import CartItems from "../Components/CartItems";
 import { BsBagCheckFill } from "react-icons/bs";
@@ -16,10 +20,11 @@ import { Link, useNavigate } from "react-router-dom";
 
 import axios from "axios";
 import { AUTH_SUCCESS } from "../Redux/Auth/auth.types";
+import { TOTAL_PRICE } from "../Redux/Products/product.type";
 
 const CartPage = () => {
   // const { totalprice } = useSelector((store: any) => store.authManager)
-  const [total, settotal] = useState(0);
+  // const [total, settotal] = useState(0);
   const [cartdata, setcartdata] = useState([]);
   // const { currentUser, isAuth } = useSelector(
   //   (store) => store.authManager
@@ -27,26 +32,31 @@ const CartPage = () => {
   const dispatch = useDispatch();
   const userId = useSelector((state) => state.Auth.currentUser.id);
   const login = useSelector((state) => state.Auth.isAuth);
+  const total = useSelector((state) => state.productReducer.totalPrice);
 
   const handletotal = () => {
-    if (cartdata.length > 0) {
+    if (cartdata) {
+    
       let temp = cartdata;
       let sum = 0;
-
+      
       for (let i = 0; i < temp.length; i++) {
         sum += temp[i].price * temp[i].quantity;
       }
-
-      settotal(sum);
+      
+      dispatch({type:TOTAL_PRICE,payload:sum})
+      // settotal(sum);
     }
+  
   };
   const getUserData = async () => {
     try {
-      let r = await axios.get(`http://localhost:8080/login/${userId}`);
+      let r = await axios.get(`https://onestoredata.onrender.com/login/${userId}`);
       let d = r.data;
       setcartdata(d.cart);
       dispatch({ type: AUTH_SUCCESS, payload: d });
-      handletotal();
+      
+      handletotal()
     } catch (error) {
       console.log(error);
     }
@@ -54,12 +64,13 @@ const CartPage = () => {
 
   const handledelete = async (orderId) => {
     try {
-      let r = await axios.patch(`http://localhost:8080/login/${userId}`, {
+      let r = await axios.patch(`https://onestoredata.onrender.com/login/${userId}`, {
         cart: cartdata.filter((item) => item.orderId !== orderId),
       });
 
       setcartdata(r.data);
       getUserData();
+      
     } catch (error) {
       console.log(error);
     }
@@ -74,7 +85,7 @@ const CartPage = () => {
     }
 
     try {
-      let r = await axios.patch(`http://localhost:8080/login/${userId}`, {
+      let r = await axios.patch(`https://onestoredata.onrender.com/login/${userId}`, {
         cart: temp,
       });
 
@@ -86,10 +97,11 @@ const CartPage = () => {
   };
   setTimeout(() => {
     handletotal();
-  }, 50);
+  }, 100);
 
   useEffect(() => {
     getUserData();
+    
   }, []);
 
   // if (!isAuth) {
@@ -104,11 +116,12 @@ const CartPage = () => {
   // }
 
   return (
-    <Box>
-      <HStack
+    <Box >
+      
+      {/* <HStack
         h="60px"
         w="100%"
-        p="10px 30px"
+        p="0px 30px"
         justify="center"
         borderBottom={"2px solid #999"}
         alignItems="center"
@@ -119,21 +132,31 @@ const CartPage = () => {
         <Text color="#161636" fontWeight={"bold"} fontSize="20px">
           SHOPING BAG
         </Text>
-      </HStack>
-
-      <HStack
-        justifyContent={"space-between"}
-        p="10px 30px"
-        mt="20px"
+      </HStack> */}
+      
+      <Stack
+        // justifyContent={"space-between"}
+        direction={['column','row']}
+        p="0px"
+        // mt="20px"
         w="100%"
         h="auto"
-        alignItems={"top"}
+        
+        // alignItems={"top"}
       >
-        <Grid
-          w="60%"
+        <Box      
+           w={{base:"100%",md:"50%",lg:"70%"}}
           h="auto"
+          p="0px 30px"
+          >
+        <HStack justifyContent={"space-between"} w="100%" borderBottom="1px solid #999" p="10px 30px" m="auto">
+          <Text fontSize={{base:"20px",md:"20px",lg:"25px"}} fontWeight="bold">Shopping Cart</Text>
+          <Text fontSize={"20px"} fontWeight="bold">{cartdata? cartdata.length+ " Items": "0 Items"}</Text>
+        </HStack>
+        <Grid
+
           p="10px 40px"
-          templateColumns={"repeat(3,30%)"}
+          templateColumns={{base:"repeat(1,1fr)",md:"repeat(2,1fe)",lg:"repeat(3,1fr)"}}
           gap="40px"
         >
           {cartdata &&
@@ -146,15 +169,15 @@ const CartPage = () => {
               />
             ))}
         </Grid>
-        <VStack
-          borderRadius={"5px"}
-          boxShadow="rgba(0, 0, 0, 0.24) 0px 3px 8px"
-          border="1px solid #161636"
-          gap="20px"
-          h="200px"
-          w="30%"
+        </Box>
+        <Box
+         h="500px"
+          w={{base:"100%",md:"50%",lg:"30%"}}
+          bgColor={"#f5f5f6"}
+          p="0px 30px"
+          // alignItems={"left"}
         >
-          <Text color="#161636" fontWeight={"bold"} fontSize="20px" mt="10%">
+          {/* <Text color="#161636" fontWeight={"bold"} fontSize="20px" mt="10%">
             Total price :- {"    "}
             {total}{" "}
           </Text>
@@ -168,9 +191,35 @@ const CartPage = () => {
             </Link>
           ) : (
             <Heading>Cart is Empty</Heading>
-          )}
-        </VStack>
-      </HStack>
+          )} */}
+          <HStack w="100%" borderBottom="1px solid #999" p="10px 20px" m="auto">
+          <Text fontSize={"25px"} fontWeight="bold">Order Summary</Text>
+          </HStack>
+          <HStack w="100%" justifyContent={"space-between"} mt="20px" p="10px 10px" m="auto">
+          <Text fontSize={"17px"} fontWeight="600">{cartdata? "ITEMS "+ cartdata.length: "0 Items"}</Text>
+          <Text fontSize={"17px"} fontWeight="600">${total>0 && total}</Text>
+          </HStack>
+          <HStack w="100%" p="10px 10px" m="auto">
+          <Text fontSize={"17px"} fontWeight="600">SHIPPING</Text>
+          </HStack>
+          <Select placeholder='Standard Delivery -$50' size="sm" bgColor="white">
+             {/* <option value='Standard'>Standard Delivery -$50</option> */}
+             <option value='Normal'>Normal Delivery -$0</option>
+
+          </Select>
+          <HStack w="100%" p="10px 10px" m="auto">
+          <Text fontSize={"17px"} fontWeight="600">PROMO CODE</Text>
+          </HStack>
+          <Input placeholder="Enter Your Code" bgColor="white"></Input>
+          <Button bgColor="pink.400" mt="20px" alignSelf={"left"} color="white">Apply</Button>
+          <Divider mt="20px" />
+          <HStack w="100%" justifyContent={"space-between"} mt="20px" p="10px 10px" m="auto">
+          <Text fontSize={"17px"} fontWeight="600">TOTAL COST</Text>
+          <Text fontSize={"17px"} fontWeight="600">${total>0 && total}</Text>
+          </HStack>
+          <Link to="/payment"><Button w="100%" isDisabled={cartdata.length===0} bgColor="teal.500" color="white">CHECKOUT</Button></Link> 
+        </Box>
+      </Stack>
     </Box>
   );
 };

@@ -1,10 +1,10 @@
 import * as types from "./auth.types";
 
 const init={
-    currentUser:{},
+    currentUser: JSON.parse(localStorage.getItem("user"))||{},
     
     isLoading:false,
-    isAuth:false,
+    isAuth:localStorage.getItem("user")? true:false,
     users:[],
     isError:false
 }
@@ -20,7 +20,7 @@ export const reducer = (state=init,{type,payload})=>{
     case types.AUTH_ERROR:
         return {...state,isError:true,isLoading:false}
     case types.AUTH_LOGOUT:
-            return {...state,isAuth:false}
+            return {...state,isAuth:false,currentUser:{}}
     case types.SET_CUR_NAME:
             return {...state,currentUserName:payload}
     default:

@@ -14,15 +14,16 @@ const Homepage = () => {
 
   const getHomeData = async () => {
     try {
-      let res = await axios.get("http://localhost:8080/homepage");
+      let res = await axios.get("https://onestoredata.onrender.com/homepage");
 
       setHomeData(res.data);
-      console.log(res.data);
+     
     } catch (e) {
       console.log(e);
     }
   };
-
+  let user= JSON.parse(localStorage.getItem("user"))
+console.log(user)
   useEffect(() => {
     getHomeData();
   }, []);
@@ -41,15 +42,16 @@ const Homepage = () => {
 
       <Heading p="10px">Products For You</Heading>
       <SimpleGrid
-        w="95%"
-        p="10px 80px 30px 80px"
+        w="100%"
+        p={{base:"2px",md:"3px",lg:"30px"}}
         margin="auto"
-        spacing={6}
-        templateColumns="repeat(auto-fill, minmax(200px, 1fr))"
+        gap={{base:"0",md:"10px",lg:"15px"}}
+        // templateColumns="repeat(auto-fill, minmax(200px, 1fr))"
+        templateColumns={{base:"repeat(2,50%)",md:"repeat(3,1fr)",lg:"repeat(5,1fr)"}}
       >
         {homeData &&
           homeData.map((item) => (
-            <Card
+            <Card key={item.id}
               // id={item.id}
               {...item}
               // title={item.title}

@@ -19,7 +19,7 @@ const CartItems = ({ objProp, funcProp, funcquant }) => {
       <CardBody h="85%">
         <Image w="90%" h="70%" src={image} alt="error" borderRadius="lg" />
         <Stack mt="2" spacing="1">
-          <Heading textAlign={"left"} color="#999" noOfLines={2} size="md">
+          <Heading textAlign={"left"} color="#999" noOfLines={1} size="md">
             {title}
           </Heading>
 

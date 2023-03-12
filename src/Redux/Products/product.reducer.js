@@ -7,7 +7,8 @@ const init={
     isLoading:false,
     Products:[],
     isError:false,
-    currPage:1
+    currPage:1,
+    totalPrice:0
 }
 
 
@@ -24,7 +25,8 @@ export const reducer = (state = init, { type, payload }) => {
             return {...state,protypes:payload}
     case types.PRODUCTS_PAGE:
             return {...state,currPage:payload}
-
+    case types.TOTAL_PRICE:
+      return {...state,totalPrice:payload}
     default:
       return state;
   }

@@ -17,8 +17,30 @@ import {
 import { HamburgerIcon } from "@chakra-ui/icons";
 import { Link } from "react-router-dom";
 import { BsPerson } from "react-icons/bs";
+import { useDispatch } from "react-redux";
+import { getProducts } from "../../Redux/Products/product.action";
+import { PRODUCTS_PAGE } from "../../Redux/Products/product.type";
 
 const SmallNavbar = () => {
+  const dispatch = useDispatch();
+
+  const handleCate = (category) => {
+    const getProductsParam = {
+      params: {
+        category: category,
+        
+        // _sort: "",
+        // _order: ""
+      },
+    };
+    
+    // dispatch(protypes(type));
+   
+
+    dispatch(getProducts(getProductsParam));
+    dispatch({type:PRODUCTS_PAGE,payload:1})
+  };
+
   return (
     <div>
       <Flex
@@ -39,13 +61,17 @@ const SmallNavbar = () => {
             />
             <MenuList fontSize={"14px"} zIndex="2000">
               <MenuItem>
-                <Link to="/products"> Women Ethnic</Link>
+                <Link to="/products"  onClick={() => {
+              handleCate("women");
+            }}> Women Ethnic</Link>
               </MenuItem>
               <MenuItem>
                 <Link to="/products"> Women Western</Link>
               </MenuItem>
               <MenuItem>
-                <Link to="/products">Men</Link>
+                <Link to="/products"  onClick={() => {
+              handleCate("men");
+            }}>Men</Link>
               </MenuItem>
               <MenuItem>
                 <Link to="/products"> Kids</Link>
@@ -54,7 +80,9 @@ const SmallNavbar = () => {
                 <Link to="/products"> Home & Kitchen</Link>
               </MenuItem>
               <MenuItem>
-                <Link to="/products"> Beauty & Health</Link>
+                <Link to="/products"  onClick={() => {
+              handleCate("Beauty & Health");
+            }}> Beauty & Health</Link>
               </MenuItem>
             </MenuList>
           </Menu>

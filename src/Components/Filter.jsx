@@ -8,10 +8,10 @@ import {
 } from "@chakra-ui/react";
 import { Box, VStack, Stack, Text } from "@chakra-ui/react";
 import { useSearchParams } from "react-router-dom";
-import { Radio, RadioGroup } from "@chakra-ui/react";
+
 import { Checkbox, CheckboxGroup } from "@chakra-ui/react";
 import { useDispatch, useSelector } from "react-redux";
-import { getProducts } from "../Redux/Products/product.action";
+// import { getProducts } from "../Redux/Products/product.action";
 import CheckBoxes from "./CheckBoxes";
 
 const Filter = ({ handlesort }) => {
@@ -19,8 +19,7 @@ const Filter = ({ handlesort }) => {
 
   const protype = useSelector((state) => state.productReducer.protypes);
   const initialFilterValues = searchParams.getAll("filter");
-  const initialSortValues = searchParams.get("sort");
-  const [sortValues, setSortValues] = useState(initialSortValues || "");
+ 
   const [filterValues, setFilterValues] = useState(initialFilterValues || []);
   let arr1 = ["saree", "Kurtis", "Dupattas", "Blouse", "Patticoats", "Pants"];
   let arr2 = [
@@ -37,54 +36,18 @@ const Filter = ({ handlesort }) => {
     setFilterValues(value);
   };
 
-  const handleSortChange = (value) => {
-    setSortValues(value);
-  };
+  
   useEffect(() => {
     let params = {};
 
-    if (sortValues) params.sort = sortValues;
+    
     if (filterValues) params.filter = filterValues;
 
     setSearchParams(params);
-  }, [sortValues, filterValues]);
+  }, [filterValues]);
   return (
     <>
-      <VStack
-        border="1px solid #718096"
-        borderRadius="10px"
-        p="10px 20px"
-        alignItems="left"
-      >
-        <Text
-          pb="15px"
-          borderBottom="1px solid #718096"
-          textAlign="left"
-          fontSize="25px"
-          fontWeight="600"
-        >
-          Sort by
-        </Text>
-        <Text
-          pb="15px"
-          borderBottom="1px solid #718096"
-          textAlign="left"
-          fontSize="20px"
-          fontWeight="400"
-        >
-          Price
-        </Text>
-        <RadioGroup value={sortValues} onChange={handleSortChange}>
-          <Stack spacing={5} direction="column">
-            <Radio colorScheme="green" value="asc">
-              Low to High
-            </Radio>
-            <Radio colorScheme="green" value="desc">
-              High to Low
-            </Radio>
-          </Stack>
-        </RadioGroup>
-      </VStack>
+     
       <VStack
         mt="20px"
         border="1px solid #718096"
@@ -117,13 +80,13 @@ const Filter = ({ handlesort }) => {
           >
             {protype &&
               protype === "women" &&
-              arr1.map((e) => <CheckBoxes data={e} />)}
+              arr1.map((e) => <CheckBoxes key={e} data={e} />)}
             {protype &&
               protype === "men" &&
-              arr2.map((e) => <CheckBoxes data={e} />)}
+              arr2.map((e) => <CheckBoxes key={e}  data={e} />)}
             {protype &&
               protype === "health" &&
-              arr3.map((e) => <CheckBoxes data={e} />)}
+              arr3.map((e) => <CheckBoxes key={e}  data={e} />)}
           </Stack>
         </CheckboxGroup>
         {/* checking */}

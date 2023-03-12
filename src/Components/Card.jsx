@@ -8,7 +8,7 @@ const Card = ({ id, price, title, rating, reviews, image }) => {
       {" "}
       <VStack
         h="420px"
-        w="220px"
+        
         borderRadius="10px"
         p="10px 5px"
         boxShadow="rgba(0, 0, 0, 0.16) 0px 1px 4px"

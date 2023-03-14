@@ -22,8 +22,8 @@ const Homepage = () => {
       console.log(e);
     }
   };
-  let user= JSON.parse(localStorage.getItem("user"))
-console.log(user)
+  
+
   useEffect(() => {
     getHomeData();
   }, []);

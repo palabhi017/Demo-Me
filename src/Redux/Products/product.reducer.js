@@ -3,7 +3,7 @@ import * as types from "./product.type";
 
 
 const init={
-    protypes:"women",
+    protypes:"",
     isLoading:false,
     Products:[],
     isError:false,

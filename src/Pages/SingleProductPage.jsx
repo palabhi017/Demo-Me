@@ -89,7 +89,7 @@ const SingleProductPage = () => {
   useEffect(() => {
     getSingleUserData();
     getUserData();
-  }, []);
+  }, [id]);
   return (
     <>
       <Grid

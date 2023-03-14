@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Logo from "../../Images/Logo1.png";
 import {
   Menu,
@@ -13,18 +13,46 @@ import {
   VStack,
   Text,
   MenuGroup,
+  Input,
 } from "@chakra-ui/react";
 import { HamburgerIcon } from "@chakra-ui/icons";
 import { Link } from "react-router-dom";
 import { BsPerson } from "react-icons/bs";
 import { useDispatch } from "react-redux";
-import { getProducts } from "../../Redux/Products/product.action";
+import { getProducts, protypes } from "../../Redux/Products/product.action";
 import { PRODUCTS_PAGE } from "../../Redux/Products/product.type";
+import SearchCard from "../SearchCard"
 
 const SmallNavbar = () => {
   const dispatch = useDispatch();
+const [searchBar,setSearchBar] = useState(false)
+const [searchInput, setSearchInput] = useState("");
+const [searchData,setSearchData]= useState([])
 
-  const handleCate = (category) => {
+const handleSearch = async()=>{
+  try {
+    let res = await fetch(`https://onestoredata.onrender.com/products?q=${searchInput}`)
+    let data = await res.json()
+    setSearchData(data)
+    if(searchInput===""){
+       setSearchData([])
+    }
+  } catch (error) {
+    console.log(error)
+  }
+  
+} 
+const doSomeMagic=(fn,d)=>{
+  let timer;
+  return function (){
+clearTimeout(timer)
+    timer = setTimeout(()=>{
+      fn()
+    },d)
+  }
+}
+const debFunction = doSomeMagic(handleSearch,500)
+  const handleCate = (category,type) => {
     const getProductsParam = {
       params: {
         category: category,
@@ -34,12 +62,17 @@ const SmallNavbar = () => {
       },
     };
     
-    // dispatch(protypes(type));
+    dispatch(protypes(type));
    
+    localStorage.setItem("cate", JSON.stringify(getProductsParam))
 
-    dispatch(getProducts(getProductsParam));
+    // dispatch(getProducts(getProductsParam));
     dispatch({type:PRODUCTS_PAGE,payload:1})
   };
+
+const handleInput=()=>{
+setSearchInput("")
+}
 
   return (
     <div>
@@ -62,7 +95,7 @@ const SmallNavbar = () => {
             <MenuList fontSize={"14px"} zIndex="2000">
               <MenuItem>
                 <Link to="/products"  onClick={() => {
-              handleCate("women");
+              handleCate("women","women");
             }}> Women Ethnic</Link>
               </MenuItem>
               <MenuItem>
@@ -70,7 +103,7 @@ const SmallNavbar = () => {
               </MenuItem>
               <MenuItem>
                 <Link to="/products"  onClick={() => {
-              handleCate("men");
+              handleCate("men","men");
             }}>Men</Link>
               </MenuItem>
               <MenuItem>
@@ -81,13 +114,13 @@ const SmallNavbar = () => {
               </MenuItem>
               <MenuItem>
                 <Link to="/products"  onClick={() => {
-              handleCate("Beauty & Health");
+              handleCate("Beauty & Health","health");
             }}> Beauty & Health</Link>
               </MenuItem>
             </MenuList>
           </Menu>
         </Box>
-
+       <Link to="/">
         <Image
           width="120px"
           height="40px"
@@ -95,6 +128,7 @@ const SmallNavbar = () => {
           objectFit="cover"
           src={Logo}
         />
+        </Link>
         <Box>
           <Flex gap="10px">
             <Menu>
@@ -121,15 +155,15 @@ const SmallNavbar = () => {
                 </MenuGroup>
               </MenuList>
             </Menu>
-            <Link href={"#"}>
+            <Link onClick={()=> setSearchBar(!searchBar)}>
               <Image
                 // width="120px"
-                height="28px"
+                height="24px"
                 objectFit="cover"
-                src="https://img.icons8.com/ios/50/null/hearts--v1.png"
+                src="https://th.bing.com/th/id/OIP.RF8hdNm5eOnLDpG_GSu5NwHaHN?pid=ImgDet&rs=1"
               />
             </Link>
-            <Link href={"#"}>
+            <Link to="/cart">
               <Image
                 // width="120px"
                 height="25px"
@@ -140,6 +174,13 @@ const SmallNavbar = () => {
           </Flex>
         </Box>
       </Flex>
+      <Input display={searchBar? "block":"none"} value={searchInput} onChange={(e)=>{
+                  setSearchInput(e.target.value)
+                  debFunction()
+                }} placeholder="Try Saree, Kurti or Search by Product Code"></Input>
+      <VStack h="300px" zIndex={1} mt="5px" ml="10px" w="95%" pl="5px" display={searchData.length>0 && searchInput.length>0?"block":"none"} overflowY={"auto"} bgColor={"white"} pos="absolute">
+              {searchData.length>0 && searchData.map((e)=> <SearchCard inputs={handleInput} data={e}/>)}
+      </VStack>
     </div>
   );
 };

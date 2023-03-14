@@ -9,7 +9,7 @@ import Filter from "../Components/Filter";
 import {
   Drawer,
   DrawerBody,
- 
+  Spinner,
   DrawerOverlay,
   DrawerContent,
   DrawerCloseButton,
@@ -21,6 +21,8 @@ import Sort from "../Components/Sort";
 const Productpage = () => {
   const products = useSelector((state) => state.productReducer.Products);
   const activePage = useSelector((state) => state.productReducer.currPage);
+  const protypes = useSelector((state) => state.productReducer.protypes);
+  const load = useSelector((state) => state.productReducer.isLoading);
   const { isOpen, onOpen, onClose } = useDisclosure()
   const btnRef = React.useRef()
 
@@ -53,7 +55,11 @@ const Productpage = () => {
     
     }
   }
-  
+  useEffect(()=>{
+    let getCate = JSON.parse(localStorage.getItem("cate"))
+    dispatch(getProducts(getCate))
+
+  },[protypes])
   useEffect(()=>{
   
     if(searchParams.get("sort")|| searchParams.getAll("filter")){
@@ -116,12 +122,19 @@ const Productpage = () => {
 
         </Box> 
         <Box pt="30px" w={{base:"100%",md:"100%",lg:"75%"}}>
+          {load? <Spinner
+  thickness='4px'
+  speed='0.65s'
+  emptyColor='gray.200'
+  color='blue.500'
+  size='xl'
+/> :
           <Grid templateColumns={{base:"repeat(2,1fr)",md:"repeat(3,1fr)",lg:"repeat(4,1fr)"}} pl={{base:"0px",md:"10px",lg:"20px"}} gap={{base:"0px",md:"10px",lg:"20px"}}>
             {products.length && products.filter((_,index)=> {return (
               index >= 10* (activePage-1) && 
               index < 10 * activePage
             )}).map((e) => <Card key={e.id} {...e} />)}
-          </Grid>
+          </Grid> }
           <Flex w="80px" m="auto"  mt="30px" gap="3px" mb="10px">
         <Button isDisabled={activePage===1} bgColor={"teal.500"} color="white" fontSize={"20px"} fontWeight={"bold"} onClick={()=> dispatch({type:PRODUCTS_PAGE,payload:activePage-1})}>
           {"<"}

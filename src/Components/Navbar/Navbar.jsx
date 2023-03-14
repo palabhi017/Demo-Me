@@ -115,11 +115,13 @@ const debFunction = doSomeMagic(handleSearch,500)
     
     dispatch(protypes(type));
    
-
-    dispatch(getProducts(getProductsParam));
+ localStorage.setItem("cate", JSON.stringify(getProductsParam))
+    // dispatch(getProducts(getProductsParam));
     dispatch({type:PRODUCTS_PAGE,payload:1})
   };
-
+  const handleInput=()=>{
+    setSearchInput("")
+    }
   return (
     <div>
       <nav className={styles.nav_1}>
@@ -136,6 +138,7 @@ const debFunction = doSomeMagic(handleSearch,500)
               <Input
                 width={"400px"}
                 type="text"
+                value={searchInput}
                 onChange={(e)=>{
                   setSearchInput(e.target.value)
                   debFunction()
@@ -144,7 +147,7 @@ const debFunction = doSomeMagic(handleSearch,500)
               />
             </InputGroup>
             <VStack h="300px" zIndex={1} mt="45px" ml="10px" w="27%" pl="5px" display={searchData.length>0 && searchInput.length>0?"block":"none"} overflowY={"auto"} bgColor={"white"} pos="absolute">
-              {searchData.length>0 && searchData.map((e)=> <SearchCard {...e}/>)}
+              {searchData.length>0 && searchData.map((e)=> <SearchCard inputs={handleInput} data={e}/>)}
             </VStack>
           </Box>
 

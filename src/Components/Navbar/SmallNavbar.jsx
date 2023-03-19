@@ -18,16 +18,20 @@ import {
 import { HamburgerIcon } from "@chakra-ui/icons";
 import { Link } from "react-router-dom";
 import { BsPerson } from "react-icons/bs";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { getProducts, protypes } from "../../Redux/Products/product.action";
 import { PRODUCTS_PAGE } from "../../Redux/Products/product.type";
 import SearchCard from "../SearchCard"
+import Avatars from "../Avatars";
+import Authbuttons from "../Authbuttons";
 
 const SmallNavbar = () => {
   const dispatch = useDispatch();
 const [searchBar,setSearchBar] = useState(false)
 const [searchInput, setSearchInput] = useState("");
 const [searchData,setSearchData]= useState([])
+const login = useSelector((state) => state.Auth.isAuth);
+const name = useSelector((state) => state.Auth.currentUser.name);
 
 const handleSearch = async()=>{
   try {
@@ -77,7 +81,7 @@ setSearchInput("")
   return (
     <div>
       <Flex
-        minWidth="max-content"
+        w="100%"
         bg={"#ffffff"}
         alignItems="center"
         shadow={"base"}
@@ -124,14 +128,14 @@ setSearchInput("")
         <Image
           width="120px"
           height="40px"
-          marginLeft="30px"
+          marginLeft="10px"
           objectFit="cover"
           src={Logo}
         />
         </Link>
         <Box>
-          <Flex gap="10px">
-            <Menu>
+          <Flex gap="10px" h="20px">
+            {/* <Menu>
               <MenuButton>
                 <BsPerson fontSize="25px" />
               </MenuButton>
@@ -154,7 +158,12 @@ setSearchInput("")
                   </VStack>
                 </MenuGroup>
               </MenuList>
+            </Menu> */}
+            <Menu h="100%"> 
+            {login? <Avatars name={name} /> : <Authbuttons />}
             </Menu>
+               
+                
             <Link onClick={()=> setSearchBar(!searchBar)}>
               <Image
                 // width="120px"

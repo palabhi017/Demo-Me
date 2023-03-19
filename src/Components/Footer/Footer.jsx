@@ -62,7 +62,7 @@ const SocialButton = ({ children, label, href }) => {
 };
 
 export default function Footer() {
-  const [des, setdes] = useState(true);
+  const [des, setdes] = useState(false);
   return (
     <>
       <Box

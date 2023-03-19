@@ -127,7 +127,7 @@ const Productpage = () => {
   speed='0.65s'
   emptyColor='gray.200'
   color='blue.500'
-  size='xl'
+  size={{base:"xl",md:"xl",lg:"xl"}}
 /> :
           <Grid templateColumns={{base:"repeat(2,1fr)",md:"repeat(3,1fr)",lg:"repeat(4,1fr)"}} pl={{base:"0px",md:"10px",lg:"20px"}} gap={{base:"0px",md:"10px",lg:"20px"}}>
             {products.length && products.filter((_,index)=> {return (
@@ -135,13 +135,14 @@ const Productpage = () => {
               index < 10 * activePage
             )}).map((e) => <Card key={e.id} {...e} />)}
           </Grid> }
-          <Flex w="80px" m="auto"  mt="30px" gap="3px" mb="10px">
+          {!load? <Flex w="80px" m="auto"  mt="30px" gap="3px" mb="10px">
         <Button isDisabled={activePage===1} bgColor={"teal.500"} color="white" fontSize={"20px"} fontWeight={"bold"} onClick={()=> dispatch({type:PRODUCTS_PAGE,payload:activePage-1})}>
           {"<"}
         </Button>
         <Button color="teal.500">{activePage}</Button>
         <Button isDisabled={activePage===totalPages} bgColor={"teal.500"} color="white" fontSize={"20px"} fontWeight={"bold"} onClick={()=> dispatch({type:PRODUCTS_PAGE,payload:activePage+1})}>{">"}</Button>
-      </Flex>
+      </Flex> :""}
+         
 
         </Box>
       </HStack>

@@ -125,7 +125,7 @@ const debFunction = doSomeMagic(handleSearch,500)
   return (
     <div>
       <nav className={styles.nav_1}>
-        <Flex bg={"#ffffff"} alignItems="center" gap="2" p={1}>
+        <Flex bg={"#ffffff"} alignItems="center" gap="2" p={1} w="100%">
           <Link to="/">
             <Image width="158px" height="56px" src={Logo} marginLeft="20px" />
           </Link>
@@ -146,7 +146,7 @@ const debFunction = doSomeMagic(handleSearch,500)
                 placeholder="Try Saree, Kurti or Search by Product Code"
               />
             </InputGroup>
-            <VStack h="300px" zIndex={1} mt="45px" ml="10px" w="27%" pl="5px" display={searchData.length>0 && searchInput.length>0?"block":"none"} overflowY={"auto"} bgColor={"white"} pos="absolute">
+            <VStack h="300px" zIndex={1} mt="45px" ml="10px" w="400px" pl="5px" display={searchData.length>0 && searchInput.length>0?"block":"none"} overflowY={"auto"} bgColor={"white"} pos="absolute">
               {searchData.length>0 && searchData.map((e)=> <SearchCard inputs={handleInput} data={e}/>)}
             </VStack>
           </Box>

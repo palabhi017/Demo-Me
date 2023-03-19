@@ -95,6 +95,10 @@ const CartPage = () => {
       console.log(error);
     }
   };
+const handleDeliveryType =(value)=>{
+console.log(value)
+}
+
   setTimeout(() => {
     handletotal();
   }, 100);
@@ -197,14 +201,15 @@ const CartPage = () => {
           </HStack>
           <HStack w="100%" justifyContent={"space-between"} mt="20px" p="10px 10px" m="auto">
           <Text fontSize={"17px"} fontWeight="600">{cartdata? "ITEMS "+ cartdata.length: "0 Items"}</Text>
-          <Text fontSize={"17px"} fontWeight="600">${total>0 && total}</Text>
+          <Text fontSize={"17px"} fontWeight="600">₹{total>0 && total}</Text>
           </HStack>
           <HStack w="100%" p="10px 10px" m="auto">
           <Text fontSize={"17px"} fontWeight="600">SHIPPING</Text>
           </HStack>
-          <Select placeholder='Standard Delivery -$50' size="sm" bgColor="white">
+          <Select placeholder='Delivery Type' size="sm" bgColor="white" onChange={handleDeliveryType}>
              {/* <option value='Standard'>Standard Delivery -$50</option> */}
-             <option value='Normal'>Normal Delivery -$0</option>
+             <option value='Normal'>Normal Delivery -₹0</option>
+             <option value='Standard'>Standard Delivery -₹50</option>
 
           </Select>
           <HStack w="100%" p="10px 10px" m="auto">
@@ -215,7 +220,7 @@ const CartPage = () => {
           <Divider mt="20px" />
           <HStack w="100%" justifyContent={"space-between"} mt="20px" p="10px 10px" m="auto">
           <Text fontSize={"17px"} fontWeight="600">TOTAL COST</Text>
-          <Text fontSize={"17px"} fontWeight="600">${total>0 && total}</Text>
+          <Text fontSize={"17px"} fontWeight="600">₹{total>0 && total}</Text>
           </HStack>
           <Link to="/payment"><Button w="100%" isDisabled={cartdata.length===0} bgColor="teal.500" color="white">CHECKOUT</Button></Link> 
         </Box>

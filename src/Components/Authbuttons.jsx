@@ -12,8 +12,8 @@ import { BsPerson } from "react-icons/bs";
 const Authbuttons = () => {
   return (
     <>
-      <BsPerson fontSize="25px" />
-      <MenuButton>Profile</MenuButton>
+      
+      <MenuButton><BsPerson fontSize="30px" /></MenuButton>
       <MenuList pb="10px">
         <MenuGroup title="Hello User" fontSize="19px" textAlign="left">
           <VStack>

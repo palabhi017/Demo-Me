@@ -15,13 +15,13 @@ import { AUTH_LOGOUT } from "../Redux/Auth/auth.types";
 const Avatars = ({ name }) => {
   const dispatch = useDispatch();
   const handlelogout = () => {
-    localStorage.clear()
+    localStorage.removeItem("user")
     dispatch({ type: AUTH_LOGOUT });
   };
 
   return (
     <>
-      <MenuButton>
+      <MenuButton >
         <Avatar name={name} src="" />
       </MenuButton>
 

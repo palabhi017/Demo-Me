@@ -36,7 +36,7 @@ const AdminDash = () => {
   const Toast = useToast();
   const state = useSelector((store) => store.adminReducer);
   const val = state.data.data;
-  console.log("val", val);
+  
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const handleUpdate = (id, price, title) => {};
@@ -82,7 +82,7 @@ const AdminDash = () => {
     dispatch(getAdminData());
     ToTalData();
   }, []);
-  console.log("total", total);
+  
   return (
     <div>
       <AdminNavbar />

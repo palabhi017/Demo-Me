@@ -42,7 +42,7 @@ const AdminUpdate = () => {
           <Input type="text" onChange={handleUpdateChange} value={text.title} />
           <FormHelperText>Change title here of Product.</FormHelperText>
         </FormControl>
-        <Button colorScheme={"pink"}>Update Data please</Button>
+        <Button color={"pink"}>Update Data please</Button>
         <br />
         <br />
         <br />

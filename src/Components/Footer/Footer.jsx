@@ -72,7 +72,7 @@ export default function Footer() {
         <Container as={Stack} maxW={"7xl"} py={10}>
           <SimpleGrid columns={{ base: 1, sm: 2, md: 4 }} spacing={8}>
             <Text fontSize={"4xl"} fontWeight={"700"}>
-              Shop on Meesho
+              Shop on 1Store
             </Text>
             <Stack align={"flex-start"}>
               <ListHeader fontSize={"3xl"}>Company</ListHeader>

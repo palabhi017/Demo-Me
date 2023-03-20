@@ -47,10 +47,10 @@ const Sort = () => {
         </Text>
         <RadioGroup value={sortValues} onChange={handleSortChange}>
           <Stack spacing={5} direction="column">
-            <Radio colorScheme="green" value="asc">
+            <Radio color="green" value="asc">
               Low to High
             </Radio>
-            <Radio colorScheme="green" value="desc">
+            <Radio color="green" value="desc">
               High to Low
             </Radio>
           </Stack>

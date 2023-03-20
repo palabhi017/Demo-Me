@@ -20,11 +20,11 @@ import "../CSS/LoginCss.css";
 import { AUTH_SUCCESS, SET_CUR_NAME } from "../Redux/Auth/auth.types";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-const initialState = {
-  email: "",
+// const initialState = {
+//   email: "",
 
-  password: "",
-};
+//   password: "",
+// };
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");
@@ -59,13 +59,13 @@ export default function LoginPage() {
           }
         }
 
-        if (Auth == false) {
+        if (Auth === false) {
           alert("Your email or password incorrect");
         } else {
           navigate("/");
           // alert("you are loged in successfully")
         }
-        console.log(Auth);
+      
       } catch (error) {
         console.log(error);
       }
@@ -120,7 +120,7 @@ export default function LoginPage() {
             <Text>{""}</Text>
             <Button
               disabled={""}
-              colorScheme={"blue"}
+              color={"blue"}
               variant={"solid"}
               onClick={handleSubmit}
             >

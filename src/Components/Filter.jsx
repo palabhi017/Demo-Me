@@ -30,7 +30,7 @@ const Filter = ({ handlesort }) => {
     "Kurtas",
   ];
   let arr3 = ["MakeUp", "oral care", "Lips", "Eyes", "Sanitizers"];
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
   const handleFilterChange = (value) => {
     setFilterValues(value);
@@ -68,7 +68,7 @@ const Filter = ({ handlesort }) => {
           Category
         </Text>
         <CheckboxGroup
-          colorScheme="green"
+          color="green"
           value={filterValues}
           onChange={handleFilterChange}
         >
@@ -107,7 +107,7 @@ const Filter = ({ handlesort }) => {
               </AccordionButton>
             </h2>
             <AccordionPanel pb={4}>
-              <CheckboxGroup colorScheme="green" defaultValue={[]}>
+              <CheckboxGroup color="green" defaultValue={[]}>
                 <Stack
                   spacing={[1, 5]}
                   direction={["column"]}
@@ -141,7 +141,7 @@ const Filter = ({ handlesort }) => {
             </h2>
             <AccordionPanel pb={4}>
               <CheckboxGroup
-                colorScheme="green"
+                color="green"
                 defaultValue={["naruto", "kakashi"]}
               >
                 <Stack
@@ -179,7 +179,7 @@ const Filter = ({ handlesort }) => {
             </h2>
             <AccordionPanel pb={4}>
               <CheckboxGroup
-                colorScheme="green"
+                color="green"
                 defaultValue={["naruto", "kakashi"]}
               >
                 <Stack
@@ -216,7 +216,7 @@ const Filter = ({ handlesort }) => {
             </h2>
             <AccordionPanel pb={4}>
               <CheckboxGroup
-                colorScheme="green"
+                color="green"
                 defaultValue={["naruto", "kakashi"]}
               >
                 <Stack
@@ -249,7 +249,7 @@ const Filter = ({ handlesort }) => {
             </h2>
             <AccordionPanel pb={4}>
               <CheckboxGroup
-                colorScheme="green"
+                color="green"
                 defaultValue={["naruto", "kakashi"]}
               >
                 <Stack
@@ -284,7 +284,7 @@ const Filter = ({ handlesort }) => {
             </h2>
             <AccordionPanel pb={4}>
               <CheckboxGroup
-                colorScheme="green"
+                color="green"
                 defaultValue={["naruto", "kakashi"]}
               >
                 <Stack

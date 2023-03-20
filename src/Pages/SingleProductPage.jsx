@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import styles from "../CSS/SinglePage.module.css";
+// import styles from "../CSS/SinglePage.module.css";
 import { ArrowRightIcon, StarIcon } from "@chakra-ui/icons";
-import { FaGreaterThan } from "react-icons/fa";
+// import { FaGreaterThan } from "react-icons/fa";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 
 import { useParams } from "react-router-dom";
@@ -31,6 +31,8 @@ const SingleProductPage = () => {
   const [loginUserData, setLoginUserData] = useState({});
   const { image, title, price,rating,reviews } = userData;
   const userId = useSelector((state) => state.Auth.currentUser.id);
+  const login = useSelector((state) => state.Auth.isAuth);
+
   const dispatch = useDispatch();
   const { id } = useParams();
   const getSingleUserData = async () => {
@@ -57,6 +59,9 @@ const SingleProductPage = () => {
   // console.log(userData)
 
   const cartDetails = async () => {
+   if(!login){
+    alert("please login first")
+   }else{
     try {
       let r = await fetch(
         `https://onestoredata.onrender.com/login/${userId}`,
@@ -77,10 +82,12 @@ const SingleProductPage = () => {
       let d = await r.json();
       localStorage.setItem("user",JSON.stringify(d))
       dispatch({ type: AUTH_SUCCESS, payload: d });
-      console.log(d);
+    
     } catch (error) {
       console.log(error);
     }
+   }
+   
     // setTimeout(()=>{
     //   dispatch(getUsersData())
     // },1500)
@@ -178,6 +185,7 @@ const SingleProductPage = () => {
               fontWeight={"600"}
               border="1px solid black"
               onClick={cartDetails}
+              cursor="pointer"
             >
               <AiOutlineShoppingCart />
               <Text>Add to cart</Text>

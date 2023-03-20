@@ -34,7 +34,7 @@ const CartItems = ({ objProp, funcProp, funcquant }) => {
           <Button
             onClick={() => funcProp(orderId)}
             variant="solid"
-            colorScheme="blue"
+            color="blue"
           >
             <DeleteIcon />
           </Button>
@@ -46,7 +46,7 @@ const CartItems = ({ objProp, funcProp, funcquant }) => {
               color="white"
               onClick={() => funcquant(orderId, -1)}
               variant="ghost"
-              colorScheme="blue"
+              color="blue"
             >
               -
             </Button>
@@ -58,7 +58,7 @@ const CartItems = ({ objProp, funcProp, funcquant }) => {
               color="white"
               onClick={() => funcquant(orderId, 1)}
               variant="ghost"
-              colorScheme="blue"
+              color="blue"
             >
               +
             </Button>

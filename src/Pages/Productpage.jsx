@@ -26,7 +26,7 @@ const Productpage = () => {
   const { isOpen, onOpen, onClose } = useDisclosure()
   const btnRef = React.useRef()
 
-  const [sortorfilter,setSortorFilter] = useState(false)
+  // const [sortorfilter,setSortorFilter] = useState(false)
   const [searchParams] = useSearchParams()
   const totalPages = Math.ceil(products?.length/10)
  const dispatch = useDispatch()
@@ -84,13 +84,13 @@ const Productpage = () => {
     <>
     <Box w={{base:"100%",md:"30%"}} borderBottom="1px solid #999" borderRadius={"3px"} display={{base:"block",md:"block",lg:"none"}}>
             <HStack h="50px" w="100%" >
-              <Box  ref={btnRef} colorScheme='teal' onClick={onOpen} w="50%" borderRight={"1px solid black"} fontSize="20px" fontWeight={"500"}>Sort</Box>
-              <Box  ref={btnRef} colorScheme='teal' onClick={onOpen} w="50%" fontSize="20px" fontWeight={"500"}>Filter</Box>
+              <Box  ref={btnRef} color='teal' onClick={onOpen} w="50%" borderRight={"1px solid black"} fontSize="20px" fontWeight={"500"}>Sort</Box>
+              <Box  ref={btnRef} color='teal' onClick={onOpen} w="50%" fontSize="20px" fontWeight={"500"}>Filter</Box>
             </HStack>
            
  
   
-      {/* <Button ref={btnRef} colorScheme='teal' onClick={onOpen}>
+      {/* <Button ref={btnRef} color='teal' onClick={onOpen}>
         Open
       </Button> */}
       <Drawer

@@ -5,6 +5,8 @@ import {
   MenuGroup,
   VStack,
   Text,
+  Box,
+  Flex,
   Button,
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
@@ -13,7 +15,15 @@ const Authbuttons = () => {
   return (
     <>
       
-      <MenuButton><BsPerson fontSize="30px" /></MenuButton>
+      <MenuButton >
+       
+      
+      <Flex direction="column" w={{base:"30px",md:"40px",lg:'80px'}} alignItems="center">
+      <BsPerson fontSize="30px" />
+  
+             <Text display={{base:"none",md:"none",lg:"block"}}>Profile</Text>
+                </Flex>
+      </MenuButton>
       <MenuList pb="10px">
         <MenuGroup title="Hello User" fontSize="19px" textAlign="left">
           <VStack>

@@ -33,14 +33,14 @@ export default function LoginAdmin() {
     const { name, value } = e.target;
     setVal({ ...val, [name]: value });
   };
-  console.log("val", val);
+
 
   const handleSubmit = async () => {
     // setText(false);
     if (val.password === "citySlicka") {
       try {
         let res = await axios.post("https://reqres.in/api/login", val);
-        console.log(res.data.token);
+
         // setText(true);
         navigate("/AdminDashboard");
         handleToast({

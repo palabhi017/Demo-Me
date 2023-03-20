@@ -186,7 +186,7 @@ const AdminAdd = () => {
           />
         </FormControl>
         <Center>
-          <Button colorScheme="blue" onClick={addProduct}>
+          <Button color="blue" onClick={addProduct}>
             ADD PRODUCT
           </Button>
         </Center>

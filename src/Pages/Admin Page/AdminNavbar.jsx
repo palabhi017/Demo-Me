@@ -30,7 +30,7 @@ const AdminNavbar = () => {
           <Box>
             <Button
               ref={btnRef}
-              colorScheme="teal"
+              color="teal"
               onClick={onOpen}
               color="white"
             >

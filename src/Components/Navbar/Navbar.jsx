@@ -21,26 +21,22 @@ import {
   Image,
   Center,
   ButtonGroup,
-  Button,
+  
   InputLeftElement,
   InputGroup,
   Input,
   Tooltip,
   Text,
   Menu,
-  MenuButton,
-  MenuList,
-  MenuGroup,
+ 
   VStack,
-  Avatar,
-  HStack,
+ 
 } from "@chakra-ui/react";
 import styles from "./Navbar.module.css";
-import { useEffect, useState } from "react";
-
-import { Link, useSearchParams } from "react-router-dom";
+import {  useState } from "react";
+import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { getProducts, protypes } from "../../Redux/Products/product.action";
+import { protypes } from "../../Redux/Products/product.action";
 import Avatars from "../Avatars";
 import Authbuttons from "../Authbuttons";
 import { PRODUCTS_PAGE } from "../../Redux/Products/product.type";
@@ -71,7 +67,7 @@ const Navbar = ({ display = "flex" }) => {
   const [dropdown6, setdropdown6] = useState(false);
   const [dropdown7, setdropdown7] = useState(false);
   const [dropdown8, setdropdown8] = useState(false);
-  const [searchParams, setSearchParams] = useSearchParams();
+  // const [searchParams, setSearchParams] = useSearchParams();
   const [searchInput, setSearchInput] = useState("");
   const dispatch = useDispatch();
   const name = useSelector((state) => state.Auth.currentUser.name);
@@ -124,19 +120,23 @@ const debFunction = doSomeMagic(handleSearch,500)
     }
   return (
     <div>
-      <nav className={styles.nav_1}>
-        <Flex bg={"#ffffff"} alignItems="center" gap="2" p={1} w="100%">
+      {/* <nav className={styles.nav_1}> */}
+        <Flex  alignItems="center" justifyContent={"space-between"} p="20px 10px" w="100%" h="80px">
+          <Flex w="50%">
+          <Box w="25%" h="95%">
           <Link to="/">
-            <Image width="158px" height="56px" src={Logo} marginLeft="20px" />
+            <Image width="100%" height="100%" src={Logo}  />
           </Link>
-          <Box p="2" display={"flex"}>
+          </Box>
+         
+          <Box p="2" display={"flex"} w="75%">
             <InputGroup marginLeft={"20px"}>
               <InputLeftElement
                 pointerEvents="none"
                 children={<CiSearch color="gray.300" />}
               />
               <Input
-                width={"400px"}
+                width={"90%"}
                 type="text"
                 value={searchInput}
                 onChange={(e)=>{
@@ -150,55 +150,59 @@ const debFunction = doSomeMagic(handleSearch,500)
               {searchData.length>0 && searchData.map((e)=> <SearchCard inputs={handleInput} data={e}/>)}
             </VStack>
           </Box>
+          </Flex>
+          
+          <Flex w="40%">
+            <Flex w="65%">
+                <Box w="50%" borderRight="2px solid #999">
+              
+                  <Text mt="10px">Download App</Text>
+                </Box>
+                <Box borderRight="2px solid #999" w="50%">
+                  <Text mt="10px">Become a Supplier</Text>
+                </Box>
+            </Flex>
+            <Flex justifyContent={"space-evenly"} alignItems="center" w="35%">
+              <Box w="40%">
+              <Menu>
+              <Flex direction="column" alignItems="center">
+                
+                {login? <Avatars name={name} /> : <Authbuttons />}
+              </Flex>
+            </Menu>
+              </Box>
+           
+              <Box w="40%">
+              <Link to={"/cart"}> <Flex direction="column" w="80px" alignItems="center">
+             <AiOutlineShoppingCart fontSize="30px" />
+             <Box pos="absolute" ml="20px" mt="-10px" bgColor={"pink.400"} p="1px 4px" borderRadius="60%" color="white" >{cartItems? cartItems.length : 0}</Box>
+               <Text>Cart</Text>
+                </Flex></Link>
+              </Box>
+            
+            </Flex>
+         
+          </Flex>
 
-          <Spacer />
+          
 
-          <ButtonGroup gap="5" cursor="pointer" className={styles.rightside}>
-            <Tooltip label={<Profile />}>
+          
+            {/* <Tooltip label={<Profile />}>
               <Flex>
                 <Center>
                   <AiOutlineMobile />
                 </Center>{" "}
                 <Text>Download App </Text>{" "}
               </Flex>
-            </Tooltip>{" "}
-            <div className={styles.border}></div>
+            </Tooltip>{" "} */}
+            {/* <div className={styles.border}></div>
             <Text>Become a Supplier</Text> <div className={styles.border}></div>
-            {/* Profile */}
-            {/* <Menu>
-              <MenuButton
-                as={Button}
-                rounded={"full"}
-                variant={"link"}
-                cursor={"pointer"}
-                minW={0}
-              >
-                <Flex>
-                  <Center>
-                    <MdManageAccounts />
-                  </Center>
-                  Profile
-                </Flex>
-              </MenuButton>
-            </Menu> */}
-            <Menu>
-              <Flex direction="column" alignItems="center">
-                
-                {login? <Avatars name={name} /> : <Authbuttons />}
-              </Flex>
-            </Menu>
-            {/* <Menu>
-              <MenuButton> */}
-            <Link to={"/cart"}> <Flex direction="column" w="80px" alignItems="center">
-             <AiOutlineShoppingCart fontSize="25px" />
-             <Box pos="absolute" ml="20px" mt="-10px" bgColor={"pink.400"} p="1px 4px" borderRadius="60%" color="white" >{cartItems? cartItems.length : 0}</Box>
-               <Text>Cart</Text>
-                </Flex></Link>
-              {/* </MenuButton>
-            </Menu> */}
-          </ButtonGroup>
+            */}
+           
+             
+          
         </Flex>
-      </nav>
+      {/* </nav> */}
       <nav className={styles.nav_2}>
         <Flex
           maxWidth="100%"
@@ -281,12 +285,12 @@ const debFunction = doSomeMagic(handleSearch,500)
             Bags & Footwear
           </Text>
 
-          <Text
+          {/* <Text
             onMouseEnter={() => setdropdown8(true)}
             onMouseLeave={() => setdropdown8(false)}
           >
             Electronics
-          </Text>
+          </Text> */}
         </Flex>
       </nav>
       {dropdown ? <Dropdown setdropdown={setdropdown} /> : null}

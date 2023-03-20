@@ -134,7 +134,7 @@ setSearchInput("")
         />
         </Link>
         <Box>
-          <Flex gap="10px" h="20px">
+          <Flex gap="10px" h="20px" alignItems={"center"}>
             {/* <Menu>
               <MenuButton>
                 <BsPerson fontSize="25px" />
@@ -159,7 +159,7 @@ setSearchInput("")
                 </MenuGroup>
               </MenuList>
             </Menu> */}
-            <Menu h="100%"> 
+            <Menu h="25px"> 
             {login? <Avatars name={name} /> : <Authbuttons />}
             </Menu>
                

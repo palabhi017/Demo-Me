@@ -45,7 +45,7 @@ export const reducer = (state = initialState, { type, payload }) => {
       };
     }
     case DELETE_ADMIN_DATA: {
-      console.log(state);
+    
 
       return {
         ...state,

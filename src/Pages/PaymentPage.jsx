@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import styles from "../CSS/PaymentPage.module.css";
+// import styles from "../CSS/PaymentPage.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { AUTH_SUCCESS } from "../Redux/Auth/auth.types";
 import { useNavigate } from "react-router-dom";
-import { Box, Text, HStack, VStack, Input, Select, Button, Grid, Stack, Image, InputGroup, InputRightElement } from "@chakra-ui/react";
+import { Box, Text, HStack, VStack, Input, Select, Button, useToast,Stack, Image, InputGroup, InputRightElement } from "@chakra-ui/react";
 import { FaAddressCard } from "react-icons/fa";
 import { MdPayment } from "react-icons/md";
-import { FormControl, FormLabel, FormHelperText } from "@chakra-ui/react";
+import { FormControl, FormLabel} from "@chakra-ui/react";
 
 const PaymentPage = () => {
   const userId = useSelector((state) => state.Auth.currentUser.id);
@@ -16,13 +16,15 @@ const PaymentPage = () => {
  const [page,setPage] = useState(false)
  const [pay,setPay] = useState("")
  const [cardnum,setCardNum] = useState("")
+ const toast =  useToast()
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const cartDetails = async () => {
     try {
       let r = await fetch(
-        `https://onestoredata.onrender.com//login/${userId}`,
+        `https://onestoredata.onrender.com/login/${userId}`,
         {
           method: "PATCH",
           body: JSON.stringify({
@@ -35,8 +37,9 @@ const PaymentPage = () => {
         }
       );
       let d = await r.json();
+      localStorage.setItem("user",JSON.stringify(d))
       dispatch({ type: AUTH_SUCCESS, payload: d });
-      console.log(d);
+      
     } catch (error) {
       console.log(error);
     }
@@ -45,9 +48,17 @@ const PaymentPage = () => {
     // },1500)
   };
 
-  const handlesubmit = (e) => {
-    e.preventDefault();
-    alert("payment successful");
+  const handlesubmit = () => {
+    // e.preventDefault();
+    
+    toast({
+      position:"top",
+      title: 'Payment Successful',
+      description: "Thank You for Shopping",
+      status: 'success',
+      duration: 4000,
+      isClosable: true,
+    })
     cartDetails();
     navigate("/order");
   };
@@ -162,7 +173,7 @@ const PaymentPage = () => {
           <VStack   w={{base:"100%",md:"100%",lg:"45%"}}>
             <VStack w="100%" h="150px" bgColor="pink.300" mt="20px" alignItems={"center"}>
                 <Text mt="20px" fontSize={"18px"} color="white">Total to pay</Text>
-                <Text fontSize={"35px"} fontWeight="bold" color="white">{total}</Text>
+                <Text fontSize={"35px"} fontWeight="bold" color="white">₹{total}</Text>
 
             </VStack>
             <Box p="20px 0px" w="100%">
@@ -191,14 +202,14 @@ const PaymentPage = () => {
           <VStack w={{base:"100%",md:"100%",lg:"55%"}} m="auto" mt="30px" p={{base:"20px 20px",md:"20px 20px",lg:"30px 50px"}} alignItems={"left"} boxShadow="rgba(0, 0, 0, 0.24) 0px 3px 8px">
           <Text textAlign={"left"} fontWeight="600" fontSize={"25px"}>Your Payment Details</Text>
           <FormControl>
-          <FormLabel as="legend" fontWeight={600} mt="10px" isRequired  >
+          <FormLabel as="legend" fontWeight={600} mt="10px"   >
            Card Holder Name
             </FormLabel>
-            <Input type="text" placeholder="Ex:- Abhishek Pal" isRequired border="1px solid teal"/><FormLabel as="legend" fontWeight={600} mt="10px" isRequired  >
+            <Input type="text" placeholder="Ex:- Abhishek Pal"  border="1px solid teal"/><FormLabel as="legend" fontWeight={600} mt="10px"   >
             Card Number
             </FormLabel>
             <InputGroup>
-            <Input max={16} p="0px 20px" placeholder="xxxx xxxx xxxx xxxx" isRequired border="1px solid teal"  type="number" color={cardnum.length<16 &&cardnum.length>0? "red": "green"}  value={cardnum} onChange={(e)=>{
+            <Input max={16} p="0px 20px" placeholder="xxxx xxxx xxxx xxxx"  border="1px solid teal"  type="number" color={cardnum.length<16 &&cardnum.length>0? "red": "green"}  value={cardnum} onChange={(e)=>{
               setCardNum(e.target.value)
              
             }}/>
@@ -215,11 +226,11 @@ const PaymentPage = () => {
           </FormControl>
           <HStack w="100%">
               <VStack w="33%" alignItems={"left"}>
-                <FormLabel as="legend" fontWeight={600} mt="10px" isRequired>
+                <FormLabel as="legend" fontWeight={600} mt="10px" >
                 Exp Mon.
                 </FormLabel>
 
-                <Select placeholder="Select Year" isRequired border="1px solid teal">
+                <Select placeholder="Select Year"  border="1px solid teal">
                   <option value="Assam">JAN</option>
                   <option value="Bihar">FAB</option>
                   <option value="Chenni">MAR</option>
@@ -235,11 +246,11 @@ const PaymentPage = () => {
                 </Select>
               </VStack>
               <VStack w="33%" alignItems={"left"}>
-                <FormLabel as="legend" fontWeight={600} mt="10px" isRequired>
+                <FormLabel as="legend" fontWeight={600} mt="10px" >
                 Exp Year
                 </FormLabel>
 
-                <Select placeholder="Select Year" isRequired border="1px solid teal">
+                <Select placeholder="Select Year"  border="1px solid teal">
                   <option value="Assam">2023</option>
                   <option value="Bihar">2024</option>
                   <option value="Chenni">2025</option>
@@ -251,7 +262,7 @@ const PaymentPage = () => {
                 <FormLabel as="legend" fontWeight={600} mt="10px" >
                  CVV
                 </FormLabel>
-                <Input type="text" placeholder="Eg:- 101" isRequired border="1px solid teal"/>
+                <Input type="text" placeholder="Eg:- 101"  border="1px solid teal"/>
               </VStack>
             </HStack>
             <Button
@@ -263,7 +274,7 @@ const PaymentPage = () => {
             // type="submit"
             color="white"
             _hover={{color:"pink.500",bgColor:"pink.100"}}
-            onClick={(e)=> handlesubmit(e)}
+            onClick={()=> handlesubmit()}
             >Pay Now</Button>
         </VStack>
         </Stack>
@@ -273,26 +284,26 @@ const PaymentPage = () => {
             <FormLabel as="legend" fontWeight={600}>
               Full Name
             </FormLabel>
-            <Input type="name" placeholder="Eg:- Abhishek Pal" isRequired border="1px solid teal"/>
+            <Input type="name" placeholder="Eg:- Abhishek Pal"  border="1px solid teal"/>
             <FormLabel as="legend" fontWeight={600} mt="10px">
               Email
             </FormLabel>
             <Input type="email" placeholder="Eg:- abhi123@gmail.com" border="1px solid teal"/>
-            <FormLabel as="legend" fontWeight={600} mt="10px" isRequired>
+            <FormLabel as="legend" fontWeight={600} mt="10px" >
               Address
             </FormLabel>
-            <Input type="text" placeholder="Enter Your Full Address" border="1px solid teal" isRequired/>
-            <FormLabel as="legend" fontWeight={600} mt="10px" isRequired  >
+            <Input type="text" placeholder="Enter Your Full Address" border="1px solid teal" />
+            <FormLabel as="legend" fontWeight={600} mt="10px"   >
               City
             </FormLabel>
-            <Input type="text" placeholder="Eg:- Mumbai" isRequired border="1px solid teal"/>
+            <Input type="text" placeholder="Eg:- Mumbai"  border="1px solid teal"/>
             <HStack w="100%">
               <VStack w="50%" alignItems={"left"}>
-                <FormLabel as="legend" fontWeight={600} mt="10px" isRequired>
+                <FormLabel as="legend" fontWeight={600} mt="10px" >
                   State
                 </FormLabel>
 
-                <Select placeholder="Select State" isRequired border="1px solid teal">
+                <Select placeholder="Select State"  border="1px solid teal">
                   <option value="Assam">Assam</option>
                   <option value="Bihar">Bihar</option>
                   <option value="Chenni">Chenni</option>
@@ -304,7 +315,7 @@ const PaymentPage = () => {
                 <FormLabel as="legend" fontWeight={600} mt="10px" >
                   Zip code
                 </FormLabel>
-                <Input type="text" placeholder="Eg:- 400009" isRequired border="1px solid teal"/>
+                <Input type="text" placeholder="Eg:- 400009"  border="1px solid teal"/>
               </VStack>
             </HStack>
             <Button

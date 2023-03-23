@@ -5,7 +5,7 @@ import {
   MenuGroup,
   VStack,
   Text,
-  Box,
+  
   Flex,
   Button,
 } from "@chakra-ui/react";
@@ -24,22 +24,22 @@ const Authbuttons = () => {
              <Text display={{base:"none",md:"none",lg:"block"}}>Profile</Text>
                 </Flex>
       </MenuButton>
-      <MenuList pb="10px">
+      <MenuList pb="10px" >
         <MenuGroup title="Hello User" fontSize="19px" textAlign="left">
           <VStack>
             <Text fontSize="13px" textAlign="left">
               To access your Meesho account
             </Text>
 
-            <Button w="80%" h="45px">
-              <Link to="/login"> Login</Link>
-            </Button>
-            <Button w="80%" h="45px">
-              <Link to="/Admin">Admin login</Link>
-            </Button>
-            <Button w="80%" h="45px" bg="#F43397" color="#fff">
-              <Link to="/signin"> Signup</Link>{" "}
-            </Button>
+            <Link to="/login" style={{width:"100%"}}> <Button w="80%" h="45px">
+               Login
+            </Button></Link>
+            <Link to="/Admin" style={{width:"100%"}}><Button w="80%" h="45px">
+              Admin login
+            </Button></Link>
+            <Link to="/signin" style={{width:"100%"}}>  <Button w="80%" h="45px" bg="#F43397" color="#fff">
+              Signup{" "}
+            </Button></Link>
           </VStack>
         </MenuGroup>
       </MenuList>

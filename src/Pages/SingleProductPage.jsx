@@ -15,6 +15,7 @@ import {
   Text,
   Grid,
   Button,
+  useToast
 } from "@chakra-ui/react";
 // const initialData={
 //     title:"COMBRAIDED Striped Pink N White Short Sleeve Lycra Shirt For Men",
@@ -32,6 +33,7 @@ const SingleProductPage = () => {
   const { image, title, price,rating,reviews } = userData;
   const userId = useSelector((state) => state.Auth.currentUser.id);
   const login = useSelector((state) => state.Auth.isAuth);
+  const toast =  useToast()
 
   const dispatch = useDispatch();
   const { id } = useParams();
@@ -60,7 +62,15 @@ const SingleProductPage = () => {
 
   const cartDetails = async () => {
    if(!login){
-    alert("please login first")
+    
+    toast({
+      position:"top",
+      title: 'You are not Logedin',
+      description: "Please Login first",
+      status: 'error',
+      duration: 4000,
+      isClosable: true,
+    })
    }else{
     try {
       let r = await fetch(

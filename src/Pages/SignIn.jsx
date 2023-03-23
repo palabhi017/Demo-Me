@@ -20,7 +20,7 @@ import {
 // import { useToast } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
 
-// import { Alert, AlertIcon,AlertDescription,AlertTitle } from "@chakra-ui/react";
+
 import { useDispatch } from "react-redux";
 import { postUserData } from "../Redux/Auth/auth.action";
 

@@ -26,15 +26,15 @@ const Avatars = ({ name }) => {
       </MenuButton>
 
       <MenuList>
-        <Button w="80%" h="45px">
-          <Link to="/" onClick={() => handlelogout()}>
+      <Link to="/" onClick={() => handlelogout()}> <Button w="80%" h="45px">
+          
             Logout
-          </Link>
-        </Button>
+          
+        </Button></Link>
 
-        <Button mt="5px" w="80%" h="45px">
-          <Link to="/order">My Orders</Link>
-        </Button>
+        <Link to="/order"><Button mt="5px" w="80%" h="45px">
+          My Orders
+        </Button></Link>
       </MenuList>
     </>
   );

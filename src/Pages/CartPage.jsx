@@ -6,32 +6,30 @@ import {
   HStack,
   Button,
   Text,
-  VStack,
-  Heading,
+ 
   Select,
   Input,
   Divider,
   Stack,
+  Image,
+  Spinner,
 } from "@chakra-ui/react";
 import CartItems from "../Components/CartItems";
-import { BsBagCheckFill } from "react-icons/bs";
-import { BiLockAlt } from "react-icons/bi";
-import { Link, useNavigate } from "react-router-dom";
+// import { BsBagCheckFill } from "react-icons/bs";
+// import { BiLockAlt } from "react-icons/bi";
+import { Link} from "react-router-dom";
 
 import axios from "axios";
 import { AUTH_SUCCESS } from "../Redux/Auth/auth.types";
 import { TOTAL_PRICE } from "../Redux/Products/product.type";
 
 const CartPage = () => {
-  // const { totalprice } = useSelector((store: any) => store.authManager)
-  // const [total, settotal] = useState(0);
+  
   const [cartdata, setcartdata] = useState([]);
-  // const { currentUser, isAuth } = useSelector(
-  //   (store) => store.authManager
-  // );
+  const [load,setLoad] = useState(false)
   const dispatch = useDispatch();
   const userId = useSelector((state) => state.Auth.currentUser.id);
-  const login = useSelector((state) => state.Auth.isAuth);
+  // const login = useSelector((state) => state.Auth.isAuth);
   const total = useSelector((state) => state.productReducer.totalPrice);
 
   const handletotal = () => {
@@ -50,14 +48,20 @@ const CartPage = () => {
   
   };
   const getUserData = async () => {
+    setLoad(true)
+   
     try {
+      setLoad(false)
+      
       let r = await axios.get(`https://onestoredata.onrender.com/login/${userId}`);
       let d = r.data;
       setcartdata(d.cart);
+      localStorage.setItem("user",JSON.stringify(d))
       dispatch({ type: AUTH_SUCCESS, payload: d });
       
       handletotal()
     } catch (error) {
+      setLoad(false)
       console.log(error);
     }
   };
@@ -79,7 +83,7 @@ const CartPage = () => {
     let temp = cartdata;
 
     for (let i = 0; i < cartdata.length; i++) {
-      if (temp[i].orderId == orderId) {
+      if (temp[i].orderId === orderId) {
         temp[i].quantity += num;
       }
     }
@@ -101,6 +105,7 @@ console.log(value)
 
   setTimeout(() => {
     handletotal();
+   
   }, 100);
 
   useEffect(() => {
@@ -108,35 +113,12 @@ console.log(value)
     
   }, []);
 
-  // if (!isAuth) {
-  //     // erroralert();
-  //      // nav("/login");
-  //  return <Heading>Please Login Now</Heading>
-
-  //   // nav("/login");
-  //   // return;
-  // }else{
-
-  // }
+  
 
   return (
     <Box >
       
-      {/* <HStack
-        h="60px"
-        w="100%"
-        p="0px 30px"
-        justify="center"
-        borderBottom={"2px solid #999"}
-        alignItems="center"
-      >
-        <Box>
-          <BsBagCheckFill style={{ color: "#161636" }} size="35px" />
-        </Box>
-        <Text color="#161636" fontWeight={"bold"} fontSize="20px">
-          SHOPING BAG
-        </Text>
-      </HStack> */}
+     
       
       <Stack
         // justifyContent={"space-between"}
@@ -157,22 +139,28 @@ console.log(value)
           <Text fontSize={{base:"20px",md:"20px",lg:"25px"}} fontWeight="bold">Shopping Cart</Text>
           <Text fontSize={"20px"} fontWeight="bold">{cartdata? cartdata.length+ " Items": "0 Items"}</Text>
         </HStack>
-        <Grid
-
-          p="10px 40px"
-          templateColumns={{base:"repeat(1,1fr)",md:"repeat(2,1fe)",lg:"repeat(3,1fr)"}}
-          gap="40px"
-        >
-          {cartdata &&
-            cartdata.length > 0 &&
-            cartdata.map((e) => (
-              <CartItems
-                objProp={e}
-                funcProp={handledelete}
-                funcquant={handlequant}
-              />
-            ))}
-        </Grid>
+        {load? <Spinner/>:
+       <Grid
+       p="10px 40px"
+       templateColumns={{base:"repeat(1,1fr)",md:"repeat(2,1fe)",lg:"repeat(3,1fr)"}}
+       gap="40px"
+       >
+       {cartdata && cartdata.length > 0 &&
+         cartdata.map((e) => (
+           <CartItems
+             key={e.id}
+             objProp={e}
+             funcProp={handledelete}
+             funcquant={handlequant}
+           />
+         ))}
+       </Grid>
+        }
+        {/* {cartdata && cartdata.length===0 && <Image  src="https://th.bing.com/th/id/R.afa6a28d0ee0b5e7d55b7a5aecdfedec?rik=eOl3Z%2bU0XvmYlw&riu=http%3a%2f%2fiticsystem.com%2fimg%2fempty-cart.png&ehk=0omil1zRH7T3Pb5iTzvueamUQLSSb55vgY7dLFF8Bl8%3d&risl=&pid=ImgRaw&r=0"/>
+        
+        } */}
+         
+        
         </Box>
         <Box
          h="500px"
@@ -181,21 +169,7 @@ console.log(value)
           p="0px 30px"
           // alignItems={"left"}
         >
-          {/* <Text color="#161636" fontWeight={"bold"} fontSize="20px" mt="10%">
-            Total price :- {"    "}
-            {total}{" "}
-          </Text>
-          {cartdata.length > 0 ? (
-            <Link to="/payment">
-              {" "}
-              <Button bgColor="#161636" w="70%" color="white">
-                <BiLockAlt size="20px" />
-                CHECKOUT
-              </Button>
-            </Link>
-          ) : (
-            <Heading>Cart is Empty</Heading>
-          )} */}
+        
           <HStack w="100%" borderBottom="1px solid #999" p="10px 20px" m="auto">
           <Text fontSize={"25px"} fontWeight="bold">Order Summary</Text>
           </HStack>

@@ -1,72 +1,42 @@
 import {
-  Heading,
+  
+  Link,
   Stack,
   Text,
-  Divider,
+  VStack,
   Button,
   Box,
   HStack,
   Image,
 } from "@chakra-ui/react";
-import { Card, CardBody, CardFooter } from "@chakra-ui/react";
-import { DeleteIcon } from "@chakra-ui/icons";
+
 
 const CartItems = ({ objProp, funcProp, funcquant }) => {
   const { orderId, title, price, quantity, image } = objProp;
 
   return (
-    <Card h="420px">
-      <CardBody h="85%">
-        <Image w="90%" h="70%" src={image} alt="error" borderRadius="lg" />
-        <Stack mt="2" spacing="1">
-          <Heading textAlign={"left"} color="#999" noOfLines={1} size="md">
-            {title}
-          </Heading>
-
-          <Text align={"center"} color="blue.600" fontSize="2xl">
-            ₹{price}
-          </Text>
-        </Stack>
-      </CardBody>
-      <Divider />
-      <CardFooter>
-        <HStack justifyContent={"space-between"} gap="20px">
-          <Button
-            onClick={() => funcProp(orderId)}
-            variant="solid"
-            color="blue"
-          >
-            <DeleteIcon />
-          </Button>
-          <HStack>
-            <Button
-              isDisabled={quantity === 1}
-              bgColor="#3182ce"
-              w="10px"
-              color="white"
-              onClick={() => funcquant(orderId, -1)}
-              variant="ghost"
-              color="blue"
-            >
-              -
-            </Button>
-            <Box>{quantity}</Box>
-            <Button
-              isDisabled={quantity === 3}
-              bgColor="#3182ce"
-              w="10px"
-              color="white"
-              onClick={() => funcquant(orderId, 1)}
-              variant="ghost"
-              color="blue"
-            >
-              +
-            </Button>
-          </HStack>
+   
+    <Stack direction={{base:"column",md:"column",lg:"row"}} w={{base:"100%",md:'100%',lg:"90%"}} h={{base:"250px",lg:"150px"}} justifyContent={"space-between"} m="auto" borderBottom={"1px solid #999"} mt="20px">
+      <HStack w={{base:"100%",md:"80%",lg:"40%"}} h="95%" justifyContent={"space-between"} >
+      <Image h="100%" w="40%" src={image}></Image>
+        <VStack w="50%" alignItems={"baseline"} gap="25px">
+        <Text noOfLines={2} textAlign="left" fontWeight={"600"} color="#999">{title}</Text>
+      <Link style={{alignItems:'left'}}><Text textAlign="left" color="red.600" fontWeight={600} onClick={() => funcProp(orderId)}>Remove</Text></Link>
+        </VStack>
+      </HStack>
+      
+      <HStack w={{base:"100%",md:"80%",lg:"50%"}} h="95%" p="20px 30px" justifyContent={"space-between"}>
+        <HStack gap="5px">
+          <Button fontWeight={"bold"} fontSize="30px"  isDisabled={quantity === 1} onClick={() => funcquant(orderId, -1)}>-</Button>
+          <Box border="1px solid #999" p=" 5px 10px" borderRadius={"3px"}>{quantity}</Box>
+          <Button fontWeight={"bold"} fontSize="20px"  isDisabled={quantity === 3}  onClick={() => funcquant(orderId, 1)}>+</Button>
         </HStack>
-      </CardFooter>
-    </Card>
+        <Box fontWeight={"bold"} color="pink.500" fontSize="30px">₹{price}</Box>
+        
+      </HStack>
+    </Stack> 
   );
 };
 
 export default CartItems;
+

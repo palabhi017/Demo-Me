@@ -12,7 +12,7 @@ const Orders = () => {
         m="auto"
         h="auto"
         p="10px 40px"
-        templateColumns={"repeat(3,20%)"}
+        templateColumns={{base:"repeat(1,90%)",md:"repeat(2,50%)",lg:"repeat(3,20%)"}}
         gap="40px"
 
         mt="30px"

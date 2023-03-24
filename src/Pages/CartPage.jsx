@@ -13,6 +13,8 @@ import {
   Stack,
   Image,
   Spinner,
+  VStack,
+  Show,
 } from "@chakra-ui/react";
 import CartItems from "../Components/CartItems";
 // import { BsBagCheckFill } from "react-icons/bs";
@@ -139,11 +141,24 @@ console.log(value)
           <Text fontSize={{base:"20px",md:"20px",lg:"25px"}} fontWeight="bold">Shopping Cart</Text>
           <Text fontSize={"20px"} fontWeight="bold">{cartdata? cartdata.length+ " Items": "0 Items"}</Text>
         </HStack>
+        <Show above="sm">
+        <HStack w="90%" h="50px"   borderBottom={"1px solid #999"} justifyContent={"space-between"} m="auto">
+         <Box w="40%"  h="50%" fontWeight={600}>PRODUCT DETAILS</Box>
+        
+         <HStack w="50%" h="95%" p="20px 30px"  fontWeight={600} justifyContent={"space-around"}>
+         <Box>QUANTITY</Box>
+         <Box>PRICE</Box>
+         </HStack>
+         
+        
+        
+        </HStack>
+        </Show>
         {load? <Spinner/>:
        <Grid
-       p="10px 40px"
-       templateColumns={{base:"repeat(1,1fr)",md:"repeat(2,1fe)",lg:"repeat(3,1fr)"}}
-       gap="40px"
+       p={{base:"0px",md:"0px",lg:"10px 40px"}}
+       templateColumns={{base:"repeat(1,100%)",md:"repeat(1,100%)",lg:"repeat(1,100%)"}}
+       gap="20px"
        >
        {cartdata && cartdata.length > 0 &&
          cartdata.map((e) => (
@@ -155,6 +170,7 @@ console.log(value)
            />
          ))}
        </Grid>
+      
         }
         {/* {cartdata && cartdata.length===0 && <Image  src="https://th.bing.com/th/id/R.afa6a28d0ee0b5e7d55b7a5aecdfedec?rik=eOl3Z%2bU0XvmYlw&riu=http%3a%2f%2fiticsystem.com%2fimg%2fempty-cart.png&ehk=0omil1zRH7T3Pb5iTzvueamUQLSSb55vgY7dLFF8Bl8%3d&risl=&pid=ImgRaw&r=0"/>
         
@@ -199,6 +215,7 @@ console.log(value)
           <Link to="/payment"><Button w="100%" isDisabled={cartdata.length===0} bgColor="teal.500" color="white">CHECKOUT</Button></Link> 
         </Box>
       </Stack>
+     
     </Box>
   );
 };

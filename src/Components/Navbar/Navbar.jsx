@@ -147,7 +147,7 @@ const debFunction = doSomeMagic(handleSearch,500)
               />
             </InputGroup>
             <VStack h="300px" zIndex={1} mt="45px" ml="10px" w="400px" pl="5px" display={searchData.length>0 && searchInput.length>0?"block":"none"} overflowY={"auto"} bgColor={"white"} pos="absolute">
-              {searchData.length>0 && searchData.map((e)=> <SearchCard inputs={handleInput} data={e}/>)}
+              {searchData.length>0 && searchData.map((e)=> <SearchCard key={e.id} inputs={handleInput} data={e}/>)}
             </VStack>
           </Box>
           </Flex>

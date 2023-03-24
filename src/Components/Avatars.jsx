@@ -22,7 +22,7 @@ const Avatars = ({ name }) => {
   return (
     <>
       <MenuButton >
-        <Avatar name={name} src="" />
+        <Avatar name={name} src="" size={{base:"sm",md:"md",lg:"md"}}/>
       </MenuButton>
 
       <MenuList>

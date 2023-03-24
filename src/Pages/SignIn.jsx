@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   Box,
   Flex,
@@ -15,12 +15,11 @@ import {
   Image,
   Icon,
 } from "@chakra-ui/react";
-// import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
-// import { auth } from "../firebase";
-// import { useToast } from "@chakra-ui/react";
+
+import { useToast } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
-
-
+import {useFormik} from "formik"
+import * as Yup from "yup"
 import { useDispatch } from "react-redux";
 import { postUserData } from "../Redux/Auth/auth.action";
 
@@ -43,32 +42,32 @@ const avatars = [
   },
 ];
 
-// const initialState = {
-//   email: "",
-//   name: "",
-//   password: "",
-// };
+
 
 export default function JoinOurTeam() {
-  // const [val, setVal] = React.useState(initialState);
-  const [submitButtonDisable, setSubmitButtonDisable] = useState(false);
+ 
+ 
   const dispatch = useDispatch();
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-
-  // const [err, setErr] = React.useState("");
-  // // const toast = useToast();
+  const toast = useToast()
   const navigate = useNavigate();
-  // const handleChange = (e) => {
-  //   const { name, value } = e.target;
-  //   setVal({ ...val, [name]: value });
-  // };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setSubmitButtonDisable(true);
-    if (email && password.length >= 6 && name) {
+  const SignupSchema = Yup.object({
+    name:Yup.string().min(2).required("Please Enter Your Name"),
+    email: Yup.string().email().required("Please Enter Your Email"),
+    password: Yup.string().min(6).required("Please Enter Your Password"),
+  });
+
+  const {values,errors,touched,handleChange,handleSubmit} = useFormik({
+    initialValues: {name:"",email:'',password:''},
+    validationSchema: SignupSchema,
+    onSubmit:(values)=>{
+       handleSignup(values.name,values.email,values.password)
+    }
+  })
+  
+
+  const handleSignup = async (name,email,password) => {
+  
       const user = {
         name,
         email,
@@ -78,20 +77,15 @@ export default function JoinOurTeam() {
       };
       dispatch(postUserData(user));
       navigate("/login");
-      setEmail("");
-      setName("");
-      setPassword("");
-    } else {
-      //Toast use karunga mai
-
-      if (!email) {
-        alert("Please fill your email");
-      } else if (!name) {
-        alert("please fill your name");
-      } else if (password.length < 6) {
-        alert("password should contain at least 6 character");
-      }
-    }
+      toast({
+        position: "top",
+        title: "Signup Successful",
+        description: "You have successfully signup",
+        status: "success",
+        duration: 3000,
+        isClosable: true,
+      });
+    
   };
 
   return (
@@ -218,10 +212,12 @@ export default function JoinOurTeam() {
                 _placeholder={{
                   color: "gray.500",
                 }}
-                onChange={(e) => setName(e.target.value)}
+                onChange={handleChange}
                 name="name"
-                value={name}
+                value={values.name}
               />
+              {errors.name && touched.name &&  <Text textAlign={"left"} fontSize={"14px"} color="red">{errors.name}</Text>} 
+
               <Input
                 placeholder="Email Address"
                 bg={"gray.100"}
@@ -230,10 +226,12 @@ export default function JoinOurTeam() {
                 _placeholder={{
                   color: "gray.500",
                 }}
-                onChange={(e) => setEmail(e.target.value)}
+                onChange={handleChange}
                 name="email"
-                value={email}
+                value={values.email}
               />
+              {errors.email && touched.email &&  <Text textAlign={"left"} fontSize={"14px"} color="red">{errors.email}</Text>} 
+
               <Input
                 placeholder="Enter Password"
                 bg={"gray.100"}
@@ -242,16 +240,19 @@ export default function JoinOurTeam() {
                 _placeholder={{
                   color: "gray.500",
                 }}
-                onChange={(e) => setPassword(e.target.value)}
+                onChange={handleChange}
                 name="password"
-                value={password}
+                value={values.password}
               />
+              {errors.password && touched.password &&  <Text textAlign={"left"} fontSize={"14px"} color="red">{errors.password}</Text>} 
+
             </Stack>
             <Text>{""}</Text>
             <Button
               disabled={true}
               fontFamily={"heading"}
               mt={8}
+              type="submit"
               w={"full"}
               bgGradient="linear(to-r, red.400,pink.400)"
               color={"white"}

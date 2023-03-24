@@ -9,17 +9,17 @@ import {
   Flex,
   Box,
   Image,
-  Button,
+  
   VStack,
-  Text,
-  MenuGroup,
+  
+  
   Input,
 } from "@chakra-ui/react";
 import { HamburgerIcon } from "@chakra-ui/icons";
 import { Link } from "react-router-dom";
-import { BsPerson } from "react-icons/bs";
+
 import { useDispatch, useSelector } from "react-redux";
-import { getProducts, protypes } from "../../Redux/Products/product.action";
+import {  protypes } from "../../Redux/Products/product.action";
 import { PRODUCTS_PAGE } from "../../Redux/Products/product.type";
 import SearchCard from "../SearchCard"
 import Avatars from "../Avatars";
@@ -32,6 +32,8 @@ const [searchInput, setSearchInput] = useState("");
 const [searchData,setSearchData]= useState([])
 const login = useSelector((state) => state.Auth.isAuth);
 const name = useSelector((state) => state.Auth.currentUser.name);
+const cartItems = useSelector((state) => state.Auth.currentUser.cart);
+
 
 const handleSearch = async()=>{
   try {
@@ -173,6 +175,7 @@ setSearchInput("")
               />
             </Link>
             <Link to="/cart">
+              <Box pos="absolute" ml="15px" mt="-10px" bgColor={"pink.400"} p="1px 4px" borderRadius="60%" color="white" >{cartItems? cartItems.length : 0}</Box>
               <Image
                 // width="120px"
                 height="25px"

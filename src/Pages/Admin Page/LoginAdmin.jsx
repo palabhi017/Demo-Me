@@ -33,14 +33,14 @@ export default function LoginAdmin() {
     const { name, value } = e.target;
     setVal({ ...val, [name]: value });
   };
-  console.log("val", val);
+
 
   const handleSubmit = async () => {
     // setText(false);
     if (val.password === "citySlicka") {
       try {
         let res = await axios.post("https://reqres.in/api/login", val);
-        console.log(res.data.token);
+
         // setText(true);
         navigate("/AdminDashboard");
         handleToast({
@@ -83,9 +83,7 @@ export default function LoginAdmin() {
   // }
 
   return (
-    
-    <Box    className="AdminLoginPageCSS">
-      
+    <Box className="AdminLoginPageCSS">
       <Heading
         color={"gray.800"}
         lineHeight={1.1}
@@ -106,7 +104,14 @@ export default function LoginAdmin() {
         // bg={useColorModeValue("gray.50", "gray.800")}
         className="AdminLoginPageCSS"
       >
-        <Stack spacing={8} mx={"auto"} maxW={"lg"} py={12} px={6}    className="LoginAdminBAHAR">
+        <Stack
+          spacing={8}
+          mx={"auto"}
+          maxW={"lg"}
+          py={12}
+          px={6}
+          className="LoginAdminBAHAR"
+        >
           <Stack align={"center"}>
             <Heading fontSize={"4xl"} fontFamily={" 'Lobster Two', cursive"}>
               Sign in to your account

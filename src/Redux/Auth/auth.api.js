@@ -2,7 +2,7 @@ import axios from "axios";
 export const getAuth= async(UserData)=>{
 
     try {
-        let res = await axios.post(`http://localhost:8080/login`,UserData)
+        let res = await axios.post(`https://onestoredata.onrender.com/login`,UserData)
       
         return res.data;
     } catch (error) {

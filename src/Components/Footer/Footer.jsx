@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import styles from "../Components/Footer/Footer.module.css";
+import styles from "../Footer/Footer.module.css";
 
 import {
   Box,
@@ -18,6 +18,7 @@ import {
 } from "@chakra-ui/react";
 
 import { ChevronUpIcon, ChevronDownIcon } from "@chakra-ui/icons";
+import "../../CSS/ButtonFile.css";
 
 import {
   FaTwitter,
@@ -27,7 +28,6 @@ import {
   FaFacebook,
 } from "react-icons/fa";
 
-import "../CSS/ButtonFile.css";
 
 const ListHeader = ({ children }) => {
   return (
@@ -62,7 +62,7 @@ const SocialButton = ({ children, label, href }) => {
 };
 
 export default function Footer() {
-  const [des, setdes] = useState(true);
+  const [des, setdes] = useState(false);
   return (
     <>
       <Box
@@ -72,7 +72,7 @@ export default function Footer() {
         <Container as={Stack} maxW={"7xl"} py={10}>
           <SimpleGrid columns={{ base: 1, sm: 2, md: 4 }} spacing={8}>
             <Text fontSize={"4xl"} fontWeight={"700"}>
-              Shop on Meesho
+              Shop on 1Store
             </Text>
             <Stack align={"flex-start"}>
               <ListHeader fontSize={"3xl"}>Company</ListHeader>

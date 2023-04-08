@@ -1,5 +1,38 @@
 {
-  "login": [],
+
+  "login": [
+    {
+      "name": "abhi",
+      "email": "Nikku19641964@gmail.com",
+      "password": "abhi@123",
+      "cart": [
+        {
+          "image": "https://rukminim1.flixcart.com/image/832/832/l1grgcw0/t-shirt/x/o/5/m-t428hs-tm5p-eyebogler-original-imagdf2egzjxeqgk.jpeg?q=70",
+          "price": 414,
+          "title": "Urbane Retro Men Tshirts",
+          "quantity": 1,
+          "orderId": 1678287459289
+        },
+        {
+          "image": "https://images.meesho.com/images/products/149408141/dkhin_400.webp",
+          "price": 102,
+          "title": "Stylish Elegant Men Tshirts",
+          "quantity": 1,
+          "orderId": 1678287474776
+        },
+        {
+          "image": "https://rukminim1.flixcart.com/image/832/832/l1grgcw0/t-shirt/x/o/5/m-t428hs-tm5p-eyebogler-original-imagdf2egzjxeqgk.jpeg?q=70",
+          "price": 414,
+          "title": "Urbane Retro Men Tshirts",
+          "quantity": 1,
+          "orderId": 1678287890707
+        }
+      ],
+      "order": [],
+      "id": 1
+    }
+  ],
+
   "products": [
     {
       "id": 1,
@@ -310,7 +343,6 @@
       "title": "Ikkat Georgette saree",
       "image": "https://m.media-amazon.com/images/I/31Ddxik3f-L.jpg",
       "image2": "https://m.media-amazon.com/images/I/71i30N+xgoL._UY741_.jpg",
-
       "price": 256,
       "rating": "3.6",
       "reviews": "30557 Reviews",
@@ -322,7 +354,6 @@
       "title": "Jivika Petite Kurtis",
       "image": "https://storage.sg.content-cdn.io/cdn-cgi/image/width=undefined,height=undefined,quality=75,format=auto/in-resources/6c57599f-2c43-4c82-806a-e07c3410f5d3/Images/ProductImages/Source/chi16896ss21ind-3.jpg",
       "image2": "https://storage.sg.content-cdn.io/cdn-cgi/image/width=undefined,height=undefined,quality=75,format=auto/in-resources/6c57599f-2c43-4c82-806a-e07c3410f5d3/Images/ProductImages/Source/chi16896ss21ind-1.jpg",
-
       "price": 190,
       "rating": "3.9",
       "reviews": "6302 Reviews",
@@ -1702,15 +1733,17 @@
       "id": 159
     },
     {
-      "title": "Mens Watch",
-      "image": "https://cdn.shopify.com/s/files/1/0137/0292/2286/products/gladiator-gold-black_3_360x.png?v=1672284246",
-      "image2": "https://cdn.shopify.com/s/files/1/0137/0292/2286/products/gladiator-light-gold_1_360x.png?v=1672284250",
-      "price": "2,999",
+      "title": "Masai Kurtas",
+      "image": "https://images.meesho.com/images/products/118678740/bcrp0_400.webp",
+      "image2": "https://images.meesho.com/images/products/118678740/bcrp0_400.webp",
+      "price": "333",
       "rating": 4.2,
+
       "reviews": "4.5",
       "category": "Mens Watch",
       "tag": "watch",
       "id": 161
+
     }
   ],
   "homepage": [

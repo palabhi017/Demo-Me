@@ -2,48 +2,39 @@ import React from "react";
 import { Avatar } from "@chakra-ui/react";
 import {
   MenuButton,
-  MenuList,MenuGroup,
+  MenuList,
+  MenuGroup,
   VStack,
   Text,
   Button,
- } from "@chakra-ui/react";
+} from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { AUTH_LOGOUT } from "../Redux/Auth/auth.types";
 
-
-
-
-
-
-
 const Avatars = ({ name }) => {
   const dispatch = useDispatch();
   const handlelogout = () => {
+    localStorage.removeItem("user")
     dispatch({ type: AUTH_LOGOUT });
   };
 
   return (
     <>
-      <MenuButton>
-        <Avatar name={name} src="" />
+      <MenuButton >
+        <Avatar name={name} src="" size={{base:"sm",md:"md",lg:"md"}}/>
       </MenuButton>
 
-   
-
-      <MenuList >
-
-        <Button w="80%" h="45px">
-          <Link to="/" onClick={() => handlelogout()}>
+      <MenuList>
+      <Link to="/" onClick={() => handlelogout()}> <Button w="80%" h="45px">
+          
             Logout
-          </Link>
-        </Button>
+          
+        </Button></Link>
 
-
-        <Button mt="5px" w="80%" h="45px">
-          <Link to="/order">My Orders</Link>
-        </Button>
-
+        <Link to="/order"><Button mt="5px" w="80%" h="45px">
+          My Orders
+        </Button></Link>
       </MenuList>
     </>
   );

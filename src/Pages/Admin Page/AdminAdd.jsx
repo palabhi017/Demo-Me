@@ -29,7 +29,7 @@ const AdminAdd = () => {
   const [val, setVal] = React.useState(initialState);
   const dispatch = useDispatch();
   const handleToast = useToast();
-  const navigate=useNavigate()
+  const navigate = useNavigate();
   const handleChange = (e) => {
     const { name, value } = e.target;
     setVal({ ...val, [name]: value });
@@ -55,7 +55,7 @@ const AdminAdd = () => {
         duration: 9000,
         isClosable: true,
       });
-      navigate("/AdminDashboard")
+      navigate("/AdminDashboard");
     } else {
       handleToast({
         title: "input dont fill .",
@@ -186,7 +186,7 @@ const AdminAdd = () => {
           />
         </FormControl>
         <Center>
-          <Button colorScheme="blue" onClick={addProduct}>
+          <Button color="blue" onClick={addProduct}>
             ADD PRODUCT
           </Button>
         </Center>

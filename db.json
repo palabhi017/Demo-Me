@@ -1,7 +1,5 @@
 {
-  "login": [
-   
-  ],
+  "login": [],
   "products": [
     {
       "id": 1,
@@ -585,7 +583,6 @@
       "tag": "salwar"
     },
     {
-
       "id": 55,
       "title": "Alluring Stylish Women Dupattas",
       "image": "https://images.meesho.com/images/products/196093521/cftuj_400.webp",
@@ -604,7 +601,8 @@
       "reviews": "26854 Reviews",
       "category": "women",
       "tag": "Kurtis"
-
+    },
+    {
       "id": 57,
       "title": "Alisha Refined Kurtis",
       "image": "https://desiymien.com/wp-content/uploads/2022/08/4109-4.jpg",
@@ -625,7 +623,6 @@
       "reviews": "55 Reviews",
       "category": "women",
       "tag": "Petticoats"
-
     },
     {
       "id": 59,
@@ -1651,7 +1648,6 @@
       "tag": "Sanitizers"
     },
     {
-
       "id": 155,
       "title": "Everyday Sanitizers/Disinfectant",
       "image": "https://images.meesho.com/images/products/99681248/c263x_400.webp",
@@ -1663,7 +1659,6 @@
       "tag": "Delivery287"
     },
     {
-
       "id": 156,
       "title": "Classic Sanitizers/Disinfectant",
       "image": "https://images.meesho.com/images/products/85939381/ehxn8_400.webp",
@@ -1705,8 +1700,6 @@
       "category": "tshirt",
       "tag": "Men casual tshirt",
       "id": 159
-
-
     },
     {
       "title": "Mens Watch",
@@ -1718,7 +1711,6 @@
       "category": "Mens Watch",
       "tag": "watch",
       "id": 161
-
     }
   ],
   "homepage": [

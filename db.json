@@ -1,4 +1,5 @@
 {
+
   "login": [
     {
       "name": "abhi",
@@ -31,6 +32,7 @@
       "id": 1
     }
   ],
+
   "products": [
     {
       "id": 1,
@@ -1736,10 +1738,12 @@
       "image2": "https://images.meesho.com/images/products/118678740/bcrp0_400.webp",
       "price": "333",
       "rating": 4.2,
-      "reviews": "3334 Reviews",
-      "category": "men",
-      "tag": "Kurtas",
-      "id": 160
+
+      "reviews": "4.5",
+      "category": "Mens Watch",
+      "tag": "watch",
+      "id": 161
+
     }
   ],
   "homepage": [

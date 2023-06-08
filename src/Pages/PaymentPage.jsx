@@ -7,6 +7,8 @@ import { Box, Text, HStack, VStack, Input, Select, Button, useToast,Stack, Image
 import { FaAddressCard } from "react-icons/fa";
 import { MdPayment } from "react-icons/md";
 import { FormControl, FormLabel} from "@chakra-ui/react";
+import * as Yup from "yup";
+import { useFormik } from 'formik'
 
 const PaymentPage = () => {
   const userId = useSelector((state) => state.Auth.currentUser.id);
@@ -20,6 +22,29 @@ const PaymentPage = () => {
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  const LoginSchema = Yup.object({
+    email: Yup.string().email().required("Please Enter Your Email"),
+    name: Yup.string().min(2).required("Please Enter Your Name"),
+    address: Yup.string().min(2).required("Please Enter Your Address"),
+    city: Yup.string().min(2).required("Please Enter Your city"),
+    zip: Yup.number().min(6).required("Please Enter Your zipcode"),
+    cardHolderName: Yup.string().min(2).required("Please Enter Your Card hodler name"),
+    cardNumber: Yup.number().min(16).required("Please Enter Your Card number"),
+    cvv: Yup.number().min(3).required("Enter Cvv")
+
+  });
+
+  const {values,errors,touched,handleChange,handleSubmit}=useFormik({
+    initialValues: {name:"",email:"",address:"",city:"",zip:"",cardHolderName:"",cardNumber:"",cvv:""},
+    validationSchema:LoginSchema,
+    onSubmit:(values,action)=>{
+      console.log("sum")
+          handlepayment()
+          action.resetForm();
+        }
+  })
+
 
   const cartDetails = async () => {
     try {
@@ -48,9 +73,9 @@ const PaymentPage = () => {
     // },1500)
   };
 
-  const handlesubmit = () => {
+  const handlepayment = () => {
     // e.preventDefault();
-    
+    console.log("esfs")
     toast({
       position:"top",
       title: 'Payment Successful',
@@ -205,14 +230,14 @@ const PaymentPage = () => {
           <FormLabel as="legend" fontWeight={600} mt="10px"   >
            Card Holder Name
             </FormLabel>
-            <Input type="text" placeholder="Ex:- Abhishek Pal"  border="1px solid teal"/><FormLabel as="legend" fontWeight={600} mt="10px"   >
+            <Input type="text" placeholder="Ex:- Abhishek Pal"  border="1px solid teal" name="cardHolderName" value={values.cardHolderName} onChange={handleChange}/><FormLabel as="legend" fontWeight={600} mt="10px"   >
+            {errors.cardHolderName && touched.cardHolderName &&  <Text textAlign={"left"} fontSize={"14px"} color="red">{errors.cardHolderName}</Text>} 
+            
             Card Number
             </FormLabel>
             <InputGroup>
-            <Input max={16} p="0px 20px" placeholder="xxxx xxxx xxxx xxxx"  border="1px solid teal"  type="number" color={cardnum.length<16 &&cardnum.length>0? "red": "green"}  value={cardnum} onChange={(e)=>{
-              setCardNum(e.target.value)
+            <Input max={16} p="0px 20px" placeholder="xxxx xxxx xxxx xxxx"  border="1px solid teal"  type="number" color={cardnum.length<16 &&cardnum.length>0? "red": "green"}  name="cardNumber" value={values.cardNumber} onChange={handleChange}/>
              
-            }}/>
              <InputRightElement  width='15%'>
               {pay==="visa"? <Box >
                     <Image src="https://www.learningcog.com/wp-content/uploads/Visa_Logo-600x184.png" ></Image>
@@ -223,6 +248,7 @@ const PaymentPage = () => {
 }
           </InputRightElement>
             </InputGroup>
+{errors.cardNumber && touched.cardNumber &&  <Text textAlign={"left"} fontSize={"14px"} color="red">{errors.cardNumber}</Text>} 
           </FormControl>
           <HStack w="100%">
               <VStack w="33%" alignItems={"left"}>
@@ -262,9 +288,11 @@ const PaymentPage = () => {
                 <FormLabel as="legend" fontWeight={600} mt="10px" >
                  CVV
                 </FormLabel>
-                <Input type="text" placeholder="Eg:- 101"  border="1px solid teal"/>
+                <Input type="text" placeholder="Eg:- 101"  border="1px solid teal" name="cvv" value={values.cvv} onChange={handleChange}/>
+              
               </VStack>
             </HStack>
+            {errors.cvv && touched.cvv &&  <Text textAlign={"left"} fontSize={"14px"} color="red">{errors.cvv}</Text>} 
             <Button
             alignSelf="left"
             mt="30px"
@@ -274,7 +302,7 @@ const PaymentPage = () => {
             // type="submit"
             color="white"
             _hover={{color:"pink.500",bgColor:"pink.100"}}
-            onClick={()=> handlesubmit()}
+            onClick={handleSubmit}
             >Pay Now</Button>
         </VStack>
         </Stack>
@@ -284,19 +312,26 @@ const PaymentPage = () => {
             <FormLabel as="legend" fontWeight={600}>
               Full Name
             </FormLabel>
-            <Input type="name" placeholder="Eg:- Abhishek Pal"  border="1px solid teal"/>
+            <Input type="name" placeholder="Eg:- Abhishek Pal" name="name" value={values.name} onChange={handleChange} border="1px solid teal"/>
+            {errors.name && touched.name &&  <Text textAlign={"left"} fontSize={"14px"} color="red">{errors.name}</Text>} 
             <FormLabel as="legend" fontWeight={600} mt="10px">
               Email
             </FormLabel>
-            <Input type="email" placeholder="Eg:- abhi123@gmail.com" border="1px solid teal"/>
+            <Input type="email" placeholder="Eg:- abhi123@gmail.com" name="email" value={values.email} onChange={handleChange} border="1px solid teal"/>
+            {errors.email && touched.email &&  <Text textAlign={"left"} fontSize={"14px"} color="red">{errors.email}</Text>} 
+ 
             <FormLabel as="legend" fontWeight={600} mt="10px" >
               Address
             </FormLabel>
-            <Input type="text" placeholder="Enter Your Full Address" border="1px solid teal" />
-            <FormLabel as="legend" fontWeight={600} mt="10px"   >
+            <Input type="text" placeholder="Enter Your Full Address" border="1px solid teal" name="address" value={values.address} onChange={handleChange}/>
+            {errors.address && touched.address &&  <Text textAlign={"left"} fontSize={"14px"} color="red">{errors.address}</Text>} 
+            
+            <FormLabel as="legend" fontWeight={600} mt="10px" >
               City
             </FormLabel>
-            <Input type="text" placeholder="Eg:- Mumbai"  border="1px solid teal"/>
+            <Input type="text" placeholder="Eg:- Mumbai"  border="1px solid teal" name="city" value={values.city} onChange={handleChange}/>
+            {errors.city && touched.city &&  <Text textAlign={"left"} fontSize={"14px"} color="red">{errors.city}</Text>} 
+            
             <HStack w="100%">
               <VStack w="50%" alignItems={"left"}>
                 <FormLabel as="legend" fontWeight={600} mt="10px" >
@@ -315,7 +350,9 @@ const PaymentPage = () => {
                 <FormLabel as="legend" fontWeight={600} mt="10px" >
                   Zip code
                 </FormLabel>
-                <Input type="text" placeholder="Eg:- 400009"  border="1px solid teal"/>
+                <Input type="text" placeholder="Eg:- 400009"  border="1px solid teal" name="zip" value={values.zip} onChange={handleChange}/>
+            {errors.zip && touched.zip &&  <Text textAlign={"left"} fontSize={"14px"} color="red">{errors.zip}</Text>} 
+              
               </VStack>
             </HStack>
             <Button

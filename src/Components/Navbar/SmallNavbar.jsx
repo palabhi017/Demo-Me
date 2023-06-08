@@ -191,7 +191,7 @@ setSearchInput("")
                   debFunction()
                 }} placeholder="Try Saree, Kurti or Search by Product Code"></Input>
       <VStack h="300px" zIndex={1} mt="5px" ml="10px" w="95%" pl="5px" display={searchData.length>0 && searchInput.length>0?"block":"none"} overflowY={"auto"} bgColor={"white"} pos="absolute">
-              {searchData.length>0 && searchData.map((e)=> <SearchCard inputs={handleInput} data={e}/>)}
+              {searchData.length>0 && searchData.map((e)=> <SearchCard key={e.id} inputs={handleInput} data={e}/>)}
       </VStack>
     </div>
   );

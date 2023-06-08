@@ -17,7 +17,7 @@ const Orders = () => {
 
         mt="30px"
       >
-        {orders && orders.map((e) => <Ordercard {...e} />)}
+        {orders && orders.map((e) => <Ordercard key={Date.now()} {...e} />)}
       </Grid>
     </>
   );

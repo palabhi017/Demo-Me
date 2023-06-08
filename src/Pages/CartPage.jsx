@@ -163,7 +163,7 @@ console.log(value)
        {cartdata && cartdata.length > 0 &&
          cartdata.map((e) => (
            <CartItems
-             key={e.id}
+             key={Date.now()}
              objProp={e}
              funcProp={handledelete}
              funcquant={handlequant}
